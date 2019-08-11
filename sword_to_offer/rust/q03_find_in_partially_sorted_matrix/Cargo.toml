@@ -1,0 +1,9 @@
+[package]
+name = "q03_find_in_partially_sorted_matrix"
+version = "0.1.0"
+authors = ["huangjian <1342042894@qq.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
