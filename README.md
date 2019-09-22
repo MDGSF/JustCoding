@@ -22,6 +22,8 @@ sword_to_offer
 
 ## 友情链接
 
+[euler](https://projecteuler.net/)
+
 [https://github.com/MisterBooo/LeetCodeAnimation](https://github.com/MisterBooo/LeetCodeAnimation)
 
 [https://github.com/kdn251/interviews](https://github.com/kdn251/interviews)
