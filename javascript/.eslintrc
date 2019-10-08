@@ -6,6 +6,7 @@
     "jest/globals": true
   },
   "rules": {
+    "quotes": "off",
     "no-bitwise": "off",
     "no-lonely-if": "off",
     "class-methods-use-this": "off",
