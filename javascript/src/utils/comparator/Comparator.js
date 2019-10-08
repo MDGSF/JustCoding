@@ -1,4 +1,4 @@
-export default class Comparator {
+class Comparator {
   constructor(compareFunction) {
     this.compare = compareFunction || Comparator.defaultCompareFunction;
   }
@@ -36,3 +36,5 @@ export default class Comparator {
     this.compare = (a, b) => compareOriginal(b, a);
   }
 }
+
+module.exports = Comparator;
