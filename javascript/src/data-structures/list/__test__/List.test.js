@@ -1,15 +1,14 @@
-const { List, Element: ListElement } = require("../List.js");
 const assert = require("assert");
+const { List, Element: ListElement } = require("../List.js");
 
 function checkListPointers(l, es) {
-  const root = l.root;
+  const { root } = l;
 
   expect(l.Len()).toBe(es.length);
 
   if (es.length === 0) {
-    const err =
-      (l.root.next !== null && l.root.next !== l.root) ||
-      (l.root.prev !== null && l.root.prev !== l.root);
+    const err = (l.root.next !== null && l.root.next !== l.root)
+      || (l.root.prev !== null && l.root.prev !== l.root);
     assert.equal(err, false, `${l.root}, ${l.root.prev}, ${l.root.next}`);
     return;
   }
@@ -20,7 +19,7 @@ function checkListPointers(l, es) {
     let Prev = null;
     if (i > 0) {
       prev = es[i - 1];
-      Pref = prev;
+      Prev = prev;
     }
 
     let p = e.prev;
@@ -64,10 +63,10 @@ describe("List", () => {
   });
 
   it("should be List", () => {
-    let l = new List();
+    const l = new List();
     checkListPointers(l, []);
 
-    let e = l.PushFront("a");
+    const e = l.PushFront("a");
     checkListPointers(l, [e]);
     l.MoveToFront(e);
     checkListPointers(l, [e]);
@@ -77,9 +76,64 @@ describe("List", () => {
     checkListPointers(l, []);
 
     let e2 = l.PushFront(2);
-    let e1 = l.PushFront(1);
-    let e3 = l.PushBack(3);
-    let e4 = l.PushBack("banana");
+    const e1 = l.PushFront(1);
+    const e3 = l.PushBack(3);
+    const e4 = l.PushBack("banana");
     checkListPointers(l, [e1, e2, e3, e4]);
+
+    l.Remove(e2);
+    checkListPointers(l, [e1, e3, e4]);
+
+    l.MoveToFront(e3);
+    checkListPointers(l, [e3, e1, e4]);
+
+    l.MoveToFront(e1);
+    l.MoveToBack(e3);
+    checkListPointers(l, [e1, e4, e3]);
+
+    l.MoveToFront(e3);
+    checkListPointers(l, [e3, e1, e4]);
+    l.MoveToFront(e3);
+    checkListPointers(l, [e3, e1, e4]);
+
+    l.MoveToBack(e3);
+    checkListPointers(l, [e1, e4, e3]);
+    l.MoveToBack(e3);
+    checkListPointers(l, [e1, e4, e3]);
+
+    e2 = l.InsertBefore(2, e1);
+    checkListPointers(l, [e2, e1, e4, e3]);
+    l.Remove(e2);
+    e2 = l.InsertBefore(2, e4);
+    checkListPointers(l, [e1, e2, e4, e3]);
+    l.Remove(e2);
+    e2 = l.InsertBefore(2, e3);
+    checkListPointers(l, [e1, e4, e2, e3]);
+    l.Remove(e2);
+
+    e2 = l.InsertAfter(2, e1);
+    checkListPointers(l, [e1, e2, e4, e3]);
+    l.Remove(e2);
+    e2 = l.InsertAfter(2, e4);
+    checkListPointers(l, [e1, e4, e2, e3]);
+    l.Remove(e2);
+    e2 = l.InsertAfter(2, e3);
+    checkListPointers(l, [e1, e4, e3, e2]);
+    l.Remove(e2);
+
+    let sum = 0;
+    for (let e = l.Front(); e !== null; e = e.Next()) {
+      if (typeof e.value === 'number') {
+        sum += e.value;
+      }
+    }
+    expect(sum).toBe(4);
+
+    let next = null;
+    for (let e = l.Front(); e !== null; e = next) {
+      next = e.Next();
+      l.Remove(e);
+    }
+    checkListPointers(l, []);
   });
 });

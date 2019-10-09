@@ -37,8 +37,7 @@ describe("LinkedListNode", () => {
   it("should convert node to string with custom stringifier", () => {
     const nodevalue = { value: 1, key: "test" };
     const node = new LinkedListNode(nodevalue);
-    const toStringCallback = value =>
-      `value: ${value.value}, key: ${value.key}`;
+    const toStringCallback = (value) => `value: ${value.value}, key: ${value.key}`;
     expect(node.toString(toStringCallback)).toBe("value: 1, key: test");
   });
 });

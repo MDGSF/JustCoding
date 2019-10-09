@@ -1,4 +1,6 @@
 /*
+port from go/src/container/list
+
 for (let e = l.Front(); e != null; e = e.Next()) {
   // do somethis with e.value
 }
@@ -247,12 +249,12 @@ class List {
 
   toString(callback) {
     return this.toArray()
-      .map(element => element.toString(callback))
+      .map((element) => element.toString(callback))
       .toString();
   }
 }
 
 module.exports = {
   List,
-  Element
+  Element,
 };
