@@ -9,7 +9,7 @@ class Element {
   constructor(value = null, list = null, prev = null, next = null) {
     this.value = value;
     this.list = list;
-    this.prev = pref;
+    this.prev = prev;
     this.next = next;
   }
 
