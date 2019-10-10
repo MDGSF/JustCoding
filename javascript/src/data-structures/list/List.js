@@ -218,6 +218,7 @@ class List {
   }
 
   // PushBackList inserts a copy of an other list at the back of list this.
+  // @param other [List]
   PushBackList(other) {
     let i = other.Len();
     let e = other.Front();
@@ -229,6 +230,7 @@ class List {
   }
 
   // PushFrontList inserts a copy of an other list at the front of list this.
+  // @param other [List]
   PushFrontList(other) {
     let i = other.Len();
     let e = other.Back();
@@ -239,6 +241,7 @@ class List {
     }
   }
 
+  // toArray push all elements into an array and returns.
   toArray() {
     const nodes = [];
     for (let e = this.Front(); e != null; e = e.Next()) {
@@ -249,7 +252,7 @@ class List {
 
   toString(callback) {
     return this.toArray()
-      .map((element) => element.toString(callback))
+      .map(element => element.toString(callback))
       .toString();
   }
 }
