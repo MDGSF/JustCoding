@@ -11,6 +11,12 @@
     "no-lonely-if": "off",
     "class-methods-use-this": "off",
     "arrow-body-style": "off",
-    "no-loop-func": "off"
+    "no-loop-func": "off",
+    "max-classes-per-file": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off", 
+    "no-shadow": "off",
+    "arrow-parens": "off",
+    "operator-linebreak": "off"
   }
 }
