@@ -1,4 +1,4 @@
-# 面试相关收集
+# JustCoding
 
 ## 目录
 
@@ -27,4 +27,3 @@ sword_to_offer
 [https://github.com/MisterBooo/LeetCodeAnimation](https://github.com/MisterBooo/LeetCodeAnimation)
 
 [https://github.com/kdn251/interviews](https://github.com/kdn251/interviews)
-
