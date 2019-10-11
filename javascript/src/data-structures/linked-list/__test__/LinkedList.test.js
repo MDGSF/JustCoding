@@ -110,4 +110,32 @@ describe("LinkedList", () => {
 
     expect(linkedList.toString(nodeStringifier)).toBe("key2:2,key1:1");
   });
+
+  it("should create linked list from array", () => {
+    const linkedList = new LinkedList();
+    linkedList.fromArray([1, 1, 2, 3, 3, 3, 4, 5]);
+    expect(linkedList.toString()).toBe("1,1,2,3,3,3,4,5");
+  });
+
+  it("should reverse linked list", () => {
+    const linkedList = new LinkedList();
+
+    linkedList.PushBack(1);
+    linkedList.PushBack(2);
+    linkedList.PushBack(3);
+
+    expect(linkedList.toString()).toBe("1,2,3");
+    expect(linkedList.head.toString()).toBe("1");
+    expect(linkedList.Tail().toString()).toBe("3");
+
+    linkedList.reverse();
+    expect(linkedList.toString()).toBe("3,2,1");
+    expect(linkedList.head.toString()).toBe("3");
+    expect(linkedList.Tail().toString()).toBe("1");
+
+    linkedList.reverse();
+    expect(linkedList.toString()).toBe("1,2,3");
+    expect(linkedList.head.toString()).toBe("1");
+    expect(linkedList.Tail().toString()).toBe("3");
+  });
 });
