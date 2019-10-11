@@ -1,4 +1,4 @@
-const { List, Element: ListElement } = require("../list/List.js");
+const { List } = require("../list/List.js");
 
 // Stack first in last out.
 class Stack {

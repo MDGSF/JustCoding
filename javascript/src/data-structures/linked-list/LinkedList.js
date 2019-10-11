@@ -111,7 +111,7 @@ class LinkedList {
 
     let p = this.head;
     while (p !== null) {
-      nodes.push(p.value);
+      nodes.push(p);
       p = p.next;
     }
 
