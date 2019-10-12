@@ -18,6 +18,7 @@
     "no-shadow": "off",
     "arrow-parens": "off",
     "operator-linebreak": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "no-use-before-define": "off"
   }
 }
