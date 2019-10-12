@@ -30,7 +30,7 @@ function longestCommonSubstring(string1, string2) {
     for (let columnIndex = 1; columnIndex <= s1.length; columnIndex += 1) {
       if (s1[columnIndex - 1] === s2[rowIndex - 1]) {
         substringMatrix[rowIndex][columnIndex] =
-          substringMatrix[rowIndex - 1][columnIndex - 1];
+          substringMatrix[rowIndex - 1][columnIndex - 1] + 1;
       } else {
         substringMatrix[rowIndex][columnIndex] = 0;
       }

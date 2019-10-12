@@ -17,6 +17,7 @@
     "no-plusplus": "off", 
     "no-shadow": "off",
     "arrow-parens": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "comma-dangle": "off"
   }
 }
