@@ -14,6 +14,10 @@ npm install
 npm run test
 ```
 
+```
+node ./node_modules/jest/bin/jest.js PriorityQueue.test.js
+```
+
 ## lint
 
 ```
