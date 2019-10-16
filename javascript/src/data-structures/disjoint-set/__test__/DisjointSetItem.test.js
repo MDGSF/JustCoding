@@ -62,9 +62,9 @@ describe("DisjointSetItem", () => {
     };
 
     const itemA = new DisjointSetItem({ key: "A", value: 1 }, keyExtractor);
-    const itemB = new DisjointSetItem({ key: "A", value: 1 }, keyExtractor);
-    const itemC = new DisjointSetItem({ key: "A", value: 1 }, keyExtractor);
-    const itemD = new DisjointSetItem({ key: "A", value: 1 }, keyExtractor);
+    // const itemB = new DisjointSetItem({ key: "A", value: 1 }, keyExtractor);
+    // const itemC = new DisjointSetItem({ key: "A", value: 1 }, keyExtractor);
+    // const itemD = new DisjointSetItem({ key: "A", value: 1 }, keyExtractor);
 
     expect(itemA.getRank()).toBe(0);
   });
