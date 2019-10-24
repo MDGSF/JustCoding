@@ -83,14 +83,13 @@ var isMatch = function(s, p) {
   const ZERO_OR_MORE_CHARS = '*';
   const ANY_CHAR = '.';
 
-  const matchMatrix = Array(2)
+  const matchMatrix = Array(s.length + 1)
     .fill(null)
     .map(() => {
       return Array(p.length + 1).fill(null);
     });
 
   matchMatrix[0][0] = true;
-  matchMatrix[1][0] = false;
 
   for (let columnIndex = 1; columnIndex <= p.length; columnIndex += 1) {
     const patternIndex = columnIndex - 1;
@@ -101,38 +100,39 @@ var isMatch = function(s, p) {
     }
   }
 
-  let curRow = 1;
-  let preRow = 0;
+  for (let rowIndex = 1; rowIndex <= s.length; rowIndex += 1) {
+    matchMatrix[rowIndex][0] = false;
+  }
+
   for (let rowIndex = 1; rowIndex <= s.length; rowIndex += 1) {
     for (let columnIndex = 1; columnIndex <= p.length; columnIndex += 1) {
       const stringIndex = rowIndex - 1;
       const patternIndex = columnIndex - 1;
 
       if (p[patternIndex] === ZERO_OR_MORE_CHARS) {
-        if (matchMatrix[curRow][columnIndex - 2] === true) {
-          matchMatrix[curRow][columnIndex] = true;
+        if (matchMatrix[rowIndex][columnIndex - 2] === true) {
+          matchMatrix[rowIndex][columnIndex] = true;
         } else if (
-          matchMatrix[preRow][columnIndex] === true &&
+          matchMatrix[rowIndex - 1][columnIndex] === true &&
           (p[patternIndex - 1] === s[stringIndex] ||
             p[patternIndex - 1] === ANY_CHAR)
         ) {
-          matchMatrix[curRow][columnIndex] = true;
+          matchMatrix[rowIndex][columnIndex] = true;
         } else {
-          matchMatrix[curRow][columnIndex] = false;
+          matchMatrix[rowIndex][columnIndex] = false;
         }
       } else if (
         p[patternIndex] === s[stringIndex] ||
         p[patternIndex] === ANY_CHAR
       ) {
-        matchMatrix[curRow][columnIndex] = matchMatrix[preRow][columnIndex - 1];
+        matchMatrix[rowIndex][columnIndex] =
+          matchMatrix[rowIndex - 1][columnIndex - 1];
       } else {
-        matchMatrix[curRow][columnIndex] = false;
+        matchMatrix[rowIndex][columnIndex] = false;
       }
     }
-    matchMatrix[preRow][0] = false;
-    [curRow, preRow] = [preRow, curRow];
   }
 
-  return matchMatrix[preRow][p.length];
+  return matchMatrix[s.length][p.length];
 };
 // @lc code=end
