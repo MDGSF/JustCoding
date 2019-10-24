@@ -47,8 +47,10 @@ var addTwoNumbers = function(l1, l2) {
   let p3Head = null;
   let p3Tail = null;
   let carry = 0;
-  while (p1 !== null && p2 !== null) {
-    let cur = carry + p1.val + p2.val;
+  while (p1 !== null || p2 !== null || carry !== 0) {
+    let cur = carry;
+    cur += p1 !== null ? p1.val : 0;
+    cur += p2 !== null ? p2.val : 0;
     carry = Math.floor(cur / 10);
     const newnode = new ListNode(cur % 10);
     if (p3Head === null) {
@@ -57,48 +59,8 @@ var addTwoNumbers = function(l1, l2) {
       p3Tail.next = newnode;
     }
     p3Tail = newnode;
-    if (p1 !== null) {
-      p1 = p1.next;
-    }
-    if (p2 !== null) {
-      p2 = p2.next;
-    }
-  }
-
-  while (p1 !== null) {
-    let cur = carry + p1.val;
-    carry = Math.floor(cur / 10);
-    const newnode = new ListNode(cur % 10);
-    if (p3Head === null) {
-      p3Head = newnode;
-    } else {
-      p3Tail.next = newnode;
-    }
-    p3Tail = newnode;
-    if (p1 !== null) {
-      p1 = p1.next;
-    }
-  }
-
-  while (p2 !== null) {
-    let cur = carry + p2.val;
-    carry = Math.floor(cur / 10);
-    const newnode = new ListNode(cur % 10);
-    if (p3Head === null) {
-      p3Head = newnode;
-    } else {
-      p3Tail.next = newnode;
-    }
-    p3Tail = newnode;
-    if (p2 !== null) {
-      p2 = p2.next;
-    }
-  }
-
-  if (carry !== 0) {
-    const newnode = new ListNode(carry % 10);
-    p3Tail.next = newnode;
-    p3Tail = newnode;
+    p1 = p1 !== null ? p1.next : null;
+    p2 = p2 !== null ? p2.next : null;
   }
   return p3Head;
 };
