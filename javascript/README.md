@@ -47,3 +47,9 @@ https://www.babeljs.cn/
 ```
 ./node_modules/.bin/babel src --out-dir lib
 ```
+
+## seperator in code
+
+```
+// ---------------------------------------------------
+```
