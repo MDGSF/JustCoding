@@ -37,35 +37,24 @@
  * @return {string}
  */
 var decodeString = function(s) {
-    
+  let nums = [];
+  let num = '';
+  let strs = [];
+  let result = '';
+  for (let c of s) {
+    if (!isNaN(c)) {
+      num = `${num}${c}` 
+    } else if (c === '[') {
+      nums.push(num); 
+      num = '';
+      strs.push(result);
+      result = '';
+    } else if (c === ']') {
+      result = strs.pop() + result.repeat(nums.pop()); 
+    } else {
+      result += c; 
+    }
+  }
+  return result;
 };
 // @lc code=end
-
-/*
-const decodeString = (s) =>{
-    let multiply = [];
-    let tempMult = '';
-    let repeatStr = [];
-    let solution = '';
-
-    for (let char of s) {
-       
-        if(!isNaN(char)) {
-            tempMult = `${tempMult}${char}` // ''
-        } else if (char === '['){
-            multiply.push(tempMult); 
-            tempMult = '';
-            
-            repeatStr.push(solution);
-            solution = '';           
-        } else if (char === ']'){
-
-            solution = repeatStr.pop() + solution.repeat(multiply.pop()) 
-            
-        } else {
-            solution += char; 
-        }
-    }
-    return solution;
-}
-*/
