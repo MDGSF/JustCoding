@@ -37,7 +37,20 @@
  * @return {number}
  */
 var firstUniqChar = function(s) {
-    
+  const m = new Map();
+  for (let c of s) {
+    if (m.has(c)) {
+      m.set(c, m.get(c) + 1);
+    } else {
+      m.set(c, 1);
+    }
+  }
+  for (let [key, value] of m) {
+    if (value === 1) {
+      return s.indexOf(key);
+    }
+  }
+  return -1;
 };
 // @lc code=end
 

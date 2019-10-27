@@ -43,7 +43,22 @@
  * @return {character}
  */
 var findTheDifference = function(s, t) {
-    
+  const m = {};
+  for (let c of t) {
+    if (c in m) {
+      m[c] += 1;
+    } else {
+      m[c] = 1;
+    }
+  }
+  for (let c of s) {
+    m[c] -= 1;
+  }
+  for (let c in m) {
+    if (m[c]) {
+      return c;
+    }
+  }
 };
 // @lc code=end
 

@@ -179,19 +179,41 @@
 <node TEXT="&#x57fa;&#x7840;&#x7b97;&#x6cd5;&#x5fc5;&#x7ec3;&#x9898;" POSITION="right" ID="ID_141329914" CREATED="1572076704967" MODIFIED="1572076713235">
 <edge COLOR="#ff0000"/>
 <node TEXT="trie" ID="ID_309528117" CREATED="1572076722839" MODIFIED="1572077312763">
-<node TEXT="leetcode 1 two-sum" ID="ID_1332399126" CREATED="1572076734443" MODIFIED="1572078675669"/>
-<node TEXT="leetcode 20 valid-parenthese" ID="ID_1396326934" CREATED="1572076788492" MODIFIED="1572078677855"/>
-<node TEXT="leetcode 394 decode-string" ID="ID_638727011" CREATED="1572076842213" MODIFIED="1572078678567"/>
-<node TEXT="leetcode 146 lru-cache" ID="ID_793370336" CREATED="1572076856886" MODIFIED="1572078679227"/>
-<node TEXT="leetcode 208 implement-trie-prefix-tree" ID="ID_945189832" CREATED="1572076870529" MODIFIED="1572078679904"/>
-<node TEXT="leetcode 211 add-and-search-word-data-structure-design" ID="ID_865994398" CREATED="1572076890692" MODIFIED="1572076920573"/>
-<node TEXT="leetcode 212 word-search-ii" ID="ID_1716259138" CREATED="1572076922619" MODIFIED="1572076933778"/>
+<node TEXT="leetcode 1 two-sum" ID="ID_1332399126" CREATED="1572076734443" MODIFIED="1572173089947">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="leetcode 20 valid-parenthese" ID="ID_1396326934" CREATED="1572076788492" MODIFIED="1572173090789">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="leetcode 394 decode-string" ID="ID_638727011" CREATED="1572076842213" MODIFIED="1572173091617">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="leetcode 146 lru-cache" ID="ID_793370336" CREATED="1572076856886" MODIFIED="1572173092335">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="leetcode 208 implement-trie-prefix-tree" ID="ID_945189832" CREATED="1572076870529" MODIFIED="1572173093037">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="leetcode 211 add-and-search-word-data-structure-design" ID="ID_865994398" CREATED="1572076890692" MODIFIED="1572173093614">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="leetcode 212 word-search-ii" ID="ID_1716259138" CREATED="1572076922619" MODIFIED="1572173094238">
+<icon BUILTIN="button_ok"/>
+</node>
 </node>
 <node TEXT="string" ID="ID_1670769663" CREATED="1572076962558" MODIFIED="1572077319217">
-<node TEXT="leetcode 389 find the difference" ID="ID_1570652524" CREATED="1572076978309" MODIFIED="1572076999015"/>
-<node TEXT="leetcode 290 word-pattern" ID="ID_747814920" CREATED="1572077003786" MODIFIED="1572077012005"/>
-<node TEXT="leetcode 387 first-unique-character-in-a-string" ID="ID_1105411046" CREATED="1572077018433" MODIFIED="1572077038515"/>
-<node TEXT="leetcode 3 longest substring without repeating characters" ID="ID_1337699358" CREATED="1572077041088" MODIFIED="1572077069164"/>
+<node TEXT="leetcode 389 find the difference" ID="ID_1570652524" CREATED="1572076978309" MODIFIED="1572173933678">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="leetcode 290 word-pattern" ID="ID_747814920" CREATED="1572077003786" MODIFIED="1572176716645">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="leetcode 387 first-unique-character-in-a-string" ID="ID_1105411046" CREATED="1572077018433" MODIFIED="1572179862626">
+<icon BUILTIN="button_ok"/>
+</node>
+<node TEXT="leetcode 3 longest substring without repeating characters" ID="ID_1337699358" CREATED="1572077041088" MODIFIED="1572179866640">
+<icon BUILTIN="button_ok"/>
+</node>
 <node TEXT="leetcode 76 minimum window substring" ID="ID_234005280" CREATED="1572077077035" MODIFIED="1572077092370"/>
 </node>
 <node TEXT="link list" ID="ID_1035778061" CREATED="1572077103232" MODIFIED="1572077326346">
