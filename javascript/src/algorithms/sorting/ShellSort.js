@@ -4,6 +4,7 @@ function ShellSort(a) {
       InsertionSortWithGap(a, gap, i);
     }
   }
+  return a;
 }
 
 function InsertionSortWithGap(a, gap, start) {
@@ -20,3 +21,5 @@ function InsertionSortWithGap(a, gap, start) {
     }
   }
 }
+
+module.exports = ShellSort;

@@ -6,6 +6,7 @@ function BubbleSort(a) {
       }
     }
   }
+  return a;
 }
 
 module.exports = BubbleSort;

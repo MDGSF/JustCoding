@@ -9,9 +9,10 @@ function BubbleSort(a) {
       }
     }
     if (!swapped) {
-      return;
+      return a;
     }
   }
+  return a;
 }
 
 module.exports = BubbleSort;

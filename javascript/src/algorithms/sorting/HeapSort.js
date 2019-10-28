@@ -138,3 +138,5 @@ function HeapSort(originalArray) {
 
   return sortedArray;
 }
+
+module.exports = HeapSort;

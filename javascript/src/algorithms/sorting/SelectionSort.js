@@ -12,6 +12,7 @@ function SelectionSort(a) {
       [a[minIndex], a[i]] = [a[i], a[minIndex]];
     }
   }
+  return a;
 }
 
 module.exports = SelectionSort;

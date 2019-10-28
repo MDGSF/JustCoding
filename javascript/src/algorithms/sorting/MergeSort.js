@@ -38,3 +38,5 @@ function mergeSortedArrays(leftArray, rightArray) {
 
   return sortedArray;
 }
+
+module.exports = MergeSort;

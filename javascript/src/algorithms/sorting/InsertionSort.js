@@ -12,6 +12,7 @@ function InsertionSort(a) {
       currentIndex -= 1;
     }
   }
+  return a;
 }
 
 module.exports = InsertionSort;

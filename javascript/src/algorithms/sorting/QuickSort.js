@@ -4,6 +4,7 @@ function QuickSort(a, start = 0, end = a.length - 1) {
     QuickSort(a, start, partitionIndex - 1);
     QuickSort(a, partitionIndex + 1, end);
   }
+  return a;
 }
 
 function partition(a, start, end) {

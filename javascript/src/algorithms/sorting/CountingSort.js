@@ -41,3 +41,5 @@ function CountingSort(
   }
   return sortedArray;
 }
+
+module.exports = CountingSort;
