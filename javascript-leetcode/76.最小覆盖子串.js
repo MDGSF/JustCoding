@@ -36,58 +36,62 @@
  * @return {string}
  */
 var minWindow = function(s, t) {
-    
+  const hasOwnProperty = Object.prototype.hasOwnProperty;
+  let min = '';
+  let left = 0;
+  let right = -1;
+  let m = {};
+
+  t.split('').forEach(element => {
+    if (!hasOwnProperty.call(m, element)) {
+      m[element] = 1;
+    } else {
+      m[element] += 1;
+    }
+  });
+
+  let count = Object.keys(m).length;
+
+  while (right <= s.length) {
+    if (count === 0) {
+      // found a valid substring
+
+      let current = s[left];
+
+      if (hasOwnProperty.call(m, current)) {
+        m[current] += 1;
+      }
+
+      if (m[current] > 0) {
+        count += 1;
+      }
+
+      let temp = s.substring(left, right + 1);
+      if (min === '') {
+        min = temp;
+      } else {
+        min = min.length < temp.length ? min : temp;
+      }
+
+      left += 1;
+    } else {
+      right += 1;
+
+      let current = s[right];
+
+      if (hasOwnProperty.call(m, current)) {
+        m[current] -= 1;
+      }
+
+      if (m[current] === 0) {
+        count -= 1;
+      }
+    }
+  }
+
+  return min;
 };
 // @lc code=end
 
-/*
-var minWindowSlidingWindow = function (s, t) {
-	// `right` is -1 since every loop, we start by expanding the right boundary
-	// setting this to -1 ensures that we will check the first char on the first time
-    let min = "", left = 0, right = -1;
-    let map = {};
-	
-	// this creates a map for the characters we need to include in the substring
-	// we store the character and its count since it can be repeated
-	// for example: "BAAC"
-    t.split('').forEach(element => {
-        if (map[element]==null) map[element] = 1;
-        else map[element] = map[element] + 1;
-    });
-	
-	// sets how many different characters we still have
-	// for example: given the input "BAAC", we still have 3 different characters need to check
-    let count = Object.keys(map).length;
-
-    while (right <= s.length) {
-		// found a valid substring
-        if (count == 0) {
-		
-			// try to shift left boudary to the right, this means the very left character will be removed
-			// because of this, we need to check whats the affect by removing that character, 
-            let current = s[left];
-			
-			// if this chacter is in our map, it means we ll need to find another one in the future
-            if (map[current] != null) map[current]++;
-			
-			// * we must have the condition `>0` because for case like "BBBA...", count for B could be negative
-            if (map[current] > 0) count++;    
-			
-            let temp = s.substring(left, right+1)
-            if (min == "") min = temp;
-            else min = min.length<temp.length?min:temp;
-			
-            left++;
-        } else {
-            right++;
-            let current = s[right];
-			
-			// decrease the count for this character
-            if (map[current] != null) map[current]--;
-			
-            if (map[current] == 0) count--;
-        }
-    }
-    return min;
-}
-*/
+const result = minWindow("ADOBECODEBANC", "ABC");
+console.log(result);
