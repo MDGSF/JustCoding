@@ -13,7 +13,7 @@ function InsertionSortWithGap(a, gap, start) {
       let currentIndex = i;
       a[currentIndex - gap] !== undefined &&
       a[currentIndex - gap] > a[currentIndex];
-      currentIndex -= 1
+      currentIndex -= gap
     ) {
       const temp = a[currentIndex - gap];
       a[currentIndex - gap] = a[currentIndex];
