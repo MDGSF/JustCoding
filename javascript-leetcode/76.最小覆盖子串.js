@@ -92,6 +92,3 @@ var minWindow = function(s, t) {
   return min;
 };
 // @lc code=end
-
-const result = minWindow("ADOBECODEBANC", "ABC");
-console.log(result);
