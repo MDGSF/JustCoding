@@ -38,14 +38,12 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-  let prev = null;
-  let curr = head;
-  while (curr !== null) {
-    let next = curr.next;
-    curr.next = prev;
-    prev = curr;
-    curr = next;
+  if (head === null || head.next === null) {
+    return head;
   }
-  return prev;
+  let p = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return p;
 };
 // @lc code=end

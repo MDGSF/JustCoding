@@ -34,29 +34,7 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var threeSum = function(nums) {
-  if (nums.length < 3) {
-    return [];
-  }
-  nums.sort((a, b) => a - b);
-  const result = [];
-  for (let i = 0; i < nums.length - 2; i += 1) {
-    if (i >= 1 && nums[i] === nums[i - 1]) {
-      continue;
-    }
-
-    const m = {};
-    for (let j = i + 1; j < nums.length; j += 1) {
-      const target = 0 - nums[i] - nums[j];
-      if (nums[j] in m) {
-        result.push([nums[i], nums[j], target]);
-      } else {
-        m[target] = 1;
-      }
-    }
-  }
-  return result;
-};
+var threeSum = function(nums) {};
 // @lc code=end
 
 // [-1, 0, 1, 2, -1, -4]

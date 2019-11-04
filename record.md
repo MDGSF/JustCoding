@@ -42,10 +42,33 @@
 
 ## 2019-11-03
 
-最后一次复习：2019-11-03
+最后一次复习：2019-11-04
 
 ```
 283. 移动零
 11. 盛最多水的容器
 70. 爬楼梯
+15. 三数之和
+1. 两数之和
+```
+
+## 未开始
+
+```
+Linked List 实战题目
+    https://leetcode.com/problems/reverse-linked-list/
+    https://leetcode.com/problems/swap-nodes-in-pairs
+    https://leetcode.com/problems/linked-list-cycle
+    https://leetcode.com/problems/linked-list-cycle-ii
+    https://leetcode.com/problems/reverse-nodes-in-k-group/
+
+
+课后作业
+    https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+    https://leetcode-cn.com/problems/rotate-array/
+    https://leetcode-cn.com/problems/merge-two-sorted-lists/
+    https://leetcode-cn.com/problems/merge-sorted-array/
+    https://leetcode-cn.com/problems/two-sum/
+    https://leetcode-cn.com/problems/move-zeroes/
+    https://leetcode-cn.com/problems/plus-one/
 ```
