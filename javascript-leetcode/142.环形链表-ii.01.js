@@ -69,30 +69,15 @@
  * @return {ListNode}
  */
 var detectCycle = function(head) {
-  let ptr1 = getIntersection(head);
-  if (ptr1 === null) {
-    return null;
-  }
-  let ptr2 = head;
-
-  while (ptr1 !== ptr2) {
-    ptr1 = ptr1.next;
-    ptr2 = ptr2.next;
-  }
-  return ptr1;
-};
-
-function getIntersection(head) {
-  let slow = head;
-  let fast = head;
-  while (fast !== null && fast.next !== null) {
-    slow = slow.next;
-    fast = fast.next.next;
-    if (slow === fast) {
-      return slow;
+  const s = new Set();
+  let cur = head;
+  while (cur !== null) {
+    if (s.has(cur)) {
+      return cur;
     }
+    s.add(cur);
+    cur = cur.next;
   }
   return null;
-}
-
+};
 // @lc code=end

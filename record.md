@@ -52,17 +52,19 @@
 1. 两数之和
 ```
 
+## 2019-11-04
+
+```
+206. 反转链表
+24. 两两交换链表中的节点
+141. 环形链表
+142. 环形链表 II
+25. K 个一组翻转链表
+```
+
 ## 未开始
 
 ```
-Linked List 实战题目
-    https://leetcode.com/problems/reverse-linked-list/
-    https://leetcode.com/problems/swap-nodes-in-pairs
-    https://leetcode.com/problems/linked-list-cycle
-    https://leetcode.com/problems/linked-list-cycle-ii
-    https://leetcode.com/problems/reverse-nodes-in-k-group/
-
-
 课后作业
     https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
     https://leetcode-cn.com/problems/rotate-array/

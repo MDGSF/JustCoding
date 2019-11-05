@@ -68,18 +68,15 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-  if (head === null || head.next === null) {
-    return false;
-  }
-  let slow = head;
-  let fast = head.next;
-  while (slow !== fast) {
-    if (fast === null || fast.next === null) {
-      return false;
+  const s = new Set();
+  let cur = head;
+  while (cur !== null) {
+    if (s.has(cur)) {
+      return true;
     }
-    slow = slow.next;
-    fast = fast.next.next;
+    s.add(cur);
+    cur = cur.next;
   }
-  return true;
+  return false;
 };
 // @lc code=end
