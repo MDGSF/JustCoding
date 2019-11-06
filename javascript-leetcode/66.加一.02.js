@@ -46,14 +46,9 @@ var plusOne = function(digits) {
     if (carry === 0) {
       break;
     }
-    if (digits[cur] === 9) {
-      digits[cur] = 0;
-      carry = 1;
-    } else {
-      digits[cur] += 1;
-      carry = 0;
-      break;
-    }
+    digits[cur] += carry;
+    carry = Math.floor(digits[cur] / 10);
+    digits[cur] = digits[cur] % 10;
   }
   if (carry > 0) {
     digits.unshift(carry);

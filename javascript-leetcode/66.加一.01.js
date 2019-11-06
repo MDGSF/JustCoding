@@ -42,18 +42,12 @@
  */
 var plusOne = function(digits) {
   let carry = 1;
-  for (let cur = digits.length - 1; cur >= 0; cur -= 1) {
-    if (carry === 0) {
-      break;
-    }
-    if (digits[cur] === 9) {
-      digits[cur] = 0;
-      carry = 1;
-    } else {
-      digits[cur] += 1;
-      carry = 0;
-      break;
-    }
+  let cur = digits.length - 1;
+  while (cur >= 0) {
+    digits[cur] += carry;
+    carry = Math.floor(digits[cur] / 10);
+    digits[cur] = digits[cur] % 10;
+    cur -= 1;
   }
   if (carry > 0) {
     digits.unshift(carry);

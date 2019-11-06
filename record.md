@@ -65,15 +65,12 @@
 25. K 个一组翻转链表
 ```
 
-## 未开始
+## 2019-11-06
 
 ```
-课后作业
-    https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
-    https://leetcode-cn.com/problems/rotate-array/
-    https://leetcode-cn.com/problems/merge-two-sorted-lists/
-    https://leetcode-cn.com/problems/merge-sorted-array/
-    https://leetcode-cn.com/problems/two-sum/
-    https://leetcode-cn.com/problems/move-zeroes/
-    https://leetcode-cn.com/problems/plus-one/
+26. 删除排序数组中的重复项
+189. 旋转数组
+21. 合并两个有序链表
+88. 合并两个有序数组
+66. 加一
 ```
