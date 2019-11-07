@@ -30,27 +30,42 @@
  * @return {number}
  */
 var threeSumClosest = function(nums, target) {
-  let closestSum = nums[0] + nums[1] + nums[2],
-    smallestDiff = Math.abs(target - closestSum);
-
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      for (let k = j + 1; k < nums.length; k++) {
-        let setSum = nums[i] + nums[j] + nums[k];
-        if (setSum == target) {
-          return setSum;
+  nums.sort((a, b) => a - b);
+  const n = nums.length;
+  let minDiff = 99999999;
+  let minSum = 0;
+  for (let i = 0; i < n; i += 1) {
+    if (i > 0 && nums[i] === nums[i - 1]) {
+      continue;
+    }
+    let [start, end] = [i + 1, n - 1];
+    while (start < end) {
+      const sum = nums[start] + nums[end] + nums[i];
+      if (sum === target) {
+        return sum;
+      } else {
+        const curDiff = sum - target;
+        const curAbsDiff = Math.abs(curDiff);
+        if (curAbsDiff < minDiff) {
+          minDiff = curAbsDiff;
+          minSum = sum;
         }
 
-        let diff = Math.abs(target - setSum);
-        if (diff < smallestDiff) {
-          closestSum = setSum;
-          smallestDiff = diff;
+        if (curDiff < 0) {
+          while (nums[start] === nums[start + 1]) {
+            start += 1;
+          }
+          start += 1;
+        } else {
+          while (nums[end] === nums[end - 1]) {
+            end -= 1;
+          }
+          end -= 1;
         }
       }
     }
   }
-
-  return closestSum;
+  return minSum;
 };
 // @lc code=end
 
