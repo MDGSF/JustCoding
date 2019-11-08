@@ -1,9 +1,9 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="Javascript" FOLDED="false" ID="ID_1043597140" CREATED="1572250994277" MODIFIED="1572251258632" STYLE="oval">
+<node TEXT="Javascript" FOLDED="false" ID="ID_1043597140" CREATED="1572250994277" MODIFIED="1573216306337" STYLE="oval" BORDER_WIDTH="4.0 px" BORDER_COLOR_LIKE_EDGE="true" BORDER_DASH="SOLID">
 <font SIZE="18"/>
-<hook NAME="MapStyle" zoom="1.771">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+<hook NAME="MapStyle" zoom="1.948">
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -64,6 +64,7 @@
 </map_styles>
 </hook>
 <hook NAME="AutomaticEdgeColor" COUNTER="8" RULE="ON_BRANCH_CREATION"/>
+<edge WIDTH="4"/>
 <node TEXT="async/await" POSITION="right" ID="ID_1671306059" CREATED="1572251141637" MODIFIED="1572251148179">
 <edge COLOR="#ff0000"/>
 </node>
