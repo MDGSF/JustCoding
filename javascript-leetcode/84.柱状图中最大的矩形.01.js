@@ -44,22 +44,24 @@
  * @return {number}
  */
 var largestRectangleArea = function(heights) {
-  // 暴力解法，会超出时间限制。
+  var peek = function(stack) {
+    return stack[stack.length - 1];
+  };
+
+  let stack = [-1];
   let maxarea = 0;
-  const n = heights.length;
-  for (let i = 0; i < n; i += 1) {
-    for (let j = i; j < n; j += 1) {
-      let minHeight = heights[i];
-      for (let k = i; k <= j; k += 1) {
-        if (heights[k] < minHeight) {
-          minHeight = heights[k];
-        }
-      }
-      const curarea = minHeight * (j - i + 1);
-      if (curarea > maxarea) {
-        maxarea = curarea;
-      }
+  for (let i = 0; i < heights.length; i += 1) {
+    while (peek(stack) != -1 && heights[i] <= heights[peek(stack)]) {
+      const top = stack.pop();
+      const curarea = heights[top] * (i - peek(stack) - 1);
+      maxarea = Math.max(maxarea, curarea);
     }
+    stack.push(i);
+  }
+  while (peek(stack) !== -1) {
+    const top = stack.pop();
+    const curarea = heights[top] * (heights.length - peek(stack) - 1);
+    maxarea = Math.max(maxarea, curarea);
   }
   return maxarea;
 };

@@ -61,21 +61,27 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-  let stack = [];
-  for (let c of s) {
-    if (c === '(') {
-      stack.push(')');
-    } else if (c === '[') {
-      stack.push(']');
-    } else if (c === '{') {
-      stack.push('}');
-    } else if (c !== stack.pop()) {
-      return false;
+  const a = [];
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (c === '[' || c === '{' || c === '(') {
+      a.push(c);
+    } else {
+      if (a.length === 0) {
+        return false;
+      }
+      if (c === ']' && a[a.length - 1] !== '[') {
+        return false;
+      }
+      if (c === '}' && a[a.length - 1] !== '{') {
+        return false;
+      }
+      if (c === ')' && a[a.length - 1] !== '(') {
+        return false;
+      }
+      a.pop();
     }
   }
-  return stack.length === 0;
+  return a.length === 0;
 };
 // @lc code=end
-
-const result = isValid('()');
-console.log(result);
