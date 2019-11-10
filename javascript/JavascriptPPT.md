@@ -22,8 +22,6 @@ node --inspect-brk test.js
 
 chrome about:inspect
 
-## this,call,apply,bind
-
 ## 多语言对比
 
 1. 嵌入式开发：C/C++，golang, rust.
