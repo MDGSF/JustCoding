@@ -41,19 +41,26 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-  if (s.length !== t.length) {
-    return false;
+  const m = {};
+  for (let c of s) {
+    if (c in m) {
+      m[c] += 1;
+    } else {
+      m[c] = 1;
+    }
   }
-
-  // 97 是小写字母 a 的 ascii 值。
-  const a = new Array(26).fill(0);
-  for (let i = 0; i < s.length; i += 1) {
-    a[s.charCodeAt(i) - 97]++;
-    a[t.charCodeAt(i) - 97]--;
+  for (let c of t) {
+    if (c in m) {
+      if (m[c] === 0) {
+        return false;
+      }
+      m[c] -= 1;
+    } else {
+      return false;
+    }
   }
-
-  for (let i = 0; i < a.length; i += 1) {
-    if (a[i] !== 0) {
+  for (let key in m) {
+    if (m[key] > 0) {
       return false;
     }
   }
