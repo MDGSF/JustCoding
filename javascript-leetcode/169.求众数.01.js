@@ -36,17 +36,15 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-  const m = {};
+  let count = 0;
+  let candidate = null;
   for (let i = 0; i < nums.length; i += 1) {
     const num = nums[i];
-    if (num in m) {
-      m[num] += 1;
-    } else {
-      m[num] = 1;
+    if (count === 0) {
+      candidate = num;
     }
-    if (m[num] > nums.length / 2) {
-      return num;
-    }
+    count += num === candidate ? 1 : -1;
   }
+  return candidate;
 };
 // @lc code=end
