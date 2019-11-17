@@ -68,15 +68,21 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-  let slow = head;
-  let fast = head;
-  while (slow && fast && fast.next) {
-    slow = slow.next;
-    fast = fast.next.next;
-    if (slow === fast) {
+  const startTime = new Date();
+  let curr = head;
+  while (curr !== null) {
+    curr = curr.next;
+    const currTime = new Date();
+    if (currTime - startTime > 500) {
       return true;
     }
   }
   return false;
 };
 // @lc code=end
+
+/*
+超级无敌暴力法：
+就是不停的 next，一直执行 next。
+在一定时间内找到 null 了，就认为没有环。否则就认为有环。
+*/

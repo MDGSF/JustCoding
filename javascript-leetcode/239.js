@@ -4,26 +4,22 @@
  * @return {number[]}
  */
 var maxSlidingWindow = function(nums, k) {
-  const result = [];
-  const deque = [];
-
+  if (nums.length === 0) {
+    return [];
+  }
+  let result = [];
+  let window = [];
   for (let i = 0; i < nums.length; i += 1) {
-    if (i - k === deque[0]) {
-      deque.shift();
+    if (i >= k && window[0] <= i - k) {
+      window.shift();
     }
-
-    for (let j = deque.length - 1; j >= 0; j -= 1) {
-      if (nums[i] >= nums[deque[j]]) {
-        deque.pop();
-      }
+    while (window.length > 0 && nums[window[window.length - 1]] <= nums[i]) {
+      window.pop();
     }
-
-    deque.push(i);
-
+    window.push(i);
     if (i >= k - 1) {
-      result.push(nums[deque[0]]);
+      result.push(nums[window[0]]);
     }
   }
-
   return result;
 };
