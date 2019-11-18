@@ -88,14 +88,45 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function(headA, headB) {
-  let a = headA;
-  let b = headB;
-  while (a !== b) {
-    a = a ? a.next : headB;
-    b = b ? b.next : headA;
+  let len1 = getLength(headA);
+  let len2 = getLength(headB);
+  let lendiff = null;
+  let longhead = null;
+  let shorthead = null;
+  if (len1 >= len2) {
+    lendiff = len1 - len2;
+    longhead = headA;
+    shorthead = headB;
+  } else {
+    lendiff = len2 - len1;
+    longhead = headB;
+    shorthead = headA;
   }
-  return a;
+
+  while (lendiff > 0 && longhead) {
+    longhead = longhead.next;
+    lendiff -= 1;
+  }
+
+  while (longhead && shorthead) {
+    if (longhead === shorthead) {
+      return longhead;
+    }
+    longhead = longhead.next;
+    shorthead = shorthead.next;
+  }
+  return null;
 };
+
+function getLength(head) {
+  let count = 0;
+  let cur = head;
+  while (cur) {
+    count += 1;
+    cur = cur.next;
+  }
+  return count;
+}
 // @lc code=end
 
 function ListNode(val) {
