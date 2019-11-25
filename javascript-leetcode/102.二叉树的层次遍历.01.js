@@ -52,31 +52,23 @@ var levelOrder = function(root) {
   if (root === null) {
     return [];
   }
+  const ctx = {result: []};
+  dfs(ctx, root, 0);
+  return ctx.result;
+};
 
-  let result = [];
-  let queue = [];
-  queue.push(root);
-
-  // let visited = new Set(root);
-
-  while (queue.length > 0) {
-    const levelSize = queue.length;
-    const currentLevel = [];
-
-    for (let i = 0; i < levelSize; i += 1) {
-      let node = queue.shift();
-      currentLevel.push(node.val);
-      if (node.left) {
-        queue.push(node.left);
-      }
-      if (node.right) {
-        queue.push(node.right);
-      }
-    }
-
-    result.push(currentLevel);
+function dfs(ctx, node, level) {
+  if (node === null) {
+    return;
   }
 
-  return result;
-};
+  if (ctx.result.length < level + 1) {
+    ctx.result.push([]);
+  }
+
+  ctx.result[level].push(node.val);
+
+  dfs(ctx, node.left, level + 1);
+  dfs(ctx, node.right, level + 1);
+}
 // @lc code=end
