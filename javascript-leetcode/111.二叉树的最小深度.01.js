@@ -46,23 +46,13 @@
  * @return {number}
  */
 var minDepth = function(root) {
-  if (!root) {
+  if (root === null) {
     return 0;
   }
-  if (!root.left) {
-    return 1 + minDepth(root.right);
-  }
-  if (!root.right) {
-    return 1 + minDepth(root.left);
-  }
-
-  // divide and conquer
-  let leftMinDepth = minDepth(root.left);
-  let rightMinDepth = minDepth(root.right);
-
-  // process subproblem's results
-  let result = 1 + Math.min(leftMinDepth, rightMinDepth);
-
-  return result;
+  let left = minDepth(root.left);
+  let right = minDepth(root.right);
+  return left === 0 || right === 0
+    ? left + right + 1
+    : Math.min(left, right) + 1;
 };
 // @lc code=end
