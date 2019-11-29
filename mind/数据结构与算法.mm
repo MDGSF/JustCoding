@@ -181,13 +181,13 @@
 </node>
 <node TEXT="&#x590d;&#x6742;&#x5ea6;" ID="ID_358263115" CREATED="1572755139542" MODIFIED="1572755143087">
 <node TEXT="&#x65f6;&#x95f4;&#x590d;&#x6742;&#x5ea6;" ID="ID_1011726230" CREATED="1572755146989" MODIFIED="1572755150370">
-<node TEXT="O(1) &#x5e38;&#x6570;&#x590d;&#x6742;&#x5ea6;&#xff0c;&#x6700;&#x4f73;&#xff0c;&#x6bd4;&#x5982; Hash &#x8868;&#x3001;&#x7f13;&#x5b58;&#x7b49;" ID="ID_516925571" CREATED="1572755168648" MODIFIED="1574953569184"/>
-<node TEXT="O(log n) &#x4ec5;&#x6b21;&#x4e8e;&#x5e38;&#x6570;&#x590d;&#x6742;&#x5ea6;&#xff0c;&#x5982;&#x4e8c;&#x5206;&#x67e5;&#x627e;&#x3001;&#x4e8c;&#x53c9;&#x641c;&#x7d22;&#x6811;&#x7b49;" ID="ID_664714274" CREATED="1572755201727" MODIFIED="1572755237031"/>
-<node TEXT="O(n) &#x7ebf;&#x6027;&#x590d;&#x6742;&#x5ea6;&#xff0c;&#x5982;&#x5927;&#x591a;&#x6570;&#x904d;&#x5386;&#x64cd;&#x4f5c;" ID="ID_975694795" CREATED="1572755253695" MODIFIED="1572755270402"/>
+<node TEXT="O(1) Constant Complexity &#x5e38;&#x6570;&#x590d;&#x6742;&#x5ea6;&#xff0c;&#x6700;&#x4f73;&#xff0c;&#x6bd4;&#x5982; Hash &#x8868;&#x3001;&#x7f13;&#x5b58;&#x7b49;" ID="ID_516925571" CREATED="1572755168648" MODIFIED="1575038205311"/>
+<node TEXT="O(log n) Logarithmic Complexity &#x5bf9;&#x6570;&#x590d;&#x6742;&#x5ea6;&#xff0c;&#x4ec5;&#x6b21;&#x4e8e;&#x5e38;&#x6570;&#x590d;&#x6742;&#x5ea6;&#xff0c;&#x5982;&#x4e8c;&#x5206;&#x67e5;&#x627e;&#x3001;&#x4e8c;&#x53c9;&#x641c;&#x7d22;&#x6811;&#x7b49;" ID="ID_664714274" CREATED="1572755201727" MODIFIED="1575038248107"/>
+<node TEXT="O(n) Linear Complexity &#x7ebf;&#x6027;&#x590d;&#x6742;&#x5ea6;&#xff0c;&#x5982;&#x5927;&#x591a;&#x6570;&#x904d;&#x5386;&#x64cd;&#x4f5c;" ID="ID_975694795" CREATED="1572755253695" MODIFIED="1575038284969"/>
 <node TEXT="O(nlogn) &#x5feb;&#x901f;&#x6392;&#x5e8f;&#x65f6;&#x95f4;&#x590d;&#x6742;&#x5ea6;" ID="ID_714399315" CREATED="1572774272067" MODIFIED="1572774297379"/>
-<node TEXT="O(n^2) &#x53cc;&#x91cd; for &#x5faa;&#x73af;" ID="ID_1540426012" CREATED="1572755280286" MODIFIED="1572755296236"/>
-<node TEXT="O(n^3) 3 &#x91cd; for &#x5faa;&#x73af;" ID="ID_1517128558" CREATED="1572774168781" MODIFIED="1572774226412"/>
-<node TEXT="O(2^n) &#x9012;&#x5f52;&#x7684;&#x65f6;&#x95f4;&#x590d;&#x6742;&#x5ea6;" ID="ID_1753500364" CREATED="1572755300681" MODIFIED="1572755312345"/>
+<node TEXT="O(n^2) N square Complexity &#x5e73;&#x65b9;&#xff0c;&#x53cc;&#x91cd; for &#x5faa;&#x73af;" ID="ID_1540426012" CREATED="1572755280286" MODIFIED="1575038318295"/>
+<node TEXT="O(n^3) N cubic Complexity &#x7acb;&#x65b9;&#xff0c; 3 &#x91cd; for &#x5faa;&#x73af;" ID="ID_1517128558" CREATED="1572774168781" MODIFIED="1575038337253"/>
+<node TEXT="O(2^n) Exponential Growth &#x6307;&#x6570;&#xff0c;&#x9012;&#x5f52;&#x7684;&#x65f6;&#x95f4;&#x590d;&#x6742;&#x5ea6;" ID="ID_1753500364" CREATED="1572755300681" MODIFIED="1575038358716"/>
 <node TEXT="O(n!) &#x9636;&#x4e58;&#x65f6;&#x95f4;&#x590d;&#x6742;&#x5ea6;" ID="ID_38348335" CREATED="1572774183110" MODIFIED="1572774419588"/>
 </node>
 <node TEXT="&#x7a7a;&#x95f4;&#x590d;&#x6742;&#x5ea6;" ID="ID_591128451" CREATED="1572755150846" MODIFIED="1572755153978">
