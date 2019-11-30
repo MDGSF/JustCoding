@@ -1,3 +1,6 @@
+# 递归算法模板
+
+```
 function recursion(level, param1, param2, ...) {
 
   // recursion terminator
@@ -15,3 +18,4 @@ function recursion(level, param1, param2, ...) {
   // reverse the current level status if needed
   reverse_state(level);
 }
+```
