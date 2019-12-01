@@ -52,17 +52,24 @@
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-  return root && compare(root.left, root.right);
+  return _isSymmetric(root, root);
 };
 
-function compare(a, b) {
-  if (a === null && b === null) {
+function _isSymmetric(node1, node2) {
+  if (node1 === null && node2 === null) {
     return true;
+  } else if (node1 === null && node2 !== null) {
+    return false;
+  } else if (node1 !== null && node2 === null) {
+    return false;
   }
 
-  if (a && b && a.val === b.val) {
-    return compare(a.left, b.right) && compare(a.right, b.left);
+  if (node1.val !== node2.val) {
+    return false;
   }
-  return false;
+  return (
+    _isSymmetric(node1.left, node2.right) &&
+    _isSymmetric(node1.right, node2.left)
+  );
 }
 // @lc code=end

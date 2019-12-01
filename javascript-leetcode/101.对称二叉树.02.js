@@ -52,17 +52,27 @@
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-  return root && compare(root.left, root.right);
+  let q = [];
+  q.push(root);
+  q.push(root);
+  while (q.length > 0) {
+    let t1 = q.shift();
+    let t2 = q.shift();
+    if (t1 === null && t2 === null) {
+      continue;
+    }
+    if (t1 === null || t2 === null) {
+      return false;
+    }
+    if (t1.val !== t2.val) {
+      return false;
+    }
+    q.push(t1.left);
+    q.push(t2.right);
+    q.push(t1.right);
+    q.push(t2.left);
+  }
+  return true;
 };
 
-function compare(a, b) {
-  if (a === null && b === null) {
-    return true;
-  }
-
-  if (a && b && a.val === b.val) {
-    return compare(a.left, b.right) && compare(a.right, b.left);
-  }
-  return false;
-}
 // @lc code=end

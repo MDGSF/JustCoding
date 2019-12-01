@@ -39,20 +39,30 @@
  * @return {number}
  */
 var minimumTotal = function(triangle) {
-  // dp 状态转移方程
-  // dp[row][col] = triangle[row][col] + min(dp[row+1][col] + dp[row+1][col+1])
-  let row = triangle.length - 2;
-  while (row >= 0) {
-    for (let col = 0; col <= row; col += 1) {
-      triangle[row][col] =
-        triangle[row][col] +
-        Math.min(triangle[row + 1][col], triangle[row + 1][col + 1]);
-    }
-    row -= 1;
-  }
-  return triangle[0][0];
+  const ctx = {};
+  ctx.minSum = Number.MAX_VALUE;
+  dfs(ctx, triangle, 0, 0, 0);
+  return ctx.minSum;
 };
 
+// 这种 dfs 会超时
+function dfs(ctx, triangle, row, col, sum) {
+  // recursion terminator
+  if (row >= triangle.length) {
+    if (sum < ctx.minSum) {
+      ctx.minSum = sum;
+    }
+    return;
+  }
+
+  // process logic in current level
+
+  // drill down
+  dfs(ctx, triangle, row + 1, col, sum + triangle[row][col]);
+  dfs(ctx, triangle, row + 1, col + 1, sum + triangle[row][col]);
+
+  // reverse the current level status if needed.
+}
 // @lc code=end
 
 const triangle = [];
