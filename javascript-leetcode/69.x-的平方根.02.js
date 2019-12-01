@@ -41,23 +41,27 @@
  * @return {number}
  */
 var mySqrt = function(x) {
+  return MySqrt(x, 0.01)
+};
+
+function MySqrt(x, precision) {
   if (x === 0 || x === 1) {
     return x;
   }
-  let l = 1;
+
+  let l = 0;
   let r = x;
-  let res = null;
   while (l <= r) {
-    let m = Math.floor((l + r) / 2);
-    if (m * m === x) {
+    let m = (l + r) / 2;
+    let cur = m * m;
+    if (cur - x >= -precision && cur - x <= precision) {
       return m;
-    } else if (m * m > x) {
-      r = m - 1;
+    } else if (cur > x) {
+      r = m;
     } else {
-      l = m + 1;
-      res = m;
+      l = m;
     }
   }
-  return res;
-};
+  return null;
+}
 // @lc code=end

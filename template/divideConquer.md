@@ -1,3 +1,6 @@
+# 分治算法模板
+
+```
 function divideConquer(problem, param1, param2, ...) {
 
   // recursion terminator
@@ -19,3 +22,4 @@ function divideConquer(problem, param1, param2, ...) {
   // process and generate the final result
   result = process_result(subresult1, subresult2, subresult3, ...)
 }
+```
