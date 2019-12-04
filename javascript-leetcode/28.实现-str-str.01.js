@@ -48,21 +48,7 @@ var strStr = function(haystack, needle) {
   if (needle.length === 0) {
     return 0;
   }
-  for (let i = 0; i <= haystack.length - needle.length; i += 1) {
-    let haystackIdx = i;
-    let needleIdx = 0;
-    while (needleIdx < needle.length) {
-      if (haystack[haystackIdx] !== needle[needleIdx]) {
-        break;
-      }
-      haystackIdx += 1;
-      needleIdx += 1;
-    }
-    if (needleIdx === needle.length) {
-      return i;
-    }
-  }
-  return -1;
+  return haystack.indexOf(needle);
 };
 
 const result = strStr('aaaaa', 'ba');

@@ -38,10 +38,9 @@
  */
 var trailingZeroes = function(n) {
   let count = 0;
-  let radix = 5;
-  while (radix <= n) {
-    count += Math.floor(n / radix);
-    radix *= 5;
+  while (n > 0) {
+    count += Math.floor(n / 5);
+    n = Math.floor(n / 5);
   }
   return count;
 };
