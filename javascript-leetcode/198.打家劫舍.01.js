@@ -41,21 +41,21 @@
  * @return {number}
  */
 var rob = function(nums) {
-  if (nums.length === 0) {
-    return 0;
-  } else if (nums.length === 1) {
-    return nums[0];
-  } else if (nums.length === 2) {
-    return Math.max(nums[0], nums[1]);
-  }
-  let f1 = nums[0];
-  let f2 = Math.max(nums[0], nums[1]);
-  let n = nums.length - 1;
-  for (let i = 2; i <= n; i += 1) {
-    [f1, f2] = [f2, Math.max(nums[i] + f1, f2)];
-  }
-  return f2;
+  return dp(nums, nums.length - 1);
 };
+
+// 这么写会 timeout，要加上备忘录
+function dp(nums, n) {
+  if (n < 0) {
+    return 0;
+  }
+  if (n === 0) {
+    return nums[n];
+  }
+  let result1 = nums[n] + dp(nums, n - 2); // 偷n
+  let result2 = dp(nums, n - 1); // 不偷n
+  return Math.max(result1, result2);
+}
 
 //const nums = [2, 7, 9, 3, 1];
 const nums = [1, 2, 3, 1];
