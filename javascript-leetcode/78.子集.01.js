@@ -41,19 +41,16 @@
  */
 var subsets = function(nums) {
   let result = [];
-  const size = nums.length;
-  const count = 1 << size;
-  for (let i = 0; i < count; i += 1) {
-    const tmp = [];
-    for (let j = 0; j < size; j += 1) {
-      if ((i & (1 << j)) !== 0) {
-        tmp.push(nums[j]);
-      }
-    }
-    result.push(tmp);
-  }
+  recursion(nums, nums.length, 0, [], result);
   return result;
 };
+
+function recursion(nums, n, idx, tmp, result) {
+  result.push(tmp);
+  for (let i = idx; i < n; i += 1) {
+    recursion(nums, n, i + 1, tmp.concat([nums[i]]), result);
+  }
+}
 
 const result = subsets([1, 2, 3]);
 console.log(result);
