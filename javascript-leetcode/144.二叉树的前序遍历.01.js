@@ -44,18 +44,16 @@
  * @return {number[]}
  */
 var preorderTraversal = function(root) {
-  if (root === null) { return []; }
   let result = [];
-  let stack = [];
-  let currNode = root;
-  stack.push(currNode);
-  while (stack.length > 0) {
-    currNode = stack.pop();
-    result.push(currNode.val);
-    if (currNode.right) stack.push(currNode.right);
-    if (currNode.left) stack.push(currNode.left);
-  }
+  recursion(root, result);
   return result;
 };
+
+function recursion(root, result) {
+  if (root === null) { return; }
+  result.push(root.val);
+  recursion(root.left, result);
+  recursion(root.right, result);
+}
 // @lc code=end
 

@@ -44,18 +44,15 @@
  */
 var inorderTraversal = function(root) {
   let result = [];
-  let stack = [];
-  let currNode = root;
-  while (currNode !== null || stack.length > 0) {
-    while (currNode !== null) {
-      stack.push(currNode);
-      currNode = currNode.left;
-    }
-    currNode = stack.pop();
-    result.push(currNode.val);
-    currNode = currNode.right;
-  }
+  recursion(root, result);
   return result;
 };
+
+function recursion(root, result) {
+  if (root === null) { return; }
+  recursion(root.left, result);
+  result.push(root.val);
+  recursion(root.right, result);
+}
 // @lc code=end
 
