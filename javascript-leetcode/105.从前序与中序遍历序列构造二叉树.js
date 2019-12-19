@@ -14,23 +14,23 @@
  * Testcase Example:  '[3,9,20,15,7]\n[9,3,15,20,7]'
  *
  * 根据一棵树的前序遍历与中序遍历构造二叉树。
- * 
+ *
  * 注意:
  * 你可以假设树中没有重复的元素。
- * 
+ *
  * 例如，给出
- * 
+ *
  * 前序遍历 preorder = [3,9,20,15,7]
  * 中序遍历 inorder = [9,3,15,20,7]
- * 
+ *
  * 返回如下的二叉树：
- * 
+ *
  * ⁠   3
  * ⁠  / \
  * ⁠ 9  20
  * ⁠   /  \
  * ⁠  15   7
- * 
+ *
  */
 
 // @lc code=start
@@ -47,7 +47,15 @@
  * @return {TreeNode}
  */
 var buildTree = function(preorder, inorder) {
-    
+  if (preorder.length === 0 || inorder.length === 0) {
+    return null;
+  }
+  let val = preorder[0];
+  let idx = inorder.indexOf(val);
+  let node = new TreeNode(val);
+  node.left = buildTree(preorder.slice(1, 1+idx), inorder.slice(0, idx));
+  node.right = buildTree(preorder.slice(1+idx), inorder.slice(idx+1));
+  return node;
 };
 // @lc code=end
 
