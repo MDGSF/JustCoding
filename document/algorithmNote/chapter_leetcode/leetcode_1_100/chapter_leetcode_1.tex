@@ -2,6 +2,83 @@
 \section{1. 两数之和}
 \label{leetcode:1}
 
+\subsection{题目}
+
+给定一个整数数组 nums 和一个目标值 target，
+请你在该数组中找出和为目标值的那\textbf{两个}整数，并返回他们的数组下标。
+
+你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
+
+\textbf{示例}:
+
+\begin{verbatim}
+  给定 nums = [2, 7, 11, 15], target = 9
+
+  因为 nums[0] + nums[1] = 2 + 7 = 9
+  所以返回 [0, 1]
+\end{verbatim}
+
+\subsection{参考题解，暴力法}
+
+直接两重循环，遍历两个数的所有组合情况。
+因为两重循环，所以时间复杂度为 O(n$^{2}$)。
+因为没有而外开辟空间，所以空间复杂度为 O(1)。
+
+\begin{verbatim}
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+  for (let i = 0; i < nums.length; i += 1) {
+    for (let j = i + 1; j < nums.length; j += 1) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+};
+\end{verbatim}
+
+\subsection{参考题解，哈希表，两重循环}
+
+因为 numA + numB = target，所以 numA = target - numB。
+那我们可以考虑把 numA 的所有可能保存到哈希表，
+然后第二次循环 numB 的时候，直接在哈希表中查找。
+
+时间复杂度： O(n)。\\
+空间复杂度： O(n)。
+
+\begin{verbatim}
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+  const m = new Map();
+  for (let i = 0; i < nums.length; i += 1) {
+    m.set(nums[i], i);
+  }
+  for (let i = 0; i < nums.length; i += 1) {
+    const num = nums[i];
+    const peer = target - num;
+    if (m.has(peer) && m.get(peer) !== i) {
+      return [i, m.get(peer)];
+    }
+  }
+};
+\end{verbatim}
+
+\subsection{参考题解，哈希表，一重循环}
+
+这种方法是在上一种的基础上再次优化，减少了一重循环，
+不过时间复杂度和空间复杂度还是一样的。
+
+时间复杂度： O(n)。\\
+空间复杂度： O(n)。
+
 \begin{verbatim}
 /**
  * @param {number[]} nums
@@ -17,6 +94,39 @@ var twoSum = function(nums, target) {
       return [m.get(peer), i];
     }
     m.set(num, i);
+  }
+};
+\end{verbatim}
+
+\subsection{题目小结}
+
+通过上面 3 种题解，你会发现这就是非常明显的空间换时间。
+在工程项目中也是非常常用的方法，所以要熟练掌握哈希表。
+
+\subsection{题目拓展}
+
+如果题目要求返回的不是下标，而是两个整数的值，
+那你还有其他方法吗？
+
+答案是\textbf{双指针两头夹逼}的方法。该方法要求数组是有序的，
+所以需要先对数组进行排序。如果是要返回下标的话，排序了
+之后，下标就改变了，就不适合用\textbf{双指针两头夹逼}的方法。
+
+下面给出如果是返回整数的值的参考代码：
+
+\begin{verbatim}
+var twoSum = function(nums, target) {
+  nums.sort((a, b) => a - b);
+  let [start, end] = [0, nums.length - 1];
+  while (start < end) {
+    const sum = nums[start] + nums[end];
+    if (sum < target) {
+      start += 1;
+    } else if (sum > target) {
+      end -= 1;
+    } else {
+      return [nums[start], nums[end]];
+    }
   }
 };
 \end{verbatim}
