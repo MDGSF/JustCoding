@@ -1,0 +1,51 @@
+\documentclass[12pt]{report}
+
+\usepackage{ctex}
+\usepackage{xeCJK} 
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{tikz}
+\usepackage{amsmath}    % need for subequations
+\usepackage{graphicx}   % need for figures
+\usepackage{verbatim}   % useful for program listings
+\usepackage{color}      % use if color is used in text
+\usepackage{subfigure}  % use for side-by-side figures
+\usepackage{hyperref}   % use for hypertext links, including those to external documents and URLs
+
+% don't need the following. simply use defaults
+\setlength{\baselineskip}{16.0pt}    % 16 pt usual spacing between lines
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+%% \setlength{\parskip}{3pt plus 2pt}
+%% \setlength{\parindent}{20pt}
+\setlength{\oddsidemargin}{0.5cm}
+\setlength{\evensidemargin}{0.5cm}
+\setlength{\marginparsep}{0.75cm}
+\setlength{\marginparwidth}{2.5cm}
+\setlength{\marginparpush}{1.0cm}
+\setlength{\textwidth}{150mm}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black
+}
+
+\begin{comment}
+\pagestyle{empty} % use if page numbers not wanted
+\end{comment}
+
+\title{算法学习笔记}
+\author{黄剑}
+\date{\today}
+
+% \includeonly{chapter_camp,chapter_leetcode}
+
+% above is the preamble
+
+\begin{document}
+\maketitle
+\tableofcontents
+\include{chapter_camp}
+\include{chapter_leetcode}
+\end{document}

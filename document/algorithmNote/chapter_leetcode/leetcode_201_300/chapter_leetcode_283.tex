@@ -1,0 +1,20 @@
+\newpage
+\section{283. 移动零}
+\label{leetcode:283}
+
+\begin{verbatim}
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, 
+ *   modify nums in-place instead.
+ */
+var moveZeroes = function(nums) {
+  let j = 0;
+  for (let i = 0; i < nums.length; i += 1) {
+    if (nums[i] !== 0) {
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+      j += 1;
+    }
+  }
+};
+\end{verbatim}

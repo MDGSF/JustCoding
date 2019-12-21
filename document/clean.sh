@@ -1,0 +1,10 @@
+find . -name "*.log" -type f -print -exec rm -rf {} \; 
+find . -name "*.aux" -type f -print -exec rm -rf {} \; 
+find . -name "*.nav" -type f -print -exec rm -rf {} \; 
+find . -name "*.out" -type f -print -exec rm -rf {} \; 
+find . -name "*.snm" -type f -print -exec rm -rf {} \; 
+find . -name "*.toc" -type f -print -exec rm -rf {} \; 
+find . -name "*.vrb" -type f -print -exec rm -rf {} \; 
+find . -name "*.fdb_latexmk" -type f -print -exec rm -rf {} \; 
+find . -name "*.fls" -type f -print -exec rm -rf {} \; 
+find . -name "*.pdf" -type f -print -exec rm -rf {} \; 

@@ -1,0 +1,60 @@
+\newpage
+\section{105. 从前序与中序遍历序列构造二叉树}
+\label{leetcode:105}
+
+\begin{verbatim}
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+var buildTree = function(preorder, inorder) {
+  if (preorder.length === 0 || inorder.length === 0) {
+    return null;
+  }
+  let val = preorder[0];
+  let idx = inorder.indexOf(val);
+  let node = new TreeNode(val);
+  node.left = buildTree(preorder.slice(1, 1+idx), inorder.slice(0, idx));
+  node.right = buildTree(preorder.slice(1+idx), inorder.slice(idx+1));
+  return node;
+};
+\end{verbatim}
+
+\begin{verbatim}
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func buildTree(preorder []int, inorder []int) *TreeNode {
+	if len(preorder) == 0 || len(inorder) == 0 {
+		return nil
+	}
+	val := preorder[0]
+	idx := index(inorder, val)
+	node := &TreeNode{Val: val}
+	node.Left = buildTree(preorder[1:idx+1], inorder[:idx])
+	node.Right = buildTree(preorder[idx+1:], inorder[idx+1:])
+	return node
+}
+
+func index(array []int, val int) int {
+	for i := 0; i < len(array); i++ {
+		if array[i] == val {
+			return i
+		}
+	}
+	return -1
+}
+\end{verbatim}
