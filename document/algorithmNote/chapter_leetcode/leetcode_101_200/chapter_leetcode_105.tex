@@ -2,6 +2,34 @@
 \section{105. 从前序与中序遍历序列构造二叉树}
 \label{leetcode:105}
 
+\subsection{题目}
+
+根据一棵树的前序遍历与中序遍历构造二叉树。
+
+\textbf{注意}: \\
+你可以假设树中没有重复的元素。
+
+例如，给出
+
+\begin{verbatim}
+  前序遍历 preorder = [3,9,20,15,7]
+  中序遍历 inorder = [9,3,15,20,7]
+\end{verbatim}
+
+返回如下的二叉树：
+
+\begin{verbatim}
+   3
+  / \
+ 9  20
+   /  \
+  15   7
+\end{verbatim}
+
+\subsection{参考题解，JavaScript}
+
+JavaScript 的 slice 会拷贝数组。
+
 \begin{verbatim}
 /**
  * Definition for a binary tree node.
@@ -28,6 +56,10 @@ var buildTree = function(preorder, inorder) {
 };
 \end{verbatim}
 
+\subsection{参考题解，Golang}
+
+Golang 的切片是不会拷贝数组的。
+
 \begin{verbatim}
 /**
  * Definition for a binary tree node.
@@ -38,23 +70,23 @@ var buildTree = function(preorder, inorder) {
  * }
  */
 func buildTree(preorder []int, inorder []int) *TreeNode {
-	if len(preorder) == 0 || len(inorder) == 0 {
-		return nil
-	}
-	val := preorder[0]
-	idx := index(inorder, val)
-	node := &TreeNode{Val: val}
-	node.Left = buildTree(preorder[1:idx+1], inorder[:idx])
-	node.Right = buildTree(preorder[idx+1:], inorder[idx+1:])
-	return node
+  if len(preorder) == 0 || len(inorder) == 0 {
+    return nil
+  }
+  val := preorder[0]
+  idx := index(inorder, val)
+  node := &TreeNode{Val: val}
+  node.Left = buildTree(preorder[1:idx+1], inorder[:idx])
+  node.Right = buildTree(preorder[idx+1:], inorder[idx+1:])
+  return node
 }
 
 func index(array []int, val int) int {
-	for i := 0; i < len(array); i++ {
-		if array[i] == val {
-			return i
-		}
-	}
-	return -1
+  for i := 0; i < len(array); i++ {
+    if array[i] == val {
+      return i
+    }
+  }
+  return -1
 }
 \end{verbatim}
