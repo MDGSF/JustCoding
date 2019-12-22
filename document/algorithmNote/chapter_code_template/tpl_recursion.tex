@@ -1,0 +1,28 @@
+\newpage
+\section{递归模板}
+
+\begin{enumerate}
+  \item // terminator
+  \item // process current logic
+  \item // drill down
+  \item // restore current status
+\end{enumerate}
+
+\subsection{Python 递归模板}
+
+\begin{verbatim}
+def recursion(level, param1, param2, ...):
+  # recursion terminator
+  if level > MAX_LEVEL:
+    print_result
+    return
+
+  # process logic in current level
+  process_data(level, data, ...)
+
+  # drill down
+  self.recursion(level + 1, p1, p2, ...)
+
+  # reverse the current level status if needed
+  reverse_state(level)
+\end{verbatim}

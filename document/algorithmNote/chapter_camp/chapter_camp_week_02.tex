@@ -1,0 +1,30 @@
+\newpage
+\section{第 02 周}
+
+\input{chapter_camp/chapter_camp_5}
+\input{chapter_camp/chapter_camp_6}
+\input{chapter_camp/chapter_camp_7}
+
+\subsection{学习总结}
+
+这周学习了哈希表、集合、树、递归。
+
+哈希表的平均时间复杂度都是 O(1) 的，所以在工程实践中被广泛使用。
+大部分的语言里面都是有内置的哈希表。哈希表的最坏时间复杂度虽然
+是 O(n) 的，但是一般都会设计为可自动扩容，所以一般我们都认为是
+不会退化到最坏的情况的。
+
+链表就是特殊化的树。\\
+树就是特殊化的图。\\
+树需要掌握前序遍历、中序遍历、后序遍历。\\
+二叉搜索树的中序遍历得到的结果是有序的。\\
+树这个数据结构的定义就是递归定义的，具有重复子问题，
+非常适合使用递归解决树的相关问题。
+
+递归模板：
+\begin{verbatim}
+// terminator
+// process current logic
+// drill down
+// restore current status
+\end{verbatim}
