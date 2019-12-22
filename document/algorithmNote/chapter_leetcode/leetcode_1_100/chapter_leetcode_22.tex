@@ -2,6 +2,71 @@
 \section{22. 括号生成}
 \label{leetcode:22}
 
+\subsection{题目}
+
+给出 n 代表生成括号的对数，请你写出一个函数，使其能够生成所有可能的并且有效的括号组合。
+
+例如，给出 n = 3，生成结果为：
+
+\begin{verbatim}
+  [
+    "((()))",
+    "(()())",
+    "(())()",
+    "()(())",
+    "()()()"
+  ]
+\end{verbatim}
+
+\subsection{参考题解，暴力递归}
+
+n = 3，那么字符串的长度 = 2 * n = 6，每一个字符都可以是 
+\verb|'('| 或者 \verb|')'|，我们遍历出所有的情况，然后
+最后加上合法性判断。
+
+\begin{verbatim}
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var generateParenthesis = function(n) {
+  let result = [];
+  recursion(2*n, 0, result, "");
+  return result;
+};
+
+function recursion(n, i, result, strs) {
+  if (i === n) {
+    if (isValid(strs)) {
+      result.push(strs);
+    }
+    return;
+  }
+
+  recursion(n, i + 1, result, strs + "(");
+  recursion(n, i + 1, result, strs + ")");
+}
+
+var isValid = function(s) {
+  let stack = [];
+  for (let c of s) {
+    if (c === '(') {
+      stack.push(')');
+    } else if (c !== stack.pop()) {
+      return false;
+    }
+  }
+  return stack.length === 0;
+};
+\end{verbatim}
+
+\subsection{参考题解，剪枝}
+
+剪枝的意思就是在递归的过程中就把一些很明显不合法的分支去掉，
+以达到减少遍历的时间。如果剪枝能够把所有的不合法分支都去掉，
+那剩下的就是合法的。如果剪枝只能去掉部分不合法分支，那最后
+还是需要加上字符串的合法性判断。
+
 \begin{verbatim}
 /**
  * @param {number} n

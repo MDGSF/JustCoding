@@ -2,6 +2,43 @@
 \section{49. 字母异位词分组}
 \label{leetcode:49}
 
+\subsection{题目}
+
+给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+
+\textbf{示例}:
+
+\begin{verbatim}
+  输入: ["eat", "tea", "tan", "ate", "nat", "bat"],
+  输出:
+  [
+    ["ate","eat","tea"],
+    ["nat","tan"],
+    ["bat"]
+  ]
+\end{verbatim}
+
+\textbf{说明}：
+
+\begin{verbatim}
+  所有输入均为小写字母。
+  不考虑答案输出的顺序。
+\end{verbatim}
+
+\subsection{参考题解}
+
+把字符串的每个字符排序之后，那字母异位词排序之后就会相同。
+
+比如：
+
+\begin{enumerate}
+  \item ``ate'' 排序之后得到 ``aet''
+  \item ``eat'' 排序之后得到 ``aet''
+  \item ``tea'' 排序之后得到 ``aet''
+\end{enumerate}
+
+那么 ``ate''，``eat'' 和 ``tea'' 就是字母异位词。
+
 \begin{verbatim}
 /**
  * @param {string[]} strs

@@ -2,6 +2,33 @@
 \section{88. 合并两个有序数组}
 \label{leetcode:88}
 
+\subsection{题目}
+
+给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。
+
+\textbf{说明}:
+
+\begin{itemize}
+  \item 初始化 nums1 和 nums2 的元素数量分别为 m 和 n。
+  \item 你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）
+    来保存 nums2 中的元素。
+\end{itemize}
+
+\textbf{示例}:
+
+\begin{verbatim}
+  输入:
+  nums1 = [1,2,3,0,0,0], m = 3
+  nums2 = [2,5,6],       n = 3
+
+  输出: [1,2,2,3,5,6]
+\end{verbatim}
+
+\subsection{参考题解}
+
+其实就是保存 3 个 index 下标，这 3 个 index 下标都是
+从后往前遍历。
+
 \begin{verbatim}
 /**
  * @param {number[]} nums1

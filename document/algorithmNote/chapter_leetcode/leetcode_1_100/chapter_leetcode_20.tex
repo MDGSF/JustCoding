@@ -2,6 +2,56 @@
 \section{20. 有效的括号}
 \label{leetcode:20}
 
+\subsection{题目}
+
+给定一个只包括 \verb|'('，')'，'{'，'}'，'['，']'| 的字符串，判断字符串是否有效。
+
+有效字符串需满足：
+
+\begin{enumerate}
+  \item 左括号必须用相同类型的右括号闭合。
+  \item 左括号必须以正确的顺序闭合。
+\end{enumerate}
+
+注意空字符串可被认为是有效字符串。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: "()"
+  输出: true
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: "()[]{}"
+  输出: true
+\end{verbatim}
+
+\textbf{示例 3}:
+
+\begin{verbatim}
+  输入: "(]"
+  输出: false
+\end{verbatim}
+
+\textbf{示例 4}:
+
+\begin{verbatim}
+  输入: "([)]"
+  输出: false
+\end{verbatim}
+
+\textbf{示例 5}:
+
+\begin{verbatim}
+  输入: "{[]}"
+  输出: true
+\end{verbatim}
+
+\subsection{参考题解}
+
 \begin{verbatim}
 /**
  * @param {string} s
