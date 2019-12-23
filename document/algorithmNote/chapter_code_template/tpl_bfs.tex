@@ -5,9 +5,9 @@
 
 \begin{verbatim}
 def BFS(graph, start, end):
+  visited = set()
   queue = []
   queue.append([start])
-  visited.add(start)
 
   while queue:
     node = queue.pop()

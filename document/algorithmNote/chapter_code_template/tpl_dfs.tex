@@ -1,15 +1,42 @@
 \newpage
 \section{DFS 深度优先遍历模板}
 
-\subsection{Python DFS 模板}
+\subsection{Python DFS 模板，递归写法}
 
 \begin{verbatim}
 visited = set()
 def dfs(node, visited):
+  if node in visited: # terminator
+    # already visited
+    return
+  
   visited.add(node)
+
   # process current node here
   ...
+
   for next_node in node.children():
-    if not next_node in visited:
+    if next_node not in visited:
       dfs(next_node, visited)
+\end{verbatim}
+
+\subsection{Python DFS 模板，非递归写法}
+
+\begin{verbatim}
+def DFS(self, tree):
+  if tree.root is None:
+    return []
+
+  visited, stack = [], [tree.root]
+
+  while stack:
+    node = stack.pop()
+    visited.add(node)
+
+    process (node)
+    nodes = generate_related_nodes(node)
+    stack.push(nodes)
+  
+  # other processing work
+  ...
 \end{verbatim}
