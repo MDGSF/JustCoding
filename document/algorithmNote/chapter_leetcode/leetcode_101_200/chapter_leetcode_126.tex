@@ -1,3 +1,113 @@
 \newpage
 \section{126. 单词接龙 II}
 \label{leetcode:126}
+
+\subsection{题目}
+
+给定两个单词（beginWord 和 endWord）和一个字典 wordList，
+找出所有从 beginWord 到 endWord 的最短转换序列。
+转换需遵循如下规则：
+
+\begin{itemize}
+  \item 每次转换只能改变一个字母。
+  \item 转换过程中的中间单词必须是字典中的单词。
+\end{itemize}
+
+\textbf{说明}:
+
+\begin{enumerate}
+  \item 如果不存在这样的转换序列，返回一个空列表。
+  \item 所有单词具有相同的长度。
+  \item 所有单词只由小写字母组成。
+  \item 字典中不存在重复的单词。
+  \item 你可以假设 beginWord 和 endWord 是非空的，且二者不相同。
+\end{enumerate}
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入:
+  beginWord = "hit",
+  endWord = "cog",
+  wordList = ["hot","dot","dog","lot","log","cog"]
+
+  输出:
+  [
+    ["hit","hot","dot","dog","cog"],
+    ["hit","hot","lot","log","cog"]
+  ]
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入:
+  beginWord = "hit"
+  endWord = "cog"
+  wordList = ["hot","dot","dog","lot","log"]
+
+  输出: []
+
+  解释: endWord "cog" 不在字典中，所以不存在符合要求的转换序列。
+\end{verbatim}
+
+\subsection{参考题解，BFS}
+
+\begin{verbatim}
+/**
+ * @param {string} beginWord
+ * @param {string} endWord
+ * @param {string[]} wordList
+ * @return {string[][]}
+ */
+var findLadders = function(beginWord, endWord, wordList) {
+  const charSet = generateCharSet();
+  let wordSet = new Set(wordList);
+  let visited = new Set();
+  let result = [];
+  let queue = [];
+  visited.add(beginWord);
+  queue.push([beginWord]);
+  let foundResult = false;
+  while (queue.length > 0 && !foundResult) {
+    let levelSize = queue.length;
+    let subVisited = new Set();
+    while (levelSize-- > 0) {
+      let path = queue.shift();
+      let cur = path[path.length - 1];
+      let curCharArray = cur.split("");
+      for (let i = 0; i < curCharArray.length; i += 1) {
+        let old = curCharArray[i];
+        for (let j = 0; j < charSet.length; j += 1) {
+          curCharArray[i] = charSet[j];
+          let next = curCharArray.join("");
+          if (!visited.has(next) && wordSet.has(next)) {
+            let newpath = path.concat([next]);
+            if (next === endWord) {
+              foundResult = true;
+              result.push(newpath);
+            }
+            queue.push(newpath);
+            subVisited.add(next);
+          }
+        }
+        curCharArray[i] = old;
+      }
+    }
+    for (let elem of subVisited) {
+      visited.add(elem);
+    }
+  }
+  return result;
+};
+
+function generateCharSet() {
+  let charSet = [];
+  let start = 'a'.charCodeAt(0);
+  let end = start + 26;
+  for (let i = start; i < end; i += 1) {
+    charSet.push(String.fromCharCode(i));
+  }
+  return charSet;
+}
+\end{verbatim}

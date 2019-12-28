@@ -1,3 +1,71 @@
 \newpage
 \section{169. 多数元素}
 \label{leetcode:169}
+
+\subsection{题目}
+
+给定一个大小为 n 的数组，找到其中的多数元素。
+多数元素是指在数组中出现次数\textbf{大于} ⌊ n/2 ⌋ 的元素。
+
+你可以假设数组是非空的，并且给定的数组总是存在多数元素。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: [3,2,3]
+  输出: 3
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: [2,2,1,1,1,2,2]
+  输出: 2
+\end{verbatim}
+
+\subsection{参考题解，哈希表}
+
+用哈希表把每个数字出现的次数都记录下来，
+然后看下哪个数字出现的次数最多就是我们要的了。
+
+\begin{verbatim}
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function(nums) {
+  const m = {};
+  for (let i = 0; i < nums.length; i += 1) {
+    const num = nums[i];
+    if (num in m) {
+      m[num] += 1;
+    } else {
+      m[num] = 1;
+    }
+    if (m[num] > nums.length / 2) {
+      return num;
+    }
+  }
+};
+\end{verbatim}
+
+\subsection{参考题解，经典题解}
+
+\begin{verbatim}
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function(nums) {
+  let count = 0;
+  let candidate = null;
+  for (let i = 0; i < nums.length; i += 1) {
+    const num = nums[i];
+    if (count === 0) {
+      candidate = num;
+    }
+    count += num === candidate ? 1 : -1;
+  }
+  return candidate;
+};
+\end{verbatim}

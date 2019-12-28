@@ -1,3 +1,49 @@
 \newpage
 \section{153. 寻找旋转排序数组中的最小值}
 \label{leetcode:153}
+
+\subsection{题目}
+
+假设按照升序排序的数组在预先未知的某个点上进行了旋转。
+
+( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
+
+请找出其中最小的元素。
+
+你可以假设数组中不存在重复元素。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: [3,4,5,1,2]
+  输出: 1
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: [4,5,6,7,0,1,2]
+  输出: 0
+\end{verbatim}
+
+\subsection{参考题解，二分查找}
+
+\begin{verbatim}
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin = function(nums) {
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    let mid = left + Math.floor((right - left) / 2);
+    if (nums[mid] > nums[right]) {
+      left = mid + 1;
+    } else {
+      right = mid;
+    }
+  }
+  return nums[left];
+};
+\end{verbatim}
