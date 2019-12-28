@@ -41,13 +41,18 @@
  * @return {boolean}
  */
 var canJump = function(nums) {
-  let lastPos = nums.length - 1;
-  for (let i = nums.length - 1; i >= 0; i -= 1) {
-    if (i + nums[i] >= lastPos) {
-      lastPos = i;
+  let can = new Array(nums.length).fill(false);
+  can[0] = true;
+  for (let i = 0; i < nums.length; i += 1) {
+    if (!can[i]) { continue; }
+    const num = nums[i];
+    for (let j = 1; j <= num; j += 1) {
+      if (i + j < nums.length) {
+        can[i + j] = true;
+      }
     }
   }
-  return lastPos === 0;
+  return can[nums.length - 1];
 };
 // @lc code=end
 

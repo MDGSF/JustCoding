@@ -52,18 +52,19 @@
  * @return {boolean}
  */
 var searchMatrix = function(matrix, target) {
-  let rows = matrix.length;
-  if (rows === 0) { return false; }
-  let cols = matrix[0].length;
+  let row = findLastLEInFirstCol(matrix, target);
+  if (row === -1) {
+    return false;
+  }
+
+  let cols =  matrix[0].length;
   let left = 0;
-  let right = rows * cols - 1;
+  let right = cols - 1;
   while (left <= right) {
     let mid = left + Math.floor((right - left) / 2);
-    let midRow = Math.floor(mid / cols);
-    let midCol = mid % cols;
-    if (matrix[midRow][midCol] === target) {
+    if (matrix[row][mid] === target) {
       return true;
-    } else if (matrix[midRow][midCol] < target) {
+    } else if (matrix[row][mid] < target) {
       left = mid + 1;
     } else {
       right = mid - 1;
@@ -71,5 +72,23 @@ var searchMatrix = function(matrix, target) {
   }
   return false;
 };
+
+function findLastLEInFirstCol(matrix, target) {
+  let rows = matrix.length;
+  let left = 0;
+  let right = rows - 1;
+  while (left <= right) {
+    let mid = left + Math.floor((right - left) / 2);
+    if (matrix[mid][0] > target) {
+      right = mid - 1;
+    } else {
+      if (mid === rows - 1 || matrix[mid+1][0] > target) {
+        return mid;
+      }
+      left = mid + 1;
+    }
+  }
+  return -1;
+}
 // @lc code=end
 
