@@ -1,0 +1,89 @@
+\newpage
+\section{69. x 的平方根}
+\label{leetcode:69}
+
+\subsection{题目}
+
+实现 int sqrt(int x) 函数。
+
+计算并返回 x 的平方根，其中 x 是非负整数。
+
+由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: 4
+  输出: 2
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: 8
+  输出: 2
+  说明: 8 的平方根是 2.82842..., 
+       由于返回类型是整数，小数部分将被舍去。
+\end{verbatim}
+
+\subsection{参考题解，二分法}
+
+\begin{verbatim}
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+  return Math.floor(MySqrt(x, 0.01));
+};
+
+function MySqrt(x, precision) {
+  if (x === 0 || x === 1) {
+    return x;
+  }
+
+  let left = 0;
+  let right = x;
+  while (left <= right) {
+    let mid = (left + right) / 2;
+    let cur = mid * mid;
+    if (cur - x >= -precision && cur - x <= precision) {
+      return mid;
+    } else if (cur > x) {
+      right = mid;
+    } else {
+      left = mid;
+    }
+  }
+  return null;
+}
+\end{verbatim}
+
+\subsection{参考题解，牛顿迭代法}
+
+\begin{verbatim}
+/**
+* @param {number} x
+* @return {number}
+*/
+var mySqrt = function(x) {
+  let r = x;
+  while (r * r > x) {
+    r = Math.floor((r + Math.floor(x / r)) / 2);
+  }
+  return r;
+};
+\end{verbatim}
+
+\subsection{扩展，雷神之锤}
+
+\begin{verbatim}
+float InvSqrt (float x){
+  float xhalf = 0.5f*x;
+  int i = *(int*)&x;
+  i = 0x5f3759df - (i>>1);
+  x = *(float*)&i;
+  x = x*(1.5f - xhalf*x*x);
+  return x;
+}
+\end{verbatim}

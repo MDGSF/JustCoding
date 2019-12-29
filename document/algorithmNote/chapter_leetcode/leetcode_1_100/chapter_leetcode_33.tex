@@ -28,7 +28,44 @@
   输出: -1
 \end{verbatim}
 
-\subsection{参考题解，二分查找}
+\subsection{参考题解，二分查找1}
+
+nums = [7,8,9,1,2,3,4,5,6]
+
+如果 target = 8，那我们把数组修改为：\\
+\verb|[7,8,9,inf,inf,inf,inf,inf,inf]| \\
+inf 表示无穷大，那这样我们就可以用二分查找了。
+
+如果 target = 5，那我们把数组修改为：\\
+\verb|[-inf,-inf,-inf,1,2,3,4,5,6]| \\
+-inf 表示负无穷大，那这样我们就可以用二分查找了。
+
+我们不需要真的去修改数组，只要每次计算 mid 中间那个数字的时候，
+判断下 mid 和 target 是否在同一侧。如果在同一侧的话，就直接
+判断即可，如果不在同一侧的话，把 mid 修改为 inf 或者 -inf 即可。
+
+举例说明：
+
+[7,8,9,1,2,3,4,5,6] \\
+mid = 2, target = 6，在同一侧，所以 mid 不用修改。\\
+mid = 2, target = 9，不在同一侧，把 mid 修改为 inf。
+
+[4,5,6,7,8,9,1,2,3] \\
+mid = 8，target = 9，在同一侧，所以 mid 不用修改。\\
+mid = 8，target = 2，不在同一侧，把 mid 修改为 -inf。
+
+那现在有两个问题。\\
+1. 怎么判断是否在同一侧？ \\
+2. 怎么判断 mid 要修改为 inf 还是 -inf？
+
+判断 mid 和 target 是否在同一侧，只需要和 nums[0] 对比即可。
+如果 mid 和 target 都比 nums[0] 小，或者都比 nums[0] 大，
+那他们就是在同一侧，否则就不在同一侧。
+
+判断要修改为 inf 还是 -inf，就是把 target 和 nums[0] 对比即可。
+如果 target < nums[0]，说明 target 是在右侧，mid 则在左侧，
+所以把 mid 修改为 -inf。那如果 target > nums[0]，说明 target 在
+左侧，mid 在右侧，所以把 mid 修改为 inf。
 
 \begin{verbatim}
 /**
@@ -54,4 +91,47 @@ var search = function(nums, target) {
   }
   return -1;
 };
+\end{verbatim}
+
+\subsection{参考题解，二分查找2}
+
+先用二分查找找到最小的那个数字，也就是数组的转折的那个点。
+然后再用一次二分查找来找到 target。
+
+\begin{verbatim}
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(nums, target) {
+  let rot = findSmallestIndex(nums);
+  let left = 0;
+  let right = nums.length - 1;
+  while (left <= right) {
+    let mid = left + Math.floor((right - left) / 2);
+    let realMid = (mid + rot) % nums.length;
+    if (nums[realMid] === target) {
+      return realMid;
+    } else if (nums[realMid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1;
+};
+
+function findSmallestIndex(nums) {
+  let [left, right] = [0, nums.length - 1];
+  while (left < right) {
+    let mid = left + Math.floor((right - left) / 2);
+    if (nums[mid] > nums[right]) {
+      left = mid + 1;
+    } else {
+      right = mid;
+    }
+  }
+  return left;
+}
 \end{verbatim}

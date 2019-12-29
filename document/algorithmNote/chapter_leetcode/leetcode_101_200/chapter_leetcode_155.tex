@@ -2,6 +2,32 @@
 \section{155. 最小栈}
 \label{leetcode:155}
 
+\subsection{题目}
+
+设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。
+
+\begin{enumerate}
+  \item push(x) -- 将元素 x 推入栈中。
+  \item pop() -- 删除栈顶的元素。
+  \item top() -- 获取栈顶元素。
+  \item getMin() -- 检索栈中的最小元素。
+\end{enumerate}
+
+\textbf{示例}:
+
+\begin{verbatim}
+  MinStack minStack = new MinStack();
+  minStack.push(-2);
+  minStack.push(0);
+  minStack.push(-3);
+  minStack.getMin();   --> 返回 -3.
+  minStack.pop();
+  minStack.top();      --> 返回 0.
+  minStack.getMin();   --> 返回 -2.
+\end{verbatim}
+
+\subsection{参考题解}
+
 \begin{verbatim}
 /**
  * initialize your data structure here.
