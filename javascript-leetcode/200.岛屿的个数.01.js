@@ -54,22 +54,30 @@ var numIslands = function(grid) {
     for (let col = 0; col < cols; col += 1) {
       if (grid[row][col] === "1") {
         count += 1;
-        destroyIslandDFS(grid, row, col);
+        destroyIslandBFS(grid, row, col);
       }
     }
   }
   return count;
 };
 
-function destroyIslandDFS(grid, row, col) {
-  grid[row][col] = "0";
+function destroyIslandBFS(grid, row, col) {
   const dirs = [ [-1, 0], [1, 0], [0, -1], [0, 1] ];
-  for (let i = 0; i < dirs.length; i += 1) {
-    let newRow = row + dirs[i][0];
-    let newCol = col + dirs[i][1];
-    if (isIndexValid(grid, newRow, newCol) &&
-      grid[newRow][newCol] === "1") {
-      destroyIslandDFS(grid, newRow, newCol);
+  grid[row][col] = "0";
+  let queue = [];
+  queue.push([row, col]);
+  while (queue.length > 0) {
+    let cur = queue.shift();
+    let curRow = cur[0];
+    let curCol = cur[1];
+    for (let i = 0; i < dirs.length; i += 1) {
+      let newRow = curRow + dirs[i][0];
+      let newCol = curCol + dirs[i][1];
+      if (isIndexValid(grid, newRow, newCol) &&
+        grid[newRow][newCol] === "1") {
+        grid[newRow][newCol] = "0";
+        queue.push([newRow, newCol]);
+      }
     }
   }
 }
