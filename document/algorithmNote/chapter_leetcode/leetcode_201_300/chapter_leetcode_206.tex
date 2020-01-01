@@ -16,7 +16,7 @@
 \textbf{进阶}: \\
 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
 
-\subsection{参考题解}
+\subsection{参考题解，迭代}
 
 \begin{verbatim}
 /**
@@ -39,5 +39,30 @@ var reverseList = function(head) {
     cur = next;
   }
   return pre;
+};
+\end{verbatim}
+
+\subsection{参考题解，递归}
+
+\begin{verbatim}
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+  if (head === null || head.next === null) {
+    return head;
+  }
+  let p = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return p;
 };
 \end{verbatim}

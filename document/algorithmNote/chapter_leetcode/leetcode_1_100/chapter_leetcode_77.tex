@@ -23,6 +23,32 @@
 
 \subsection{参考题解}
 
+n = 4, k = 2 时状态树如下：
+
+\includegraphics[width=100mm,height=50mm]{images/leetcode/leetcode_77.png}
+
+n = 4, k = 3 时状态树如下：
+
+\includegraphics[width=100mm,height=50mm]{images/leetcode/leetcode_77_4_3.png}
+
+遍历整个状态树，找到叶子节点中，数组长度等于 k 的节点，就是我们要的结果。
+
+可以这么理解整个遍历的过程：
+
+\begin{displaymath}
+  \mathrm{C}_n^k = \mathrm{C}_{n-1}^{k-1} + \mathrm{C}_{n-1}^k
+\end{displaymath}
+
+$\mathrm{C}_n^k$ 表示在 n 个中取 k 个。
+可以分为两种情况：
+
+\begin{itemize}
+  \item $\mathrm{C}_{n-1}^{k-1}$ 选择了第 n 个，然后我们只要在
+    剩下的 n-1 个中选择 k-1 个。
+  \item $\mathrm{C}_{n-1}^k$ 不选择第 n 个，那么我们需要在
+    剩下的 n-1 个中选择 k 个。
+\end{itemize}
+
 \begin{verbatim}
 /**
  * @param {number} n

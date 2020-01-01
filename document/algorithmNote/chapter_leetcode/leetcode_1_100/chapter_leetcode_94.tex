@@ -21,7 +21,7 @@
 
 \textbf{进阶}: 递归算法很简单，你可以通过迭代算法完成吗？
 
-\subsection{参考题解}
+\subsection{参考题解，递归版本}
 
 \begin{verbatim}
 /**
@@ -47,4 +47,35 @@ function recursion(root, result) {
   result.push(root.val);
   recursion(root.right, result);
 }
+\end{verbatim}
+
+\subsection{参考题解，非递归版本}
+
+\begin{verbatim}
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function(root) {
+  let result = [];
+  let stack = [];
+  let currNode = root;
+  while (currNode !== null || stack.length > 0) {
+    while (currNode !== null) {
+      stack.push(currNode);
+      currNode = currNode.left;
+    }
+    currNode = stack.pop();
+    result.push(currNode.val);
+    currNode = currNode.right;
+  }
+  return result;
+};
 \end{verbatim}
