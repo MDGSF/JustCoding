@@ -21,13 +21,15 @@
 
 \subsection{参考题解，栈}
 
+用栈保存一个下降的序列。
+
 \begin{verbatim}
 /**
  * @param {number[]} height
  * @return {number}
  */
 var trap = function(height) {
-  var peek = function(stack) { return stack[stack.length - 1]; }
+  var peek = function(stack) { return stack[stack.length - 1]; };
   let result = 0;
   let stack = [];
   for (let i = 0; i < height.length; i += 1) {
@@ -36,9 +38,10 @@ var trap = function(height) {
       if (stack.length === 0) {
         break;
       }
-      let width = i - peek(stack) - 1;
-      let bounded_height = Math.min(height[i], height[peek(stack)]) - height[top];
-      result += width * bounded_height;
+      let curWidth = i - peek(stack) - 1;
+      let curHeight = Math.min(height[i], height[peek(stack)]) - height[top];
+      let curArea = curWidth * curHeight;
+      result += curArea;
     }
     stack.push(i);
   }

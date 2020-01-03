@@ -24,6 +24,8 @@
 因为两重循环，所以时间复杂度为 O(n$^{2}$)。
 因为没有而外开辟空间，所以空间复杂度为 O(1)。
 
+\subsubsection{JavaScript}
+
 \begin{verbatim}
 /**
  * @param {number[]} nums
@@ -41,6 +43,21 @@ var twoSum = function(nums, target) {
 };
 \end{verbatim}
 
+\subsubsection{Golang}
+
+\begin{verbatim}
+func twoSum(nums []int, target int) []int {
+  for i := 0; i < len(nums); i++ {
+    for j := i + 1; j < len(nums); j++ {
+      if nums[i]+nums[j] == target {
+        return []int{i, j}
+      }
+    }
+  }
+  return nil
+}
+\end{verbatim}
+
 \subsection{参考题解，哈希表，两重循环}
 
 因为 numA + numB = target，所以 numA = target - numB。
@@ -49,6 +66,8 @@ var twoSum = function(nums, target) {
 
 时间复杂度： O(n)。\\
 空间复杂度： O(n)。
+
+\subsubsection{JavaScript}
 
 \begin{verbatim}
 /**
@@ -71,6 +90,26 @@ var twoSum = function(nums, target) {
 };
 \end{verbatim}
 
+\subsubsection{Golang}
+
+\begin{verbatim}
+func twoSum(nums []int, target int) []int {
+  m := make(map[int]int)
+  for i := 0; i < len(nums); i++ {
+    m[nums[i]] = i
+  }
+  for i := 0; i < len(nums); i++ {
+    num := nums[i]
+    peer := target - num
+    peerIdx, ok := m[peer]
+    if ok && peerIdx != i {
+      return []int{i, peerIdx}
+    }
+  }
+  return nil
+}
+\end{verbatim}
+
 \subsection{参考题解，哈希表，一重循环}
 
 这种方法是在上一种的基础上再次优化，减少了一重循环，
@@ -78,6 +117,8 @@ var twoSum = function(nums, target) {
 
 时间复杂度： O(n)。\\
 空间复杂度： O(n)。
+
+\subsubsection{JavaScript}
 
 \begin{verbatim}
 /**
@@ -96,6 +137,23 @@ var twoSum = function(nums, target) {
     m.set(num, i);
   }
 };
+\end{verbatim}
+
+\subsubsection{Golang}
+
+\begin{verbatim}
+func twoSum(nums []int, target int) []int {
+  m := make(map[int]int)
+  for i := 0; i < len(nums); i++ {
+    num := nums[i]
+    peer := target - num
+    if peerIdx, ok := m[peer]; ok {
+      return []int{peerIdx, i}
+    }
+    m[num] = i
+  }
+  return nil
+}
 \end{verbatim}
 
 \subsection{题目小结}

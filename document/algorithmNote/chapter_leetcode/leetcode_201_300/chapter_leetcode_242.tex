@@ -1,5 +1,5 @@
 \newpage
-\section{242. 有效的字母异位词} 
+\section{242. 有效的字母异位词}
 \label{leetcode:242}
 
 \subsection{题目}
@@ -26,7 +26,7 @@
 \textbf{进阶}:\\
 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
 
-\subsection{参考题解}
+\subsection{参考题解，JavaScript}
 
 \begin{verbatim}
 /**
@@ -43,4 +43,25 @@ var isAnagram = function(s, t) {
   }
   return m.filter(e => e > 0).length === 0;
 };
+\end{verbatim}
+
+\subsection{参考题解，Golang}
+
+\begin{verbatim}
+func isAnagram(s string, t string) bool {
+  if len(s) != len(t) {
+    return false
+  }
+  m := make([]int, 26)
+  for i := range s {
+    m[s[i]-97]++
+    m[t[i]-97]--
+  }
+  for i := 0; i < len(m); i++ {
+    if m[i] > 0 {
+      return false
+    }
+  }
+  return true
+}
 \end{verbatim}

@@ -50,7 +50,7 @@
   输出: true
 \end{verbatim}
 
-\subsection{参考题解}
+\subsection{参考题解 1}
 
 \begin{verbatim}
 /**
@@ -66,6 +66,27 @@ var isValid = function(s) {
       stack.push(']');
     } else if (c === '{') {
       stack.push('}');
+    } else if (c !== stack.pop()) {
+      return false;
+    }
+  }
+  return stack.length === 0;
+};
+\end{verbatim}
+
+\subsection{参考题解 1}
+
+\begin{verbatim}
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+  let stack = [];
+  let m = {'(': ')', '[': ']', '{': '}'};
+  for (let c of s) {
+    if (m.hasOwnProperty(c)) {
+      stack.push(m[c]);
     } else if (c !== stack.pop()) {
       return false;
     }

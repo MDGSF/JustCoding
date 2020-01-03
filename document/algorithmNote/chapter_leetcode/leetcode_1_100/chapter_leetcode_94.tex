@@ -23,6 +23,8 @@
 
 \subsection{参考题解，递归版本}
 
+\subsubsection{JavaScript}
+
 \begin{verbatim}
 /**
  * Definition for a binary tree node.
@@ -49,7 +51,30 @@ function recursion(root, result) {
 }
 \end{verbatim}
 
+\subsubsection{Golang}
+
+\begin{verbatim}
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func inorderTraversal(root *TreeNode) []int {
+  if root == nil {
+    return nil
+  }
+  leftSubTree := inorderTraversal(root.Left)
+  rightSubTree := inorderTraversal(root.Right)
+  return append(append(leftSubTree, root.Val), rightSubTree...)
+}
+\end{verbatim}
+
 \subsection{参考题解，非递归版本}
+
+\subsubsection{JavaScript}
 
 \begin{verbatim}
 /**
@@ -78,4 +103,25 @@ var inorderTraversal = function(root) {
   }
   return result;
 };
+\end{verbatim}
+
+\subsubsection{Golang}
+
+\begin{verbatim}
+func inorderTraversal(root *TreeNode) []int {
+  result := make([]int, 0)
+  stack := make([]*TreeNode, 0)
+  currNode := root
+  for currNode != nil || len(stack) > 0 {
+    for currNode != nil {
+      stack = append(stack, currNode)
+      currNode = currNode.Left
+    }
+    currNode = stack[len(stack)-1]
+    stack = stack[:len(stack)-1]
+    result = append(result, currNode.Val)
+    currNode = currNode.Right
+  }
+  return result
+}
 \end{verbatim}
