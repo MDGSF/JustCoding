@@ -20,7 +20,7 @@
 
 \subsection{参考题解，暴力递归}
 
-n = 3，那么字符串的长度 = 2 * n = 6，每一个字符都可以是 
+n = 3，那么字符串的长度 = 2 * n = 6，每一个字符都可以是
 \verb|'('| 或者 \verb|')'|，我们遍历出所有的情况，然后
 最后加上合法性判断。
 
@@ -83,6 +83,8 @@ var isValid = function(s) {
 比如根节点的右儿子，很明显这个分支的所有情况都是不合法的，我们
 如果能够把这个去掉，就可以加快遍历的速度。但是时间复杂度依然是 O(2$^{n}$)。
 
+\subsubsection{JavaScript}
+
 \begin{verbatim}
 /**
  * @param {number} n
@@ -105,5 +107,29 @@ function recursion(result, left, right, n, strs) {
   if (right < left) {
     recursion(result, left, right + 1, n, strs + ")");
   }
+}
+\end{verbatim}
+
+\subsubsection{Golang}
+
+\begin{verbatim}
+func generateParenthesis(n int) []string {
+  return recursion(0, 0, n, "")
+}
+
+func recursion(left, right, n int, strs string) []string {
+  if left == n && right == n {
+    return []string{strs}
+  }
+  result := make([]string, 0)
+  if left < n {
+    sub := recursion(left+1, right, n, strs+"(")
+    result = append(result, sub...)
+  }
+  if right < left {
+    sub := recursion(left, right+1, n, strs+")")
+    result = append(result, sub...)
+  }
+  return result
 }
 \end{verbatim}

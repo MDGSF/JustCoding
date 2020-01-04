@@ -7,12 +7,12 @@ func main() {
 }
 
 func climbStairs(n int) int {
-	if n <= 2 {
+	if n < 3 {
 		return n
 	}
-	i, j := 1, 2
-	for idx := 3; idx <= n; idx++ {
-		i, j = j, i+j
+	f1, f2 := 1, 2
+	for i := 3; i <= n; i++ {
+		f1, f2 = f2, f1+f2
 	}
-	return j
+	return f2
 }

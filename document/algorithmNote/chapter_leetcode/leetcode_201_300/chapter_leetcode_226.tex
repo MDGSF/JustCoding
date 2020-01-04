@@ -28,6 +28,8 @@
 
 \subsection{参考题解}
 
+\subsubsection{JavaScript}
+
 \begin{verbatim}
 /**
  * Definition for a binary tree node.
@@ -48,4 +50,27 @@ var invertTree = function(root) {
   root.left = invertTree(right);
   return root;
 };
+\end{verbatim}
+
+\subsubsection{Golang}
+
+\begin{verbatim}
+/**
+* Definition for a binary tree node.
+* type TreeNode struct {
+*     Val int
+*     Left *TreeNode
+*     Right *TreeNode
+* }
+*/
+func invertTree(root *TreeNode) *TreeNode {
+  if root == nil {
+    return nil
+  }
+  left := root.Left
+  right := root.Right
+  root.Left = invertTree(right)
+  root.Right = invertTree(left)
+  return root
+}
 \end{verbatim}

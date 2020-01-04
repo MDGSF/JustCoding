@@ -40,6 +40,8 @@
 
 \subsection{参考题解}
 
+\subsubsection{JavaScript}
+
 \begin{verbatim}
 /**
  * Definition for a binary tree node.
@@ -64,4 +66,31 @@ var lowestCommonAncestor = function(root, p, q) {
   if (right === null) { return left; }
   return root;
 };
+\end{verbatim}
+
+\subsubsection{Golang}
+
+\begin{verbatim}
+/**
+* Definition for TreeNode.
+* type TreeNode struct {
+*     Val int
+*     Left *ListNode
+*     Right *ListNode
+* }
+*/
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+  if root == nil || root == p || root == q {
+    return root
+  }
+  left := lowestCommonAncestor(root.Left, p, q)
+  right := lowestCommonAncestor(root.Right, p, q)
+  if left == nil {
+    return right
+  }
+  if right == nil {
+    return left
+  }
+  return root
+}
 \end{verbatim}

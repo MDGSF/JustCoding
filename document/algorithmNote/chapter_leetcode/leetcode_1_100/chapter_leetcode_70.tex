@@ -33,6 +33,8 @@
 
 \subsection{参考题解}
 
+\subsubsection{JavaScript}
+
 \begin{verbatim}
 /**
  * @param {number} n
@@ -48,4 +50,19 @@ var climbStairs = function(n) {
   }
   return f2;
 };
+\end{verbatim}
+
+\subsubsection{Golang}
+
+\begin{verbatim}
+func climbStairs(n int) int {
+  if n < 3 {
+    return n
+  }
+  f1, f2 := 1, 2
+  for i := 3; i <= n; i++ {
+    f1, f2 = f2, f1+f2
+  }
+  return f2
+}
 \end{verbatim}

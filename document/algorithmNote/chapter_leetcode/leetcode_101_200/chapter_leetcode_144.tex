@@ -9,19 +9,21 @@
 \textbf{示例}:
 
 \begin{verbatim}
-  输入: [1,null,2,3]  
+  输入: [1,null,2,3]
      1
       \
        2
       /
-     3 
+     3
 
   输出: [1,2,3]
 \end{verbatim}
 
 \textbf{进阶}: 递归算法很简单，你可以通过迭代算法完成吗？
 
-\subsection{参考题解}
+\subsection{参考题解，递归版本}
+
+\subsubsection{JavaScript}
 
 \begin{verbatim}
 /**
@@ -46,5 +48,26 @@ function recursion(root, result) {
   result.push(root.val);
   recursion(root.left, result);
   recursion(root.right, result);
+}
+\end{verbatim}
+
+\subsubsection{Golang}
+
+\begin{verbatim}
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func preorderTraversal(root *TreeNode) []int {
+  if root == nil {
+    return nil
+  }
+  leftSubTree := preorderTraversal(root.Left)
+  rightSubTree := preorderTraversal(root.Right)
+  return append(append([]int{root.Val}, leftSubTree...), rightSubTree...)
 }
 \end{verbatim}

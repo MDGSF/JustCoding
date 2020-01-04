@@ -24,6 +24,8 @@
 
 \subsection{参考题解}
 
+\subsubsection{JavaScript}
+
 \begin{verbatim}
 /**
  * Definition for a binary tree node.
@@ -41,4 +43,28 @@ var maxDepth = function(root) {
     ? 0
     : 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
+\end{verbatim}
+
+\subsubsection{Golang}
+
+\begin{verbatim}
+/**
+* Definition for a binary tree node.
+* type TreeNode struct {
+*     Val int
+*     Left *TreeNode
+*     Right *TreeNode
+* }
+*/
+func maxDepth(root *TreeNode) int {
+  if root == nil {
+    return 0
+  }
+  left := maxDepth(root.Left)
+  right := maxDepth(root.Right)
+  if left > right {
+    return left + 1
+  }
+  return right + 1
+}
 \end{verbatim}
