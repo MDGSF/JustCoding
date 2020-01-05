@@ -22,11 +22,44 @@
 \begin{verbatim}
   输入: 8
   输出: 2
-  说明: 8 的平方根是 2.82842..., 
+  说明: 8 的平方根是 2.82842...,
        由于返回类型是整数，小数部分将被舍去。
 \end{verbatim}
 
 \subsection{参考题解，二分法}
+
+\subsubsection{Java}
+
+\begin{verbatim}
+class Solution {
+  public int mySqrt(int x) {
+    return (int)MySqrt(x, 0.01);
+  }
+
+  double MySqrt(int x, double precisoin) {
+    if (x == 0 || x == 1) {
+      return x;
+    }
+
+    double left = 0;
+    double right = x;
+    while (left <= right) {
+      double mid = left + (right - left) / 2;
+      double cur = mid * mid;
+      if (cur - x >= -precisoin && cur - x <= precisoin) {
+        return mid;
+      } else if (cur > x) {
+        right = mid;
+      } else {
+        left = mid;
+      }
+    }
+    return 0;
+  }
+}
+\end{verbatim}
+
+\subsubsection{JavaScript}
 
 \begin{verbatim}
 /**
@@ -60,6 +93,22 @@ function MySqrt(x, precision) {
 \end{verbatim}
 
 \subsection{参考题解，牛顿迭代法}
+
+\subsubsection{Java}
+
+\begin{verbatim}
+class Solution {
+  public int mySqrt(int x) {
+    long r = x;
+    while (r * r > x) {
+      r = (r + x / r) / 2;
+    }
+    return (int)r;
+  }
+}
+\end{verbatim}
+
+\subsubsection{JavaScript}
 
 \begin{verbatim}
 /**

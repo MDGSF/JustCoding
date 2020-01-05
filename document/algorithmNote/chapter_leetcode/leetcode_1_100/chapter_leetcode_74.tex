@@ -37,6 +37,37 @@
 
 \subsection{参考题解，二分查找}
 
+\subsubsection{Java}
+
+\begin{verbatim}
+class Solution {
+  public boolean searchMatrix(int[][] matrix, int target) {
+    int rows = matrix.length;
+    if (rows == 0) {
+      return false;
+    }
+    int cols = matrix[0].length;
+    int left = 0;
+    int right = rows * cols - 1;
+    while (left <= right) {
+      int mid = left + (right - left) / 2;
+      int midRow = mid / cols;
+      int midCol = mid % cols;
+      if (matrix[midRow][midCol] == target) {
+        return true;
+      } else if (matrix[midRow][midCol] > target) {
+        right = mid - 1;
+      } else {
+        left = mid + 1;
+      }
+    }
+    return false;
+  }
+}
+\end{verbatim}
+
+\subsubsection{JavaScript}
+
 \begin{verbatim}
 /**
 * @param {number[][]} matrix
