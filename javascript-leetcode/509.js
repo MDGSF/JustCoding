@@ -8,9 +8,8 @@ var fib = function(N) {
   }
   let f1 = 0;
   let f2 = 1;
-  let f3 = 1;
-  for (let i = 2; i < N; i += 1) {
-    [f1, f2, f3] = [f2, f3, f2 + f3];
+  for (let i = 2; i <= N; i += 1) {
+    [f1, f2] = [f2, f1 + f2];
   }
-  return f3;
+  return f2;
 };
