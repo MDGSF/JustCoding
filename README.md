@@ -1,6 +1,16 @@
 # JustCoding
 
-## 制作动画工具
+## 辅助记忆工具
+
+anki
+
+anki 的官网 https://apps.ankiweb.net/
+
+## 画图、动画工具
+
+https://www.draw.io/
+
+http://asciiflow.com/
 
 matplot
 
