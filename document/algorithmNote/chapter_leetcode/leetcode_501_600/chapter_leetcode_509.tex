@@ -152,8 +152,31 @@ var fib = function(N) {
 
 \subsection{参考题解，查表法}
 
+因为题目中说了 N 的范围是 0 到 30，所以这个
+范围比较小，我们可以事先把答案算出来，然后查表。
+
 时间复杂度 O(1)。\\
 空间复杂度 O(n)。
+
+\begin{verbatim}
+/**
+ * @param {number} N
+ * @return {number}
+ */
+var fib = function(N) {
+  return fibArray[N];
+};
+
+const fibArray = [
+       0,      1,      1,      2,      3,
+       5,      8,     13,     21,     34,
+      55,     89,    144,    233,    377,
+     610,    987,   1597,   2584,   4181,
+    6765,  10946,  17711,  28657,  46368,
+   75025, 121393, 196418, 317811, 514229,
+  832040
+];
+\end{verbatim}
 
 \subsection{参考题解，矩阵法}
 
@@ -164,3 +187,105 @@ var fib = function(N) {
 
 时间复杂度 O(1)。\\
 空间复杂度 O(1)。
+
+通项公式：
+
+\begin{displaymath}
+  f(n) = \frac
+  {{ \frac{1 + \sqrt{5}}{2} }^{n} - { \frac{1 - \sqrt{5}}{2} }^{n}}
+  {\sqrt{5}}
+\end{displaymath}
+
+\begin{verbatim}
+/**
+* @param {number} N
+* @return {number}
+*/
+var fib = function(N) {
+  return Math.round((Math.pow((1 + Math.sqrt(5))/2 , N) -
+      Math.pow((1 - Math.sqrt(5))/2, N)) / Math.sqrt(5));
+};
+\end{verbatim}
+
+\subsection{题目扩展1}
+
+T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+
+详细见题目 \hyperref[leetcode:1137]{1137. 第 N 个泰波那契数}
+
+\subsection{题目扩展2}
+
+如果相邻的步数不能相同，要怎么办？下面这是个人思考，不一定正确。
+
+\begin{verbatim}
+/*
+n = 5, steps = 1, 2
+0
+1 1
+2 2
+3 1+2, 2+1
+4 1+2+1
+5 2+1+2
+   0  1  2  3  4  5
+1  0  1  n  1  1  n
+2  0  n  1  1  n  1
+
+
+n = 5, steps = 1, 2, 3
+0
+1 1
+2 2
+3 3, 1+2, 2+1
+4 3+1, 1+2+1, 1+3
+5 1+3+1, 3+2, 2+1+2, 2+3
+   0  1  2  3  4  5
+1  0  1  n  1  2  1
+2  0  n  1  1  n  2
+3  0  n  n  1  1  1
+*/
+\end{verbatim}
+
+\begin{verbatim}
+function superfib(n, steps) {
+  let states = new Array(steps.length).fill(null).map(() => {
+    return new Array(n+1).fill(null);
+  });
+
+  for (let col = 1; col <= n; col += 1) {
+    for (let row = 0; row < steps.length; row += 1) {
+      let step = steps[row];
+      let preCol = col - step;
+      if (preCol < 0) {
+        continue;
+      }
+      if (preCol === 0) {
+        states[row][col] = 1;
+        continue;
+      }
+
+      let preSum = 0;
+      for (let preRow = 0; preRow < steps.length; preRow += 1) {
+        if (preRow !== row && states[preRow][preCol] !== null) {
+          preSum += states[preRow][preCol];
+        }
+      }
+      if (preSum > 0) {
+        states[row][col] = preSum;
+      }
+    }
+  }
+
+  let result = 0;
+  for (let row = 0; row < steps.length; row += 1) {
+    if (states[row][n] !== null) {
+      result += states[row][n];
+    }
+  }
+  return result;
+}
+
+const n = 5;
+const steps = [1,2,3];
+const result = superfib(n, steps);
+console.log(result);
+\end{verbatim}

@@ -3,13 +3,9 @@
  * @return {number}
  */
 var fib = function(N) {
-  if (N < 2) {
-    return N;
-  }
-  let f1 = 0;
-  let f2 = 1;
-  for (let i = 2; i <= N; i += 1) {
-    [f1, f2] = [f2, f1 + f2];
-  }
-  return f2;
+  return Math.round((Math.pow((1 + Math.sqrt(5))/2 , N) -
+      Math.pow((1 - Math.sqrt(5))/2, N)) / Math.sqrt(5));
 };
+
+console.log(fib(10));
+

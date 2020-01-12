@@ -1,3 +1,53 @@
 \newpage
 \section{1137. 第 N 个泰波那契数}
 \label{leetcode:1137}
+
+\subsection{题目}
+
+泰波那契序列 Tn 定义如下： 
+
+T0 = 0, T1 = 1, T2 = 1, 且在 n $\geq$ 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+
+给你整数 n，请返回第 n 个泰波那契数 Tn 的值。
+
+示例 1：
+
+\begin{verbatim}
+  输入：n = 4
+  输出：4
+  解释：
+  T_3 = 0 + 1 + 1 = 2
+  T_4 = 1 + 1 + 2 = 4
+\end{verbatim}
+
+示例 2：
+
+\begin{verbatim}
+  输入：n = 25
+  输出：1389537
+\end{verbatim}
+
+提示：
+
+$0 \leq n \leq 37$ \\
+答案保证是一个 32 位整数，即 $answer <= {2}^{31} - 1$。
+
+\subsection{参考题解}
+
+\begin{verbatim}
+/**
+* @param {number} n
+* @return {number}
+*/
+var tribonacci = function(n) {
+  if (n < 2) { return n; }
+  if (n === 2) { return 1; }
+  let f0 = 0;
+  let f1 = 1;
+  let f2 = 1;
+  for (let i = 3; i <= n; i += 1) {
+    [f0, f1, f2] = [f1, f2, f0 + f1 + f2];
+  }
+  return f2;
+};
+\end{verbatim}

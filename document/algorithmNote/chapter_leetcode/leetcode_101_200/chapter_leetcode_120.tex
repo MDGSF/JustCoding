@@ -1,3 +1,42 @@
 \newpage
 \section{120. 三角形最小路径和}
 \label{leetcode:120}
+
+\subsection{题目}
+
+给定一个整数数组 nums ，找出一个序列中乘积最大的连续子序列（该序列至少包含一个数）。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: [2,3,-2,4]
+  输出: 6
+  解释: 子数组 [2,3] 有最大乘积 6。
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: [-2,0,-1]
+  输出: 0
+  解释: 结果不能为 2, 因为 [-2,-1] 不是子数组。
+\end{verbatim}
+
+\subsection{参考题解}
+
+\begin{verbatim}
+/**
+* @param {number[][]} triangle
+* @return {number}
+*/
+var minimumTotal = function(triangle) {
+  // dp[row][col] = min(dp[row+1][col], dp[row+1][col+1]) + triangle[row][col]
+  for (let row = triangle.length - 2; row >= 0; row -= 1) {
+    for (let col = 0; col < triangle[row].length; col += 1) {
+      triangle[row][col] = Math.min(triangle[row+1][col],
+        triangle[row+1][col+1]) + triangle[row][col];
+    }
+  }
+  return triangle[0][0];
+};
+\end{verbatim}
