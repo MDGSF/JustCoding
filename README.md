@@ -1,5 +1,13 @@
 # JustCoding
 
+## 算法学习笔记
+
+[算法学习笔记_20200116.pdf 百度网盘链接](https://pan.baidu.com/s/18zKJ_2IlUDGdfbSO5IIrrQ)  
+
+提取码: xpzm
+
+原始文件在 document 目录下，是用 tex 写的。
+
 ## 辅助记忆工具
 
 anki
@@ -12,21 +20,7 @@ https://www.draw.io/
 
 http://asciiflow.com/
 
-matplot
-
-## 目录
-
-```
-binarysearch
-leetcode
-sword_to_offer
-```
-
-## 图书
-
-```
-<<剑指 offer>>
-```
+python 的 matplot
 
 ## 刷题网站
 
@@ -34,7 +28,11 @@ sword_to_offer
 
 [leetcode.com](https://leetcode.com/)
 
-## 友情链接
+## 其他资源
+
+```
+<<剑指 offer>>
+```
 
 [euler](https://projecteuler.net/)
 
