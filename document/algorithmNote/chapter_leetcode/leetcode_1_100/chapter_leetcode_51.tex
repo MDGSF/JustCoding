@@ -42,6 +42,8 @@ n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并
 
 \includegraphics[width=70mm,height=50mm]{images/leetcode/51.jpg}
 
+\paragraph{JavaScript 代码}
+
 \begin{verbatim}
 /**
  * @param {number} n
@@ -87,4 +89,20 @@ function dfs(n, row, cur, result, cols, pie, na) {
     na.delete(row - col);
   }
 }
+\end{verbatim}
+
+\paragraph{Python 代码}
+
+\begin{verbatim}
+def solveNQueens(self, n: int) -> List[List[str]]:
+  result = []
+  def dfs(cols, pie, na, row, curState):
+    if row == n:
+      result.append(curState)
+      return
+    for col in range(n):
+      if (col not in cols) and (row + col not in pie) and (row - col not in na):
+        dfs(cols|{col}, pie|{row+col}, na|{row-col}, row+1, curState+[col])
+  dfs(set(), set(), set(), 0, [])
+  return [["."*i + "Q" + "."*(n-i-1) for i in sol] for sol in result]
 \end{verbatim}

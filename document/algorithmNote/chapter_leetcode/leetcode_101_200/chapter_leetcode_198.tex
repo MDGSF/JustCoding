@@ -115,6 +115,8 @@ var rob = function(nums) {
 
 \subsection{参考题解，递推经典解法}
 
+\paragraph{JavaScript 代码}
+
 \begin{verbatim}
 /**
 * @param {number[]} nums
@@ -130,4 +132,14 @@ var rob = function(nums) {
   }
   return f1;
 };
+\end{verbatim}
+
+\paragraph{Python 代码}
+
+\begin{verbatim}
+def rob(self, nums: List[int]) -> int:
+  f1, f2 = 0, 0
+  for num in nums:
+    f1, f2 = f2, max(f1 + num, f2)
+  return f2
 \end{verbatim}
