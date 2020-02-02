@@ -3,3 +3,30 @@
 \label{leetcode:338}
 
 \subsection{题目}
+
+给定一个非负整数 num。对于 $0 \leq i \leq num$ 范围中的每个数字 i，
+计算其二进制数中的 1 的数目并将它们作为数组返回。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: 2
+  输出: [0,1,1]
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: 5
+  输出: [0,1,1,2,1,2]
+\end{verbatim}
+
+\subsection{参考题解}
+
+\begin{verbatim}
+def countBits(self, num: int) -> List[int]:
+  result = [0] * (num + 1)
+  for i in range(1, num + 1):
+    result[i] = result[i & (i - 1)] + 1
+  return result
+\end{verbatim}

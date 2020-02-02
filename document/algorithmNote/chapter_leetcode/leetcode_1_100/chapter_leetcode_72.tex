@@ -2,6 +2,46 @@
 \section{72. 编辑距离}
 \label{leetcode:72}
 
+\subsection{题目}
+
+给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数。
+
+你可以对一个单词进行如下三种操作：
+
+\begin{itemize}
+  \item 插入一个字符
+  \item 删除一个字符
+  \item 替换一个字符
+\end{itemize}
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: word1 = "horse", word2 = "ros"
+  输出: 3
+  解释:
+  horse -> rorse (将 'h' 替换为 'r')
+  rorse -> rose (删除 'r')
+  rose -> ros (删除 'e')
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: word1 = "intention", word2 = "execution"
+  输出: 5
+  解释:
+  intention -> inention (删除 't')
+  inention -> enention (将 'i' 替换为 'e')
+  enention -> exention (将 'n' 替换为 'x')
+  exention -> exection (将 'n' 替换为 'c')
+  exection -> execution (插入 'u')
+\end{verbatim}
+
+\subsection{参考题解，JavaScript 代码}
+
+这个题目要照着代码把 dp 的二维数组自己画下，就知道怎么回事了。
+
 \begin{verbatim}
 /**
 * @param {string} word1
@@ -33,4 +73,27 @@ var minDistance = function(word1, word2) {
   }
   return dp[word1.length][word2.length];
 };
+\end{verbatim}
+
+\subsection{参考题解，Python 代码}
+
+\begin{verbatim}
+class Solution:
+  def minDistance(self, word1: str, word2: str) -> int:
+    rows = len(word1) + 1
+    cols = len(word2) + 1
+    dp = [[0 for _ in range(cols)] for _ in range(rows)]
+    for row in range(1, rows):
+      dp[row][0] = dp[row-1][0] + 1
+    for col in range(1, cols):
+      dp[0][col] = col
+    for row in range(1, rows):
+      for col in range(1, cols):
+        if word1[row-1] == word2[col-1]:
+          dp[row][col] = 1 + min(dp[row-1][col], dp[row][col-1],
+              dp[row-1][col-1] - 1)
+        else:
+          dp[row][col] = 1 + min(dp[row-1][col], dp[row][col-1],
+              dp[row-1][col-1])
+    return dp[-1][-1]
 \end{verbatim}
