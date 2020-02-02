@@ -1,6 +1,60 @@
 \newpage
 \section{快速排序模板}
 
+\subsection{JavaScript 模板}
+
+\begin{verbatim}
+function QuickSort(a, start = 0, end = a.length - 1) {
+  if (start < end) {
+    const partitionIndex = partition(a, start, end);
+    QuickSort(a, start, partitionIndex - 1);
+    QuickSort(a, partitionIndex + 1, end);
+  }
+}
+
+function partition(a, start, end) {
+  const pivot = a[end];
+  let partitionIndex = start;
+  for (let i = start; i < end; i += 1) {
+    if (a[i] < pivot) {
+      swap(a, partitionIndex, i);
+      partitionIndex += 1;
+    }
+  }
+  swap(a, partitionIndex, end);
+  return partitionIndex;
+}
+
+function swap(a, i, j) {
+  const temp = a[i];
+  a[i] = a[j];
+  a[j] = temp;
+}
+\end{verbatim}
+
+\subsection{Python 模板}
+
+\begin{verbatim}
+def QuickSort(a):
+  quickSort(a, 0, len(a) - 1)
+
+def quickSort(a, start, end):
+  if start < end:
+    partitionIndex = partition(a, start, end)
+    quickSort(a, start, partitionIndex - 1)
+    quickSort(a, partitionIndex + 1, end)
+
+def partition(a, start, end):
+  pivot = a[end]
+  partitionIndex = start
+  for i in range(start, end):
+    if a[i] < pivot:
+      a[i], a[partitionIndex] = a[partitionIndex], a[i]
+      partitionIndex += 1
+  a[partitionIndex], a[end] = a[end], a[partitionIndex]
+  return partitionIndex
+\end{verbatim}
+
 \subsection{Java 模板}
 
 \begin{verbatim}

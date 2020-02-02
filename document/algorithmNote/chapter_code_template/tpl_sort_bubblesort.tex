@@ -1,0 +1,26 @@
+\newpage
+\section{冒泡排序模板}
+
+\subsection{JavaScript 模板}
+
+\begin{verbatim}
+function BubbleSort(a) {
+  for (let i = 1; i < a.length; i += 1) {
+    for (let j = 0; j < a.length - i; j += 1) {
+      if (a[j] > a[j+1]) {
+        [a[j], a[j+1]] = [a[j+1], a[j]];
+      }
+    }
+  }
+}
+\end{verbatim}
+
+\subsection{Python 模板}
+
+\begin{verbatim}
+def BubbleSort(a):
+  for i in range(1, len(a)):
+    for j in range(len(a) - i):
+      if a[j] > a[j + 1]:
+        a[j], a[j + 1] = a[j + 1], a[j]
+\end{verbatim}

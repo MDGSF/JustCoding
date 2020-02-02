@@ -3,3 +3,115 @@
 \label{leetcode:146}
 
 \subsection{题目}
+
+运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制。
+它应该支持以下操作： 获取数据 get 和 写入数据 put 。
+
+获取数据 get(key) - 如果密钥 (key) 存在于缓存中，则获取密钥的值（总是正数），否则返回 -1。
+写入数据 put(key, value) - 如果密钥不存在，则写入其数据值。当缓存容量达到上限时，
+它应该在写入新数据之前删除最近最少使用的数据值，从而为新的数据值留出空间。
+
+\textbf{进阶}:
+
+你是否可以在 O(1) 时间复杂度内完成这两种操作？
+
+\textbf{示例}:
+
+\begin{verbatim}
+  LRUCache cache = new LRUCache( 2 /* 缓存容量 */ );
+
+  cache.put(1, 1);
+  cache.put(2, 2);
+  cache.get(1);       // 返回  1
+  cache.put(3, 3);    // 该操作会使得密钥 2 作废
+  cache.get(2);       // 返回 -1 (未找到)
+  cache.put(4, 4);    // 该操作会使得密钥 1 作废
+  cache.get(1);       // 返回 -1 (未找到)
+  cache.get(3);       // 返回  3
+  cache.get(4);       // 返回  4
+\end{verbatim}
+
+\subsection{题目分析}
+
+这个题目就是实现一个 LRU cache，如果语言本身有自带的有序哈希表，
+那就直接使用，如果没有的话，可以自己使用一个哈希表加上一个双向链表来实现。
+
+\subsection{参考题解，JavaScript 代码}
+
+\begin{verbatim}
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function(capacity) {
+  this.m = new Map();
+  this.capacity = capacity;
+};
+
+/**
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function(key) {
+  if (!this.m.has(key)) {
+    return -1;
+  }
+  const value = this.m.get(key);
+  this.m.delete(key);
+  this.m.set(key, value);
+  return value;
+};
+
+/**
+ * @param {number} key
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function(key, value) {
+  if (this.m.has(key)) {
+    this.m.delete(key);
+  } else {
+    if (this.m.size + 1 > this.capacity) {
+      this.m.delete(this.m.keys().next().value);
+    }
+  }
+  this.m.set(key, value);
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * var obj = new LRUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
+\end{verbatim}
+
+\subsection{参考题解，Python 代码}
+
+\begin{verbatim}
+class LRUCache:
+  def __init__(self, capacity: int):
+    self.dict = collections.OrderedDict()
+    self.remain = capacity
+
+  def get(self, key: int) -> int:
+    if key not in self.dict:
+      return -1
+    v = self.dict.pop(key)
+    self.dict[key] = v
+    return v
+
+  def put(self, key: int, value: int) -> None:
+    if key in self.dict:
+      self.dict.pop(key)
+    else:
+      if self.remain > 0:
+        self.remain -= 1
+      else:
+        self.dict.popitem(last=False)
+    self.dict[key] = value
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
+\end{verbatim}

@@ -1,0 +1,29 @@
+\newpage
+\section{插入排序模板}
+
+\subsection{JavaScript 模板}
+
+\begin{verbatim}
+function InsertionSort(a) {
+  for (let i = 0; i < a.length; i += 1) {
+    for (let curIdx = i;
+      a[curIdx - 1] !== undefined &&
+      a[curIdx - 1] > a[curIdx];
+      curIdx -= 1) {
+      const temp = a[curIdx - 1];
+      a[curIdx - 1] = a[curIdx];
+      a[curIdx] = temp;
+    }
+  }
+}
+\end{verbatim}
+
+\subsection{Python 模板}
+
+\begin{verbatim}
+def InsertionSort(a):
+  for i in range(len(a)):
+    for curIdx in range(i, 0, -1):
+      if a[curIdx - 1] > a[curIdx]:
+        a[curIdx - 1], a[curIdx] = a[curIdx], a[curIdx - 1]
+\end{verbatim}
