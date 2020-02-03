@@ -3,3 +3,47 @@
 \label{leetcode:493}
 
 \subsection{题目}
+
+\subsection{参考题解，暴力法}
+
+遍历所有可能性，会超时。
+
+\begin{verbatim}
+class Solution:
+  def reversePairs(self, nums: List[int]) -> int:
+    count = 0
+    for i in range(len(nums)):
+      for j in range(i+1, len(nums)):
+        if nums[i] > 2 * nums[j]:
+          count += 1
+    return count
+\end{verbatim}
+
+\subsection{参考题解}
+
+利用归并排序思想，不过在两个子数组合并的时候，
+取巧了用 python 自带的 sorted 函数直接排序。
+
+\begin{verbatim}
+class Solution:
+  def reversePairs(self, nums: List[int]) -> int:
+    return self.mergeSort(nums, 0, len(nums) - 1)
+
+  def mergeSort(self, nums, start, end) -> int:
+    if start >= end: return 0
+    mid = start + (end - start) // 2
+    count = self.mergeSort(nums, start, mid) + self.mergeSort(nums, mid+1, end)
+    j = mid + 1
+    for i in range(start, mid + 1):
+      while j <= end and nums[i] > nums[j]*2:
+        j += 1
+      count += j - (mid + 1)
+    nums[start:end+1] = sorted(nums[start:end+1])
+    return count
+\end{verbatim}
+
+\subsection{参考题解}
+
+\begin{verbatim}
+
+\end{verbatim}

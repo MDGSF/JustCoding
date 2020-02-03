@@ -65,3 +65,26 @@ func isAnagram(s string, t string) bool {
   return true
 }
 \end{verbatim}
+
+\subsection{参考题解，Python}
+
+\paragraph{Python 方法一}
+
+\begin{verbatim}
+class Solution:
+  def isAnagram(self, s: str, t: str) -> bool:
+    if len(s) != len(t): return False
+    m = [0] * 26
+    for i in range(len(s)):
+      m[ord(s[i]) - 97] += 1
+      m[ord(t[i]) - 97] -= 1
+    return len(list(filter(lambda e: e > 0, m))) == 0
+\end{verbatim}
+
+\paragraph{Python 方法二}
+
+\begin{verbatim}
+class Solution:
+  def isAnagram(self, s: str, t: str) -> bool:
+    return collections.Counter(s) == collections.Counter(t)
+\end{verbatim}
