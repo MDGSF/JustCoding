@@ -2,7 +2,7 @@
 
 ## 算法学习笔记
 
-[算法学习笔记_20200116.pdf 百度网盘链接](https://pan.baidu.com/s/18zKJ_2IlUDGdfbSO5IIrrQ)  
+[算法学习笔记_20200116.pdf 百度网盘链接](https://pan.baidu.com/s/18zKJ_2IlUDGdfbSO5IIrrQ)
 
 提取码: xpzm
 
@@ -39,3 +39,6 @@ python 的 matplot
 [https://github.com/MisterBooo/LeetCodeAnimation](https://github.com/MisterBooo/LeetCodeAnimation)
 
 [https://github.com/kdn251/interviews](https://github.com/kdn251/interviews)
+
+[https://github.com/gaoshengnan/LeetCode](https://github.com/gaoshengnan/LeetCode)
+

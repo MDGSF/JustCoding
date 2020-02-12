@@ -63,8 +63,7 @@ var minDistance = function(word1, word2) {
   for (let row = 1; row < rows; row += 1) {
     for (let col = 1; col < cols; col += 1) {
       if (word1[row-1] == word2[col-1]) {
-        dp[row][col] = 1 + Math.min(dp[row-1][col],
-          dp[row][col-1], dp[row-1][col-1]-1);
+        dp[row][col] = dp[row-1][col-1];
       } else {
         dp[row][col] = 1 + Math.min(dp[row-1][col],
           dp[row][col-1], dp[row-1][col-1]);
@@ -90,8 +89,7 @@ class Solution:
     for row in range(1, rows):
       for col in range(1, cols):
         if word1[row-1] == word2[col-1]:
-          dp[row][col] = 1 + min(dp[row-1][col], dp[row][col-1],
-              dp[row-1][col-1] - 1)
+          dp[row][col] = dp[row-1][col-1]
         else:
           dp[row][col] = 1 + min(dp[row-1][col], dp[row][col-1],
               dp[row-1][col-1])
