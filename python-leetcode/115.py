@@ -1,5 +1,5 @@
 class Solution:
-  # dp[i][j] 表示 t 的前 i 个字符串可以有 s 的前 j 个字符串组成的最多个数
+  # dp[i][j] 表示 t 的前 i 个字符串可以由 s 的前 j 个字符串组成的最多个数
   # s[j] == t[i], dp[i][j] = dp[i-1][j-1] + dp[i][j-1]
   # s[j] != t[i], dp[i][j] = dp[i][j-1]
   def numDistinct(self, s: str, t: str) -> int:

@@ -5,3 +5,42 @@
 \input{chapter_camp/chapter_camp_20}
 
 \subsection{学习总结}
+
+这周学习了高级动态规划和字符串相关的算法，
+还有字符串和动态规划相结合的题目。
+很多题目都很重要，最主要的是没有做过的话，根本就想不出来，多练吧。
+
+\paragraph{1143 最长子序列}
+
+\begin{verbatim}
+if s1[i-1] == s2[j-1]
+  dp[i][j] = dp[i-1][j-1] + 1
+else
+  dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+\end{verbatim}
+
+\paragraph{最长子串}
+
+\begin{verbatim}
+if s1[i-1] == s2[j-1]
+  dp[i][j] = dp[i-1][j-1] + 1
+else
+  dp[i][j] = 0
+\end{verbatim}
+
+\paragraph{72 编辑距离}
+
+\begin{verbatim}
+if s1[i-1] == s2[j-1]
+  dp[i][j] = dp[i-1][j-1]
+else
+  dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
+\end{verbatim}
+
+\paragraph{115 不同的子序列}
+
+\begin{verbatim}
+  dp[i][j] 表示 t 的前 i 个字符串可以由 s 的前 j 个字符串组成的最多个数
+  s[j] == t[i], dp[i][j] = dp[i-1][j-1] + dp[i][j-1]
+  s[j] != t[i], dp[i][j] = dp[i][j-1]
+\end{verbatim}
