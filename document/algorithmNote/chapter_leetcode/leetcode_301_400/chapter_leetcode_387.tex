@@ -3,3 +3,31 @@
 \label{leetcode:387}
 
 \subsection{题目}
+
+给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
+
+\textbf{案例}:
+
+\begin{verbatim}
+  s = "leetcode"
+  返回 0.
+
+  s = "loveleetcode",
+  返回 2.
+\end{verbatim}
+
+注意事项：您可以假定该字符串只包含小写字母。
+
+\subsection{参考题解}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def firstUniqChar(self, s: str) -> int:
+    counter = collections.Counter(s)
+    for i, c in enumerate(s):
+      if counter[c] == 1:
+        return i
+    return -1
+\end{verbatim}
