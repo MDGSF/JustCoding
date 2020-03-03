@@ -3,3 +3,60 @@
 \label{leetcode:680}
 
 \subsection{题目}
+
+给定一个非空字符串 s，\textbf{最多}删除一个字符。判断是否能成为回文字符串。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: "aba"
+  输出: True
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: "abca"
+  输出: True
+  解释: 你可以删除c字符。
+\end{verbatim}
+
+\textbf{注意}:
+
+字符串只包含从 a-z 的小写字母。字符串的最大长度是50000。
+
+\subsection{参考题解，傻递归}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def validPalindrome(self, s: str) -> bool:
+    def dfs(left, right, canRemove):
+      if left >= right:
+        return True
+      if s[left] == s[right]:
+        return dfs(left + 1, right - 1, canRemove)
+      elif canRemove:
+        return dfs(left + 1, right, False) or dfs(left, right - 1, False)
+      else:
+        return False
+    return dfs(0, len(s) - 1, True)
+\end{verbatim}
+
+\subsection{参考题解}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def validPalindrome(self, s: str) -> bool:
+    if s == s[::-1]: return True
+    left, right = 0, len(s) - 1
+    while left < right:
+      if s[left] != s[right]:
+        return s[left:right] == s[left:right][::-1] or \
+          s[left + 1:right + 1] == s[left + 1:right + 1][::-1]
+      left, right = left + 1, right - 1
+    return True
+\end{verbatim}

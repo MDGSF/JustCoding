@@ -3,3 +3,24 @@
 \label{leetcode:557}
 
 \subsection{题目}
+
+给定一个字符串，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: "Let's take LeetCode contest"
+  输出: "s'teL ekat edoCteeL tsetnoc" 
+\end{verbatim}
+
+\textbf{注意}：在字符串中，每个单词由单个空格分隔，并且字符串中不会有任何额外的空格。
+
+\subsection{参考题解}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def reverseWords(self, s: str) -> str:
+    return ' '.join([word[::-1] for word in s.split()])
+\end{verbatim}
