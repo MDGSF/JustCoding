@@ -3,3 +3,86 @@
 \label{leetcode:300}
 
 \subsection{题目}
+
+给定一个无序的整数数组，找到其中最长上升子序列的长度。
+
+\textbf{示例}:
+
+\begin{verbatim}
+  输入: [10,9,2,5,3,7,101,18]
+  输出: 4
+  解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
+\end{verbatim}
+
+\textbf{说明}:
+
+可能会有多种最长上升子序列的组合，你只需要输出对应的长度即可。
+你算法的时间复杂度应该为 O(n$^{2}$) 。
+
+\textbf{进阶}: 你能将算法的时间复杂度降低到 O(nlogn) 吗?
+
+\subsection{参考题解}
+
+时间复杂度 O(n$^{2}$)
+
+\begin{verbatim}
+class Solution:
+  def lengthOfLIS(self, nums: List[int]) -> int:
+    if not nums: return 0
+    dp = [1] * len(nums)
+    for i in range(len(nums)):
+      for j in range(i):
+        if nums[j] < nums[i]:
+          dp[i] = max(dp[i], dp[j] + 1)
+    return max(dp)
+\end{verbatim}
+
+\subsection{参考题解}
+
+时间复杂度 O(nlogn)
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def lengthOfLIS(self, nums: List[int]) -> int:
+    tails = [0] * len(nums)
+    size = 0
+    for num in nums:
+      i, j = 0, size
+      while i != j:
+        m = (i + j) // 2
+        if tails[m] < num:
+          i = m + 1
+        else:
+          j = m
+      tails[i] = num
+      size = max(size, i + 1)
+    return size
+\end{verbatim}
+
+\subsubsection{Rust}
+
+\begin{verbatim}
+impl Solution {
+  pub fn length_of_lis(nums: Vec<i32>) -> i32 {
+    let mut tails = vec![0; nums.len()];
+    let mut size = 0;
+    for num in nums {
+      let mut i = 0;
+      let mut j = size;
+      while i != j {
+        let m = (i + j) / 2;
+        if tails[m] < num {
+          i = m + 1;
+        } else {
+          j = m;
+        }
+      }
+      tails[i] = num;
+      size = std::cmp::max(size, i + 1);
+    }
+    size as i32
+  }
+}
+\end{verbatim}

@@ -3,3 +3,111 @@
 \label{leetcode:818}
 
 \subsection{题目}
+
+你的赛车起始停留在位置 0，速度为 +1，正行驶在一个无限长的数轴上。（车也可以
+向负数方向行驶。）
+
+你的车会根据一系列由 A（加速）和 R（倒车）组成的指令进行自动驾驶。
+
+当车得到指令 \verb|"A"| 时, 将会做出以下操作： \\
+position += speed, speed *= 2。
+
+当车得到指令 \verb|"R"| 时, 将会做出以下操作： \\
+如果当前速度是正数，则将车速调整为 speed = -1； \\
+否则将车速调整为 speed = 1。 (当前所处位置不变。)
+
+例如，当得到一系列指令 \verb|"AAR"| 后, \\
+你的车将会走过位置 0->1->3->3， \\
+并且速度变化为 1->2->4->-1。
+
+现在给定一个目标位置，请给出能够到达目标位置的最短指令列表的长度。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入:
+  target = 3
+  输出: 2
+  解释:
+  最短指令列表为 "AA"
+  位置变化为 0->1->3
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入:
+  target = 6
+  输出: 5
+  解释:
+  最短指令列表为 "AAARA"
+  位置变化为 0->1->3->7->7->6
+\end{verbatim}
+
+\textbf{说明}:
+
+\begin{verbatim}
+  1 <= target（目标位置） <= 10000。
+\end{verbatim}
+
+\subsection{参考题解，BFS}
+
+会超时
+
+\begin{verbatim}
+class Solution:
+  def racecar(self, target: int) -> int:
+    result = 0
+    queue = collections.deque()
+    queue.append((0, 1)) # position: 0, speed: 1
+    while queue:
+      curLevelSize = len(queue)
+      for _ in range(curLevelSize):
+        node = queue.popleft()
+        curPosition, curSpeed = node[0], node[1]
+        if curPosition == target:
+          return result
+
+        # process A
+        newPosition = curPosition + curSpeed
+        newSpeed = curSpeed * 2
+        queue.append((newPosition, newSpeed))
+
+        # process R
+        newPosition = curPosition
+        newSpeed = -1 if curSpeed > 0 else 1
+        queue.append((newPosition, newSpeed))
+      result += 1
+    return result
+\end{verbatim}
+
+\subsection{参考题解}
+
+从 source 朝着 target 一直执行 A 命令，一直走到
+距离 target 最近的那个点和刚好超过 target 的那个点。
+然后从这两个点递归下去。
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def __init__(self):
+    self.dp = [0] * 10001
+
+  def racecar(self, target: int) -> int:
+    if self.dp[target] > 0: return self.dp[target]
+    n = math.floor(math.log2(target)) + 1
+    if target + 1 == (1<<n):
+      self.dp[target] = n
+      return self.dp[target]
+    # n 个 A 到达 2^n-1 位置，然后 R 反向，走完剩余
+    # n + 1 就是 n 个 A 和一个 R
+    # (1<<n) - 1 - target 就是 2^n-1 和 target 之间的距离
+    self.dp[target] = n + 1 + self.racecar((1<<n) - 1 - target)
+    # n-1 个 A 到达 2^(n-1)-1 位置，然后 R 反向走 m 个 A，再 R 反向，走完剩余
+    # m 取值遍历 [0, n-1)
+    for m in range(n - 1):
+      cur = (n-1) + 1 + m + 1 + self.racecar(target - (1<<(n-1)) + (1<<m))
+      self.dp[target] = min(self.dp[target], cur)
+    return self.dp[target]
+\end{verbatim}
