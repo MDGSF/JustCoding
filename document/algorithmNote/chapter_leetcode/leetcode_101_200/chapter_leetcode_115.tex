@@ -3,3 +3,76 @@
 \label{leetcode:115}
 
 \subsection{题目}
+
+给定一个字符串 \textbf{S} 和一个字符串 \textbf{T}，计算在 \textbf{S} 的子序列中 \textbf{T} 出现的个数。
+
+一个字符串的一个子序列是指，通过删除一些（也可以不删除）字符且不干扰剩余
+字符相对位置所组成的新字符串。（例如，``ACE'' 是 ``ABCDE'' 的一个子序列，而 ``AEC'' 不是）
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: S = "rabbbit", T = "rabbit"
+  输出: 3
+  解释:
+
+  如下图所示, 有 3 种可以从 S 中得到 "rabbit" 的方案。
+  (上箭头符号 ^ 表示选取的字母)
+
+  rabbbit
+  ^^^^ ^^
+  rabbbit
+  ^^ ^^^^
+  rabbbit
+  ^^^ ^^^
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: S = "babgbag", T = "bag"
+  输出: 5
+  解释:
+
+  如下图所示, 有 5 种可以从 S 中得到 "bag" 的方案。
+  (上箭头符号 ^ 表示选取的字母)
+
+  babgbag
+  ^^ ^
+  babgbag
+  ^^    ^
+  babgbag
+  ^    ^^
+  babgbag
+    ^  ^^
+  babgbag
+      ^^^
+\end{verbatim}
+
+\subsection{参考题解，动态规划（递推）}
+
+\begin{verbatim}
+  dp[i][j] 表示 t 的前 i 个字符串可以由 s 的前 j 个字符串组成的最多个数
+  s[j] == t[i], dp[i][j] = dp[i-1][j-1] + dp[i][j-1]
+  s[j] != t[i], dp[i][j] = dp[i][j-1]
+\end{verbatim}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def numDistinct(self, s: str, t: str) -> int:
+    rows = len(t) + 1
+    cols = len(s) + 1
+    dp = [[0 for _ in range(cols)] for _ in range(rows)]
+    for col in range(cols):
+      dp[0][col] = 1
+    for row in range(1, rows):
+      for col in range(1, cols):
+        if s[col-1] == t[row-1]:
+          dp[row][col] = dp[row-1][col-1] + dp[row][col-1]
+        else:
+          dp[row][col] = dp[row][col-1]
+    return dp[-1][-1]
+\end{verbatim}
+

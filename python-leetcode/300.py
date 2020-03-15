@@ -1,3 +1,5 @@
+# https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai-gui-hua-2/
+
 from typing import List
 
 class Solution:

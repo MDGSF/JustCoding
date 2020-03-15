@@ -1,0 +1,75 @@
+\newpage
+\section{面试题59 - II. 队列的最大值}
+\label{leetcode:sw_59_2}
+
+\subsection{题目}
+
+请定义一个队列并实现函数 max\_value 得到队列里的最大值，
+要求函数 max\_value、push\_back 和 pop\_front 的时间复杂度都是O(1)。
+
+若队列为空，pop\_front 和 max\_value 需要返回 -1
+
+\textbf{示例 1}：
+
+\begin{verbatim}
+  输入:
+  ["MaxQueue","push_back","push_back","max_value","pop_front","max_value"]
+  [[],[1],[2],[],[],[]]
+  输出: [null,null,null,2,1,2]
+\end{verbatim}
+
+\textbf{示例 2}：
+
+\begin{verbatim}
+  输入:
+  ["MaxQueue","pop_front","max_value"]
+  [[],[],[]]
+  输出: [null,-1,-1]
+\end{verbatim}
+
+\textbf{限制}：
+
+\begin{verbatim}
+  1 <= push_back,pop_front,max_value的总操作数 <= 10000
+  1 <= value <= 10^5
+\end{verbatim}
+
+\subsection{参考题解}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class MaxQueue:
+
+  def __init__(self):
+    self.maxqueue = []
+    self.queue = []
+
+  def max_value(self) -> int:
+    if len(self.maxqueue) == 0: return -1
+    return self.maxqueue[0]
+
+  def push_back(self, value: int) -> None:
+    self.queue.append(value)
+    for i in range(len(self.maxqueue) - 1, -1, -1):
+      if self.maxqueue[i] < value:
+        self.maxqueue.pop()
+    self.maxqueue.append(value)
+
+  def pop_front(self) -> int:
+    if len(self.queue) == 0: return -1
+    value = self.queue.pop(0)
+    if value == self.maxqueue[0]:
+      self.maxqueue.pop(0)
+    return value
+
+# Your MaxQueue object will be instantiated and called as such:
+# obj = MaxQueue()
+# param_1 = obj.max_value()
+# obj.push_back(value)
+# param_3 = obj.pop_front()
+\end{verbatim}
+
+\subsection{相似题目}
+
+\hyperref[leetcode:239]{239. 滑动窗口最大值}
