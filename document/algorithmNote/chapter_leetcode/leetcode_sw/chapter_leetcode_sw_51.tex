@@ -1,0 +1,51 @@
+\newpage
+\section{面试题51. 数组中的逆序对}
+\label{leetcode:sw_51}
+
+\subsection{题目}
+
+在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。
+输入一个数组，求出这个数组中的逆序对的总数。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: [7,5,6,4]
+  输出: 5
+\end{verbatim}
+
+\textbf{限制}：
+
+\begin{verbatim}
+  0 <= 数组长度 <= 50000
+\end{verbatim}
+
+\subsection{参考题解}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def reversePairs(self, nums: List[int]) -> int:
+    return self.reversePairsCore(nums, 0, len(nums) - 1)
+
+  def reversePairsCore(self, nums, start, end):
+    if start >= end:
+      return 0
+    length = (end - start) // 2
+    left = self.reversePairsCore(nums, start, start + length)
+    right = self.reversePairsCore(nums, start + length + 1, end)
+    i, j, count = start + length, end, 0
+    while i >= start and j >= start + length + 1:
+      if nums[i] > nums[j]:
+        count += j - start - length
+        i -= 1
+      else:
+        j -= 1
+    nums[start:end+1] = sorted(nums[start:end+1])
+    return left + right + count
+\end{verbatim}
+
+\subsection{相似题目}
+
+\hyperref[leetcode:493]{493. 翻转对}

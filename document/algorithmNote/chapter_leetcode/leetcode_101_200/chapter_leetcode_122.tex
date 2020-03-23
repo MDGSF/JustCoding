@@ -40,7 +40,35 @@
   解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
 \end{verbatim}
 
+\subsection{参考题解，动态规划}
+
+\begin{verbatim}
+  dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
+  dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i])
+\end{verbatim}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def maxProfit(self, prices: List[int]) -> int:
+    dp_i_0, dp_i_1 = 0, float('-inf')
+    for i in range(len(prices)):
+      pre_i_0, pre_i_1 = dp_i_0, dp_i_1
+      dp_i_0 = max(pre_i_0, pre_i_1 + prices[i])
+      dp_i_1 = max(pre_i_1, pre_i_0 - prices[i])
+    return dp_i_0
+\end{verbatim}
+
+\subsection{参考题解，DFS}
+
+每天都可以买一股，或者是卖一股，所以时间复杂度是 O(2$^{n}$)。
+
+可以遍历到所有的情况。
+
 \subsection{参考题解，贪心法}
+
+只要后一天的价格比前一天高，我们就在前一天买入，后一天卖出。
 
 \begin{verbatim}
 /**

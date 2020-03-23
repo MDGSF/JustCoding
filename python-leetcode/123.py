@@ -1,17 +1,3 @@
-\newpage
-\section{123. 买卖股票的最佳时机 III}
-\label{leetcode:123}
-
-\subsection{参考题解，动态规划}
-
-\begin{verbatim}
-  dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
-  dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
-\end{verbatim}
-
-\subsubsection{Python}
-
-\begin{verbatim}
 class Solution:
   def maxProfit(self, prices: List[int]) -> int:
     return self.maxProfit_k_any(2, prices)
@@ -38,4 +24,4 @@ class Solution:
       dp_i_0 = max(pre_i_0, pre_i_1 + prices[i])
       dp_i_1 = max(pre_i_1, pre_i_0 - prices[i])
     return dp_i_0
-\end{verbatim}
+

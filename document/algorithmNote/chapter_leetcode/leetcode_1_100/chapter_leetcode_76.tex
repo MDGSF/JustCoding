@@ -1,3 +1,117 @@
 \newpage
 \section{76. 最小覆盖子串}
 \label{leetcode:76}
+
+\subsection{题目}
+
+给你一个字符串 S、一个字符串 T，请在字符串 S 里面找出：包含 T 所有字母的最小子串。
+
+\textbf{示例}：
+
+\begin{verbatim}
+  输入: S = "ADOBECODEBANC", T = "ABC"
+  输出: "BANC"
+\end{verbatim}
+
+\textbf{说明}：
+
+\begin{itemize}
+  \item 如果 S 中不存这样的子串，则返回空字符串 ``''。
+  \item 如果 S 中存在这样的子串，我们保证它是唯一的答案。
+\end{itemize}
+
+\subsection{参考题解}
+
+\subsubsection{JavaScript}
+
+\begin{verbatim}
+/**
+* @param {string} s
+* @param {string} t
+* @return {string}
+*/
+var minWindow = function(s, t) {
+  const m = {};
+  let left = 0;
+  let right = -1;
+  let minStr = '';
+
+  t.split('').forEach(element => {
+    if (element in m) {
+      m[element] += 1;
+    } else {
+      m[element] = 1;
+    }
+  })
+
+  let count = Object.keys(m).length;
+
+  while (right <= s.length) {
+    if (count === 0) {
+      let temp = s.substring(left, right + 1);
+      if (minStr === '') {
+        minStr = temp;
+      } else {
+        minStr = minStr.length < temp.length ? minStr : temp;
+      }
+
+      let current = s[left];
+      if (current in m) {
+        m[current] += 1;
+      }
+      if (m[current] > 0) {
+        count += 1;
+      }
+      left += 1;
+
+    } else {
+      right += 1;
+      let current = s[right];
+      if (current in m) {
+        m[current] -= 1;
+      }
+      if (m[current] === 0) {
+        count -= 1;
+      }
+    }
+  }
+
+  return minStr;
+};
+\end{verbatim}
+
+\subsection{参考题解}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def minWindow(self, s: str, t: str) -> str:
+    m, cur = collections.Counter(t), {}
+    count, left, right, minstr = len(m.keys()), 0, 0, ''
+    while right < len(s) or left < len(s):
+      if count == 0:
+        curstr = s[left:right]
+        if minstr == '' or len(curstr) < len(minstr):
+          minstr = curstr
+        c = s[left]
+        if c in m:
+          if cur[c] == m[c]:
+            count += 1
+          cur[c] -= 1
+        left += 1
+      else:
+        if right >= len(s):
+          break
+        c = s[right]
+        if c in m:
+          if c in cur:
+            cur[c] += 1
+          else:
+            cur[c] = 1
+          if cur[c] == m[c]:
+            count -=1
+        right += 1
+    return minstr
+\end{verbatim}
+
