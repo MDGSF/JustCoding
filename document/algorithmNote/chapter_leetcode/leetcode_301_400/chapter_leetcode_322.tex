@@ -12,7 +12,7 @@
 
 \begin{verbatim}
   输入: coins = [1, 2, 5], amount = 11
-  输出: 3 
+  输出: 3
   解释: 11 = 5 + 5 + 1
 \end{verbatim}
 
@@ -26,11 +26,84 @@
 \textbf{说明}: \\
 你可以认为每种硬币的数量是无限的。
 
-\subsection{参考题解，动态规划}
+\subsection{解题思路}
 
-F(s) = min(F(s - c1), F(s - c2), F(s - c3), ...) + 1 \\
-F(s) 是对于金额 s 最少的硬币数 \\
-c1, c2, c3 是硬币的金额数 \\
+\begin{verbatim}
+  dp[i] = min(dp[i - c1], dp[i - c2], dp[i - c3], ...) + 1
+  dp[i] 是对于金额 i 最少的硬币数
+  c1, c2, c3 是硬币的金额数
+\end{verbatim}
+
+\subsection{参考题解，傻递归}
+
+会超时
+
+\begin{verbatim}
+class Solution:
+  def coinChange(self, coins: List[int], amount: int) -> int:
+    def dp(n):
+      if n == 0: return 0
+      if n < 0: return -1
+      result = float('inf')
+      for coin in coins:
+        sub = dp(n - coin)
+        if sub == -1: continue
+        result = min(result, sub + 1)
+      return result if result != float('inf') else -1
+    return dp(amount)
+\end{verbatim}
+
+\subsection{参考题解，递归，记忆化}
+
+\begin{verbatim}
+class Solution:
+  def coinChange(self, coins: List[int], amount: int) -> int:
+    m = {}
+    def dp(n):
+      if n == 0: return 0
+      if n < 0: return -1
+      if n in m: return m[n]
+      result = float('inf')
+      for coin in coins:
+        sub = dp(n - coin)
+        if sub == -1: continue
+        result = min(result, sub + 1)
+      m[n] = result if result != float('inf') else -1
+      return m[n]
+    return dp(amount)
+\end{verbatim}
+
+\subsection{参考题解，动态规划，递推1}
+
+\begin{verbatim}
+class Solution:
+  def coinChange(self, coins: List[int], amount: int) -> int:
+    dp = [0] + [float('inf') for _ in range(amount)]
+    for i in range(len(dp)):
+      for coin in coins:
+        if i - coin < 0: continue
+        dp[i] = min(dp[i], dp[i - coin] + 1)
+    return dp[-1] if dp[-1] != float('inf') else -1
+\end{verbatim}
+
+\subsection{参考题解，动态规划，递推2}
+
+消除 \verb|i - coin < 0| 的情况，把两个循环的循环换下，
+就可以直接在第二层循环那里跳过小于零的情况。
+
+\paragraph{Python}
+
+\begin{verbatim}
+class Solution:
+  def coinChange(self, coins: List[int], amount: int) -> int:
+    dp = [0] + [float('inf') for _ in range(amount)]
+    for coin in coins:
+      for col in range(coin, amount + 1):
+        dp[col] = min(dp[col], dp[col - coin] + 1)
+    return dp[-1] if dp[-1] != float('inf') else -1
+\end{verbatim}
+
+\paragraph{JavaScript}
 
 \begin{verbatim}
 /**
