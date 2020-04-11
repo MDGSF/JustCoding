@@ -1,0 +1,47 @@
+\newpage
+\section{912. 排序数组}
+\label{leetcode:912}
+
+\subsection{题目}
+
+给你一个整数数组 nums，请你将该数组升序排列。
+
+\textbf{示例 1}：
+
+\begin{verbatim}
+  输入：nums = [5,2,3,1]
+  输出：[1,2,3,5]
+\end{verbatim}
+
+\textbf{示例 2}：
+
+\begin{verbatim}
+  输入：nums = [5,1,1,2,0,0]
+  输出：[0,0,1,1,2,5]
+\end{verbatim}
+
+\textbf{提示}：
+
+\begin{verbatim}
+  1 <= nums.length <= 50000
+  -50000 <= nums[i] <= 50000
+\end{verbatim}
+
+\subsection{参考题解}
+
+\subsubsection{Python 1}
+
+\begin{verbatim}
+class Solution:
+  def sortArray(self, nums: List[int]) -> List[int]:
+    nums.sort()
+    return nums
+\end{verbatim}
+
+\subsubsection{Python 2}
+
+\begin{verbatim}
+class Solution:
+  def sortArray(self, nums: List[int]) -> List[int]:
+    return sorted(nums)
+\end{verbatim}

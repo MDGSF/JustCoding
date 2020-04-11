@@ -4,6 +4,13 @@
 .history
 .idea
 .vscode
+document/algorithmNote/*.aux
+document/algorithmNote/*.fdb_latexmk
+document/algorithmNote/*.fls
+document/algorithmNote/*.log
+document/algorithmNote/*.out
+document/algorithmNote/*.pdf
+document/algorithmNote/*.toc
 
 target
 node_modules

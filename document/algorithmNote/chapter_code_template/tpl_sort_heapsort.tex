@@ -1,6 +1,16 @@
 \newpage
 \section{堆排序模板}
 
+\subsection{Python 模板}
+
+\begin{verbatim}
+import heapq
+class Solution:
+  def sortArray(self, nums: List[int]) -> List[int]:
+    heapq.heapify(nums)
+    return [heapq.heappop(nums) for _ in range(len(nums))]
+\end{verbatim}
+
 \subsection{C++ 模板}
 
 \begin{verbatim}

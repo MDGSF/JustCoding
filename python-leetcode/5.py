@@ -1,3 +1,5 @@
+# 动态规划
+# 时间复杂度 O(n^2)
 class Solution:
   # dp[i][j]
   # i 表示字符串的起点

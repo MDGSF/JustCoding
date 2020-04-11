@@ -21,7 +21,70 @@
   输出: "bb"
 \end{verbatim}
 
-\subsection{参考题解}
+\subsection{参考题解，暴力法}
+
+暴力法，两重循环确定左右边界，再一重循环判断是否是回文串，
+时间复杂度 O(n$^{3}$)，会超时。
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def longestPalindrome(self, s: str) -> str:
+    maxs, maxlen = "", float('-inf')
+    for i in range(len(s)):
+      for j in range(i, len(s)):
+        curs = s[i:j+1]
+        if self.isPalindrome(curs) and j+1 - i > maxlen:
+          maxs, maxlen = curs, j+1 - i
+    return maxs
+
+  def isPalindrome(self, s):
+    i, j = 0, len(s) - 1
+    while i < j:
+      if s[i] != s[j]:
+        return False
+      i += 1
+      j -= 1
+    return True
+\end{verbatim}
+
+\subsection{参考题解，中心扩展法}
+
+中心向两端扩展法，一重遍历所有中心点，再一重循环从中心点向两端扩展，
+时间复杂度 O(n$^{2}$)。
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def longestPalindrome(self, s: str) -> str:
+    n, maxs, maxlen = len(s), "", float('-inf')
+    for i in range(n): # i 为回文串中心位置
+      # 回文串长度为奇数
+      j, curStart, curlen = 0, 0, 0
+      while i - j >= 0 and i + j < n:
+        if s[i - j] != s[i + j]:
+          break
+        curStart, curlen = i - j, j * 2 + 1
+        j += 1
+      if curlen > maxlen:
+        maxlen = curlen
+        maxs = s[curStart:curStart+curlen]
+      # 回文串长度为偶数
+      j, curStart, curlen = 0, 0, 0
+      while i - j >= 0 and i + j + 1 < n:
+        if s[i - j] != s[i + j + 1]:
+          break
+        curStart, curlen = i - j, j * 2 + 2
+        j += 1
+      if curlen > maxlen:
+        maxlen = curlen
+        maxs = s[curStart:curStart+curlen]
+    return maxs
+\end{verbatim}
+
+\subsection{参考题解，动态规划}
 
 \subsubsection{Python}
 
@@ -49,3 +112,32 @@ class Solution:
     return result
 \end{verbatim}
 
+\subsection{参考题解，Manacher马拉车算法}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def longestPalindrome(self, s: str) -> str:
+    s = '$#' + '#'.join(list(s)) + '#'
+    p, n, idx, mx = [0] * len(s), len(s), 0, 0
+    for i in range(1, n):
+      if mx > i:
+        p[i] = min(p[2*idx-i], mx - i)
+      else:
+        p[i] = 1
+      while i + p[i] < n and i - p[i] >=0 and s[i + p[i]] == s[i - p[i]]:
+        p[i] += 1
+      if i + p[i] > mx:
+        mx = i + p[i]
+        idx = i
+    maxPalindromeLen = float('-inf')
+    maxIdx = -1
+    for i in range(len(p)):
+      if p[i] > maxPalindromeLen:
+        maxPalindromeLen = p[i]
+        maxIdx = i
+    maxPalindromeLen -= 1
+    result = s[maxIdx - maxPalindromeLen + 1:maxIdx + maxPalindromeLen]
+    return result.replace('#', '')
+\end{verbatim}
