@@ -1,3 +1,71 @@
 \newpage
 \section{647. 回文子串}
 \label{leetcode:647}
+
+\subsection{题目}
+
+给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
+
+具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。
+
+\textbf{示例 1}:
+
+\begin{verbatim}
+  输入: "abc"
+  输出: 3
+  解释: 三个回文子串: "a", "b", "c".
+\end{verbatim}
+
+\textbf{示例 2}:
+
+\begin{verbatim}
+  输入: "aaa"
+  输出: 6
+  说明: 6个回文子串: "a", "a", "a", "aa", "aa", "aaa".
+\end{verbatim}
+
+\textbf{注意}:
+
+输入的字符串长度不会超过1000。
+
+\subsection{参考题解，中心向两端扩展}
+
+\subsubsection{Python 代码}
+
+\begin{verbatim}
+class Solution:
+  def countSubstrings(self, s: str) -> int:
+    self.count = 0
+    def extendPalindrome(left, right):
+      while left >= 0 and right < len(s) and s[left] == s[right]:
+        self.count += 1
+        left -= 1
+        right += 1
+    for i in range(len(s)): # i is the mid point
+      extendPalindrome(i, i) # odd length
+      extendPalindrome(i, i + 1) # even length
+    return self.count
+\end{verbatim}
+
+\subsection{参考题解，Manacher 马拉车算法}
+
+\subsubsection{Python 代码}
+
+\begin{verbatim}
+class Solution:
+  def countSubstrings(self, s: str) -> int:
+    def manachers(s):
+      s = '@#' + '#'.join(s) + '#$'
+      p, n, idx, mx = [0] * len(s), len(s), 0, 0
+      for i in range(1, n - 1):
+        if mx > i:
+          p[i] = min(p[2*idx-i], mx - i)
+        while s[i + p[i] + 1] == s[i - p[i] - 1]:
+          p[i] += 1
+        if i + p[i] > mx:
+          idx, mx = i, i + p[i]
+      return p
+    p = manachers(s)
+    return sum((v + 1) // 2 for v in p)
+\end{verbatim}
+

@@ -1,0 +1,102 @@
+\newpage
+\section{面试题 16.03. 交点}
+\label{leetcode:it_16.03}
+
+\subsection{题目}
+
+给定两条线段（表示为起点start = {X1, Y1}和终点end = {X2, Y2}），
+如果它们有交点，请计算其交点，没有交点则返回空值。
+
+要求浮点型误差不超过$10^{-6}$。若有多个交点（线段重叠）则返回 X 值最小的点，
+X 坐标相同则返回 Y 值最小的点。
+
+\textbf{示例 1}：
+
+\begin{verbatim}
+  输入：
+  line1 = {0, 0}, {1, 0}
+  line2 = {1, 1}, {0, -1}
+  输出： {0.5, 0}
+\end{verbatim}
+
+\textbf{示例 2}：
+
+\begin{verbatim}
+  输入：
+  line1 = {0, 0}, {3, 3}
+  line2 = {1, 1}, {2, 2}
+  输出： {1, 1}
+\end{verbatim}
+
+\textbf{示例 3}：
+
+\begin{verbatim}
+  输入：
+  line1 = {0, 0}, {1, 1}
+  line2 = {1, 0}, {2, 1}
+  输出： {}，两条线段没有交点
+\end{verbatim}
+
+\textbf{提示}：
+
+\begin{itemize}
+  \item 坐标绝对值不会超过 $2^{7}$
+  \item 输入的坐标均是有效的二维坐标
+\end{itemize}
+
+\subsection{参考题解}
+
+\subsubsection{Python}
+
+\begin{verbatim}
+class Solution:
+  def intersection(self, start1: List[int], end1: List[int], start2: List[int],
+                   end2: List[int]) -> List[float]:
+    x1, y1 = start1
+    x2, y2 = end1
+    x3, y3 = start2
+    x4, y4 = end2
+    result = []
+    # 判断直线 (x1, y1)~(x2, y2) 和 (x3, y3)~(x4, y4) 是否平行
+    if self.isParallel(x1, y1, x2, y2, x3, y3, x4, y4):
+      # 平行，判断 (x3, y3) 是否在直线 (x1, y1)~(x2, y2) 上面。
+      if (y2 - y1) * (x3 - x1) == (y3 - y1) * (x2 - x1):
+        # 判断 (x3, y3) 是否在线段 (x1, y1)~(x2, y2) 上面
+        if self.inside(x1, y1, x2, y2, x3, y3):
+          result = self.update(result, x3, y3)
+        # 判断 (x4, y4) 是否在线段 (x1, y1)~(x2, y2) 上面
+        if self.inside(x1, y1, x2, y2, x4, y4):
+          result = self.update(result, x4, y4)
+        # 判断 (x1, y1) 是否在线段 (x3, y3)~(x4, y4) 上面
+        if self.inside(x3, y3, x4, y4, x1, y1):
+          result = self.update(result, x1, y1)
+        # 判断 (x2, y2) 是否在线段 (x3, y3)~(x4, y4) 上面
+        if self.inside(x3, y3, x4, y4, x2, y2):
+          result = self.update(result, x2, y2)
+      # 平行时，其它情况都不会有交点
+    else:
+      t1 = (x3 * (y4 - y3) + y1 * (x4 - x3) - y3 * (x4 - x3) - x1 *
+            (y4 - y3)) / ((x2 - x1) * (y4 - y3) - (x4 - x3) * (y2 - y1))
+      t2 = (x1 * (y2 - y1) + y3 * (x2 - x1) - y1 * (x2 - x1) - x3 *
+            (y2 - y1)) / ((x4 - x3) * (y2 - y1) - (x2 - x1) * (y4 - y3))
+      if 0.0 <= t1 <= 1.0 and 0.0 <= t2 <= 1.0:
+        result = [x1 + t1 * (x2 - x1), y1 + t1 * (y2 - y1)]
+    return result
+
+  # 判断两条直线是否平行
+  def isParallel(self, x1, y1, x2, y2, x3, y3, x4, y4):
+    return (x4 - x3) * (y2 - y1) == (x2 - x1) * (y4 - y3)
+
+  # 判断 (xk, yk) 是否在线段 (x1, y1)~(x2, y2) 上面
+  # 前提是 (xk, yk) 必须在直线 (x1, y1)~(x2, y2) 上面
+  # 若与 x 轴平行，只需要判断 x 的部分，(y1 == y2)
+  # 若与 y 轴平行，只需要判断 y 的部分，(x1 == x2)
+  # 若为普通线段，则都要判断
+  def inside(self, x1, y1, x2, y2, xk, yk):
+    return (x1 == x2 or min(x1, x2) <= xk <= max(x1, x2)) and \
+      (y1 == y2 or min(y1, y2) <= yk <= max(y1, y2))
+
+  def update(self, result, xk, yk):
+    return [xk, yk] if not result or [xk, yk] < result else result
+\end{verbatim}
+
