@@ -1,6 +1,5 @@
 # JustCoding
 
-- [JustCoding](#justcoding)
 - [编程语言](#编程语言)
 	- [C/C++](#cc)
 	- [Python](#python)
@@ -109,6 +108,14 @@
 - [ ] 编程珠玑
 - [ ] 算法，第4版
 - [ ] 算法导论
+
+### LeetCode Algorithm
+
+| # | Title | Solution |
+|---| ----- | -------- |
+|1|[Two Sum]| [Python](./python-leetcode/1.py), [Js](./javascript-leetcode/1.两数之和.js), [Go](./golang-leetcode/1.go)|
+
+[Two Sum]: https://leetcode-cn.com/problems/two-sum/
 
 ## 设计模式
 
