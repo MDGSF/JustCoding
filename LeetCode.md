@@ -2,7 +2,7 @@
 
 | # | Title | Solution |
 |---| ----- | -------- |
-|1|[Two Sum]| [Python](./python-leetcode/1.py), [Js](./javascript-leetcode/1.两数之和.js), [Go](./golang-leetcode/1.go)|
+|1|[两数之和][Two Sum]| [Python](./python-leetcode/1.py), [Js](./javascript-leetcode/1.两数之和.js), [Go](./golang-leetcode/1.go)|
 |2|[Add Two Numbers]| |
 |3|[Longest Substring Without Repeating Characters]| |
 |4|[Median of Two Sorted Arrays]| |
@@ -405,8 +405,10 @@
 |1030|[Matrix Cells in Distance Order]| |
 |1170|[Compare Strings by Frequency of the Smallest Character]| |
 |1207|[Unique Number of Occurrences]| |
+|1300|[转变数组后最接近目标值的数组和]| [Rust](rust-leetcode/leetcode_1300/src/main.rs), [Python](./python-leetcode/1300.py) |
 
 
+[两数之和]: https://leetcode-cn.com/problems/two-sum/
 [Two Sum]: https://leetcode.com/problems/two-sum/
 [Add Two Numbers]: https://leetcode.com/problems/add-two-numbers/
 [Longest Substring Without Repeating Characters]: https://leetcode.com/problems/longest-substring-without-repeating-characters/
@@ -810,3 +812,4 @@
 [Matrix Cells in Distance Order]: https://leetcode.com/problems/matrix-cells-in-distance-order/
 [Compare Strings by Frequency of the Smallest Character]: https://leetcode.com/problems/compare-strings-by-frequency-of-the-smallest-character/
 [Unique Number of Occurrences]: https://leetcode.com/problems/unique-number-of-occurrences/
+[转变数组后最接近目标值的数组和]: https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target/
