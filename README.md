@@ -1,5 +1,22 @@
 # JustCoding
 
+- [JustCoding](#justcoding)
+- [编程语言](#编程语言)
+	- [C/C++](#cc)
+	- [Python](#python)
+	- [JavaScript](#javascript)
+	- [Golang](#golang)
+	- [Rust](#rust)
+- [数据结构与算法](#数据结构与算法)
+- [设计模式](#设计模式)
+- [网络编程](#网络编程)
+- [数据库](#数据库)
+- [其他](#其他)
+- [工具](#工具)
+	- [辅助记忆工具](#辅助记忆工具)
+	- [画图、动画工具](#画图动画工具)
+- [学习资源](#学习资源)
+
 ## 编程语言
 
 ### C/C++
@@ -153,7 +170,7 @@ http://asciiflow.com/
 
 python 的 matplot
 
-## 其他资源
+## 学习资源
 
 - [`jwasham/coding-interview-university`]
 - [`CyC2018/CS-Notes`]
