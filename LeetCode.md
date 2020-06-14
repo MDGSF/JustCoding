@@ -2,7 +2,7 @@
 
 | # | Title | Solution |
 |---| ----- | -------- |
-|1|[两数之和][Two Sum]| [Python](./python-leetcode/1.py), [Js](./javascript-leetcode/1.两数之和.js), [Go](./golang-leetcode/1.go)|
+|1|[两数之和] [Two Sum]| [Python](./python-leetcode/1.py), [Js](./javascript-leetcode/1.两数之和.js), [Go](./golang-leetcode/1.go)|
 |2|[Add Two Numbers]| |
 |3|[Longest Substring Without Repeating Characters]| |
 |4|[Median of Two Sorted Arrays]| |
