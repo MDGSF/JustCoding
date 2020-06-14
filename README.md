@@ -1,20 +1,21 @@
 # JustCoding
 
-- [编程语言](#编程语言)
-	- [C/C++](#cc)
-	- [Python](#python)
-	- [JavaScript](#javascript)
-	- [Golang](#golang)
-	- [Rust](#rust)
-- [数据结构与算法](#数据结构与算法)
-- [设计模式](#设计模式)
-- [网络编程](#网络编程)
-- [数据库](#数据库)
-- [其他](#其他)
-- [工具](#工具)
-	- [辅助记忆工具](#辅助记忆工具)
-	- [画图、动画工具](#画图动画工具)
-- [学习资源](#学习资源)
+- [JustCoding](#justcoding)
+	- [编程语言](#编程语言)
+		- [C/C++](#cc)
+		- [Python](#python)
+		- [JavaScript](#javascript)
+		- [Golang](#golang)
+		- [Rust](#rust)
+	- [数据结构与算法](#数据结构与算法)
+	- [设计模式](#设计模式)
+	- [网络编程](#网络编程)
+	- [数据库](#数据库)
+	- [其他](#其他)
+	- [工具](#工具)
+		- [辅助记忆工具](#辅助记忆工具)
+		- [画图、动画工具](#画图动画工具)
+	- [学习资源](#学习资源)
 
 ## 编程语言
 
@@ -97,7 +98,7 @@
 
 **刷题网站**：
 
-- [leetcode-cn.com](https://leetcode-cn.com/)
+- [leetcode-cn.com](https://leetcode.com/)
 - [leetcode.com](https://leetcode.com/)
 
 **书籍推荐**：
@@ -109,13 +110,10 @@
 - [ ] 算法，第4版
 - [ ] 算法导论
 
-### LeetCode Algorithm
+**刷题记录**：
 
-| # | Title | Solution |
-|---| ----- | -------- |
-|1|[Two Sum]| [Python](./python-leetcode/1.py), [Js](./javascript-leetcode/1.两数之和.js), [Go](./golang-leetcode/1.go)|
-
-[Two Sum]: https://leetcode-cn.com/problems/two-sum/
+- [LeetCode 题解](./LeetCode.md)
+- [剑指 Offer 题解](./SwordToOffer.md)
 
 ## 设计模式
 
