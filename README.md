@@ -39,6 +39,7 @@
 
 - [x] Python 编程--从入门到实践
 - [x] [`廖雪峰--Python教程`]
+- [ ] Python 核心编程
 
 [`廖雪峰--Python教程`]: https://www.liaoxuefeng.com/wiki/1016959663602400
 
@@ -145,6 +146,8 @@
 - [x] Redis 设计与实现
 - [x] SQL 必知必会
 - [ ] 高性能 MySQL
+- [ ] MySQL 技术内幕
+- [ ] MySQL 技术内幕--InnoDB存储引擎
 
 ## 其他
 

@@ -278,7 +278,7 @@
 |336|[Palindrome Pairs]| |
 |337|[House Robber III]| |
 |338|[Counting Bits]| |
-|341|[Flatten Nested List Iterator]| |
+|341|[扁平化嵌套列表迭代器] [Flatten Nested List Iterator]| [Rust](rust-leetcode/leetcode_341/src/main.rs) |
 |342|[Power of Four]| |
 |343|[Integer Break]| |
 |344|[Reverse String]| |
@@ -685,6 +685,7 @@
 [Palindrome Pairs]: https://leetcode.com/problems/palindrome-pairs/
 [House Robber III]: https://leetcode.com/problems/house-robber-iii/
 [Counting Bits]: https://leetcode.com/problems/counting-bits/
+[扁平化嵌套列表迭代器]: https://leetcode-cn.com/problems/flatten-nested-list-iterator/
 [Flatten Nested List Iterator]: https://leetcode.com/problems/flatten-nested-list-iterator/
 [Power of Four]: https://leetcode.com/problems/power-of-four/
 [Integer Break]: https://leetcode.com/problems/integer-break/
