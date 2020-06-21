@@ -1,4 +1,4 @@
-use leetcode_sw_07::s2::*;
+use leetcode_sw_07::s3::*;
 
 fn main() {
   println!("Hello, world!");
