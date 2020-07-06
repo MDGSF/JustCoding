@@ -78,7 +78,8 @@
 **推荐书籍**：
 
 - [x] Rust编程之道
-- [x] Rust权威指南，[`The Rust Programming Language`]
+- [x] Rust权威指南
+- [x] [`The Rust Programming Language`]
 - [ ] 深入浅出Rust
 - [ ] [`RustPrimer`]
 - [ ] [`Cookin' with Rust`]
@@ -161,6 +162,10 @@
 - [x] UNIX 环境高级编程
 - [x] UNIX 编程艺术
 - [x] 鸟哥的 Linux 私房菜
+- [x] [`操作系统思考`] [`Think OS: A Brief Introduction to Operating Systems`]
+
+[`操作系统思考`]: https://github.com/wizardforcel/think-os-zh
+[`Think OS: A Brief Introduction to Operating Systems`]: http://greenteapress.com/thinkos/html/index.html
 
 ## 工具
 
