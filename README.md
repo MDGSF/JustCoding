@@ -82,10 +82,14 @@
 - [x] [`The Rust Programming Language`]
 - [ ] 深入浅出Rust
 - [ ] [`RustPrimer`]
+- [ ] [`The Rust Reference`]
+- [ ] [`The Rustonomicon`]
 - [ ] [`Cookin' with Rust`]
 
 [`The Rust Programming Language`]: https://doc.rust-lang.org/book/
 [`RustPrimer`]: https://rustcc.gitbooks.io/rustprimer/content/
+[`The Rust Reference`]: https://doc.rust-lang.org/reference/introduction.html
+[`The Rustonomicon`]: https://doc.rust-lang.org/nomicon/index.html
 [`Cookin' with Rust`]: https://rust-lang-nursery.github.io/rust-cookbook/intro.html
 
 ## 数据结构与算法
@@ -162,7 +166,8 @@
 - [x] UNIX 环境高级编程
 - [x] UNIX 编程艺术
 - [x] 鸟哥的 Linux 私房菜
-- [x] [`操作系统思考`] [`Think OS: A Brief Introduction to Operating Systems`]
+- [x] [`操作系统思考`]
+- [ ] [`Think OS: A Brief Introduction to Operating Systems`]
 
 [`操作系统思考`]: https://github.com/wizardforcel/think-os-zh
 [`Think OS: A Brief Introduction to Operating Systems`]: http://greenteapress.com/thinkos/html/index.html
