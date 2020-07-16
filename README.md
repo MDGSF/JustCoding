@@ -80,7 +80,7 @@
 - [x] Rust编程之道
 - [x] Rust权威指南
 - [x] [`The Rust Programming Language`]
-- [ ] 深入浅出Rust
+- [x] 深入浅出Rust
 - [ ] [`RustPrimer`]
 - [ ] [`The Rust Reference`]
 - [ ] [`The Rustonomicon`]
