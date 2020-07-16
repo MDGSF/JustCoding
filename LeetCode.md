@@ -12,11 +12,11 @@
 |8|[String to Integer (atoi)]| |
 |9|[Palindrome Number]| |
 |10|[Regular Expression Matching]| |
-|11|[Container With Most Water]| |
+|11|[盛最多水的容器] [Container With Most Water]| [Rust](./rust-leetcode/leetcode_11/src/main.rs) |
 |12|[Integer to Roman]| |
 |13|[Roman to Integer]| |
 |14|[Longest Common Prefix]| |
-|15|[3Sum]| |
+|15|[三数之和] [3Sum]| [Rust](./rust-leetcode/leetcode_15/src/main.rs) |
 |16|[3Sum Closest]| |
 |17|[Letter Combinations of a Phone Number]| |
 |18|[4Sum]| |
@@ -71,7 +71,7 @@
 |67|[Add Binary]| |
 |68|[Text Justification]| |
 |69|[Sqrt(x)]| |
-|70|[Climbing Stairs]| |
+|70|[爬楼梯] [Climbing Stairs]| [Rust](./rust-leetcode/leetcode_70/src/main.rs) |
 |71|[Simplify Path]| |
 |72|[Edit Distance]| |
 |73|[Set Matrix Zeroes]| |
@@ -240,7 +240,7 @@
 |278|[First Bad Version]| |
 |279|[Perfect Squares]| |
 |282|[Expression Add Operators]| |
-|283|[Move Zeroes]| |
+|283|[移动零] [Move Zeroes]| [Rust](./rust-leetcode/leetcode_283/src/main.rs) |
 |284|[Peeking Iterator]| |
 |285|[Inorder Successor in BST]| |
 |287|[Find the Duplicate Number]| |
@@ -419,10 +419,12 @@
 [String to Integer (atoi)]: https://leetcode.com/problems/string-to-integer-atoi/
 [Palindrome Number]: https://leetcode.com/problems/palindrome-number/
 [Regular Expression Matching]: https://leetcode.com/problems/regular-expression-matching/
+[盛最多水的容器]: https://leetcode-cn.com/problems/container-with-most-water/
 [Container With Most Water]: https://leetcode.com/problems/container-with-most-water/
 [Integer to Roman]: https://leetcode.com/problems/integer-to-roman/
 [Roman to Integer]: https://leetcode.com/problems/roman-to-integer/
 [Longest Common Prefix]: https://leetcode.com/problems/longest-common-prefix/
+[三数之和]: https://leetcode-cn.com/problems/3sum/
 [3Sum]: https://leetcode.com/problems/3sum/
 [3Sum Closest]: https://leetcode.com/problems/3sum-closest/
 [Letter Combinations of a Phone Number]: https://leetcode.com/problems/letter-combinations-of-a-phone-number/
@@ -478,6 +480,7 @@
 [Add Binary]: https://leetcode.com/problems/add-binary/
 [Text Justification]: https://leetcode.com/problems/text-justification/
 [Sqrt(x)]: https://leetcode.com/problems/sqrtx/
+[爬楼梯]: https://leetcode-cn.com/problems/climbing-stairs/
 [Climbing Stairs]: https://leetcode.com/problems/climbing-stairs/
 [Simplify Path]: https://leetcode.com/problems/simplify-path/
 [Edit Distance]: https://leetcode.com/problems/edit-distance/
@@ -647,6 +650,7 @@
 [First Bad Version]: https://leetcode.com/problems/first-bad-version/
 [Perfect Squares]: https://leetcode.com/problems/perfect-squares/
 [Expression Add Operators]: https://leetcode.com/problems/expression-add-operators/
+[移动零]: https://leetcode-cn.com/problems/move-zeroes/
 [Move Zeroes]: https://leetcode.com/problems/move-zeroes/
 [Peeking Iterator]: https://leetcode.com/problems/peeking-iterator/
 [Inorder Successor in BST]: https://leetcode.com/problems/inorder-successor-in-bst/
