@@ -93,7 +93,7 @@
 |89|[Gray Code]| |
 |90|[Subsets II]| |
 |91|[Decode Ways]| |
-|92|[Reverse Linked List II]| |
+|92|[Reverse Linked List II]|  |
 |93|[Restore IP Addresses]| |
 |94|[Binary Tree Inorder Traversal]| |
 |95|[Unique Binary Search Trees II]| |
@@ -191,7 +191,7 @@
 |203|[Remove Linked List Elements]| |
 |204|[Count Primes]| |
 |205|[Isomorphic Strings]| |
-|206|[Reverse Linked List]| |
+|206|[反转链表] [Reverse Linked List]| [Rust](./rust-leetcode/leetcode_206/src/main.rs) |
 |207|[Course Schedule]| |
 |208|[Implement Trie (Prefix Tree)]| |
 |209|[Minimum Size Subarray Sum]| |
@@ -601,6 +601,7 @@
 [Remove Linked List Elements]: https://leetcode.com/problems/remove-linked-list-elements/
 [Count Primes]: https://leetcode.com/problems/count-primes/
 [Isomorphic Strings]: https://leetcode.com/problems/isomorphic-strings/
+[反转链表]: https://leetcode-cn.com/problems/reverse-linked-list/
 [Reverse Linked List]: https://leetcode.com/problems/reverse-linked-list/
 [Course Schedule]: https://leetcode.com/problems/course-schedule/
 [Implement Trie (Prefix Tree)]: https://leetcode.com/problems/implement-trie-prefix-tree/
