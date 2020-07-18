@@ -25,7 +25,7 @@
 |21|[Merge Two Sorted Lists]| |
 |22|[Generate Parentheses]| |
 |23|[Merge k Sorted Lists]| |
-|24|[Swap Nodes in Pairs]| |
+|24|[两两交换链表中的节点] [Swap Nodes in Pairs]| [Rust](./rust-leetcode/leetcode_24/src/main.rs) |
 |25|[Reverse Nodes in k-Group]| |
 |26|[Remove Duplicates from Sorted Array]| |
 |27|[Remove Element]| |
@@ -434,6 +434,7 @@
 [Merge Two Sorted Lists]: https://leetcode.com/problems/merge-two-sorted-lists/
 [Generate Parentheses]: https://leetcode.com/problems/generate-parentheses/
 [Merge k Sorted Lists]: https://leetcode.com/problems/merge-k-sorted-lists/
+[两两交换链表中的节点]: https://leetcode-cn.com/problems/swap-nodes-in-pairs/
 [Swap Nodes in Pairs]: https://leetcode.com/problems/swap-nodes-in-pairs/
 [Reverse Nodes in k-Group]: https://leetcode.com/problems/reverse-nodes-in-k-group/
 [Remove Duplicates from Sorted Array]: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
