@@ -26,7 +26,7 @@
 |22|[Generate Parentheses]| |
 |23|[Merge k Sorted Lists]| |
 |24|[两两交换链表中的节点] [Swap Nodes in Pairs]| [Rust](./rust-leetcode/leetcode_24/src/main.rs) |
-|25|[Reverse Nodes in k-Group]| |
+|25|[K 个一组翻转链表] [Reverse Nodes in k-Group]| [Rust](./rust-leetcode/leetcode_25/src/main.rs) |
 |26|[Remove Duplicates from Sorted Array]| |
 |27|[Remove Element]| |
 |28|[Implement strStr()]| |
@@ -142,8 +142,8 @@
 |138|[Copy List with Random Pointer]| |
 |139|[Word Break]| |
 |140|[Word Break II]| |
-|141|[Linked List Cycle]| |
-|142|[Linked List Cycle II]| |
+|141|[环形链表] [Linked List Cycle]| [Rust](./rust-leetcode/leetcode_141/src/main.rs) |
+|142|[环形链表 II] [Linked List Cycle II]| |
 |143|[Reorder List]| |
 |144|[Binary Tree Preorder Traversal]| |
 |145|[Binary Tree Postorder Traversal]| |
@@ -436,6 +436,7 @@
 [Merge k Sorted Lists]: https://leetcode.com/problems/merge-k-sorted-lists/
 [两两交换链表中的节点]: https://leetcode-cn.com/problems/swap-nodes-in-pairs/
 [Swap Nodes in Pairs]: https://leetcode.com/problems/swap-nodes-in-pairs/
+[K 个一组翻转链表]: https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
 [Reverse Nodes in k-Group]: https://leetcode.com/problems/reverse-nodes-in-k-group/
 [Remove Duplicates from Sorted Array]: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 [Remove Element]: https://leetcode.com/problems/remove-element/
@@ -553,7 +554,9 @@
 [Copy List with Random Pointer]: https://leetcode.com/problems/copy-list-with-random-pointer/
 [Word Break]: https://leetcode.com/problems/word-break/
 [Word Break II]: https://leetcode.com/problems/word-break-ii/
+[环形链表]: https://leetcode-cn.com/problems/linked-list-cycle/
 [Linked List Cycle]: https://leetcode.com/problems/linked-list-cycle/
+[环形链表 II]: https://leetcode-cn.com/problems/linked-list-cycle-ii/
 [Linked List Cycle II]: https://leetcode.com/problems/linked-list-cycle-ii/
 [Reorder List]: https://leetcode.com/problems/reorder-list/
 [Binary Tree Preorder Traversal]: https://leetcode.com/problems/binary-tree-preorder-traversal/
