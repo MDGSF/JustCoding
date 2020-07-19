@@ -258,7 +258,7 @@
 |307|[Range Sum Query - Mutable]| |
 |309|[Best Time to Buy and Sell Stock with Cooldown]| |
 |310|[Minimum Height Trees]| |
-|312|[Burst Balloons]| |
+|312|[戳气球] [Burst Balloons]| [Rust](./rust-leetcode/leetcode_312/src/main.rs) |
 |313|[Super Ugly Number]| |
 |315|[Count of Smaller Numbers After Self]| |
 |316|[Remove Duplicate Letters]| |
@@ -675,6 +675,7 @@
 [Range Sum Query - Mutable]: https://leetcode.com/problems/range-sum-query-mutable/
 [Best Time to Buy and Sell Stock with Cooldown]: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 [Minimum Height Trees]: https://leetcode.com/problems/minimum-height-trees/
+[戳气球]: https://leetcode-cn.com/problems/burst-balloons/
 [Burst Balloons]: https://leetcode.com/problems/burst-balloons/
 [Super Ugly Number]: https://leetcode.com/problems/super-ugly-number/
 [Count of Smaller Numbers After Self]: https://leetcode.com/problems/count-of-smaller-numbers-after-self/
