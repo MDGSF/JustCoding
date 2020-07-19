@@ -1,3 +1,52 @@
 \newpage
 \section{312. 戳气球}
 \label{leetcode:312}
+
+\subsection{题目}
+
+有 n 个气球，编号为 0 到 n-1，每个气球上都标有一个数字，
+这些数字存在数组 nums 中。
+
+现在要求你戳破所有的气球。如果你戳破气球 i ，就可以获得 nums[left] * nums[i] * nums[right] 个硬币。 这里的 left 和 right 代表和 i 相邻的两个气球的序号。
+注意当你戳破了气球 i 后，气球 left 和气球 right 就变成了相邻的气球。
+
+求所能获得硬币的最大数量。
+
+\textbf{说明}:
+
+你可以假设 nums[-1] = nums[n] = 1，但注意它们不是真实存在的所以并不能被戳破。
+0 $\leq$ n $\leq$ 500, 0 $\leq$ nums[i] $\leq$ 100
+
+\textbf{示例}:
+
+\begin{verbatim}
+输入: [3,1,5,8]
+输出: 167
+解释: nums = [3,1,5,8] --> [3,5,8] -->  [3,8]   -->  [8]  --> []
+     coins =  3*1*5      +  3*5*8    +  1*3*8      + 1*8*1   = 167
+\end{verbatim}
+
+\subsection{参考题解}
+
+\paragraph{Python}
+
+\begin{verbatim}
+class Solution:
+  def maxCoins(self, nums: List[int]) -> int:
+    nums = [1] + [num for num in nums if num > 0] + [1]
+    n = len(nums)
+    m = {}
+    def dfs(left, right):
+      if left + 1 == right: return 0
+      if (left, right) in m: return m[(left, right)]
+      result = 0
+      for i in range(left + 1, right):
+        sub1 = dfs(left, i)
+        sub2 = dfs(i, right)
+        cur = nums[left] * nums[i] * nums[right] + sub1 + sub2
+        result = max(result, cur)
+      m[(left, right)] = result
+      return result
+    return dfs(0, n - 1)
+\end{verbatim}
+
