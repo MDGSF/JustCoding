@@ -2,6 +2,7 @@
 
 - [JustCoding](#justcoding)
 	- [编程语言](#编程语言)
+		- [Lisp](#Lisp)
 		- [C/C++](#cc)
 		- [Python](#python)
 		- [JavaScript](#javascript)
@@ -18,6 +19,23 @@
 	- [学习资源](#学习资源)
 
 ## 编程语言
+
+### Lisp
+
+**推荐书籍**：
+
+- [ ] [`LISP Tutorial`]
+- [x] [`Lisp之根源`]
+- [ ] [`The little scheme中文版`]
+- [ ] [`Scheme入门教程`]
+- [ ] [`Learning-SICP`]
+- [ ] SICP 中文视频教程，直接在 bilibili 上面搜就可以了。
+
+[`LISP Tutorial`]: https://www.tutorialspoint.com/lisp/index.htm
+[`Lisp之根源`]: http://daiyuwen.freeshell.org/gb/rol/roots_of_lisp.html
+[`The little scheme中文版`]: http://uternet.github.io/TLS/
+[`Scheme入门教程`]: https://github.com/DeathKing/yast-cn
+[`Learning-SICP`]: https://github.com/DeathKing/Learning-SICP
 
 ### C/C++
 
