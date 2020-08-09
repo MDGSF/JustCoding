@@ -24,7 +24,7 @@
 
 **推荐书籍**：
 
-- [ ] [`LISP Tutorial`]
+- [x] [`LISP Tutorial`]
 - [x] [`Lisp之根源`]
 - [ ] [`The little scheme中文版`]
 - [ ] [`Scheme入门教程`]
