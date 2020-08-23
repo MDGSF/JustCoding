@@ -218,6 +218,7 @@ python 的 matplot
 - [`gaoshengnan/LeetCode`]
 - [`MisterBooo/LeetCodeAnimation`]
 - [`soulmachine/leetcode`]
+- [`LeetCode-Go`]
 - [`euler`]
 
 [`jwasham/coding-interview-university`]: https://github.com/jwasham/coding-interview-university
@@ -230,5 +231,6 @@ python 的 matplot
 [`gaoshengnan/LeetCode`]: https://github.com/gaoshengnan/LeetCode
 [`MisterBooo/LeetCodeAnimation`]: https://github.com/MisterBooo/LeetCodeAnimation
 [`soulmachine/leetcode`]: https://github.com/soulmachine/leetcode
+[`LeetCode-Go`]: https://github.com/halfrost/LeetCode-Go
 [`euler`]: https://projecteuler.net/
 
