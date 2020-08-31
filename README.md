@@ -50,6 +50,9 @@
 - [ ] C++编程思想
 - [ ] Effective C++
 - [ ] STL 源码剖析
+- [ ] [`modern-cpp-tutorial`]
+
+[`modern-cpp-tutorial`]: https://github.com/changkun/modern-cpp-tutorial
 
 ### Python
 
