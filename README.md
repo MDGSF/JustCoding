@@ -50,9 +50,11 @@
 - [ ] C++编程思想
 - [ ] Effective C++
 - [ ] STL 源码剖析
-- [ ] [`modern-cpp-tutorial`]
+- [x] [`modern-cpp-tutorial`]
+- [ ] [`Cpp Concurrency In Action`]
 
 [`modern-cpp-tutorial`]: https://github.com/changkun/modern-cpp-tutorial
+[`Cpp Concurrency In Action`]: https://github.com/xiaoweiChen/Cpp_Concurrency_In_Action
 
 ### Python
 
