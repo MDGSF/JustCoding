@@ -47,6 +47,9 @@
 - [x] C专家编程，Expert C Programming
 - [x] C语言解惑，The C Puzzle Book
 - [x] C++ Primer Plus
+- [ ] C++ Primer 中文版(第5版)
+		著：Stanley B. Lippman, Josee Lajoie, Barbara E. Moo
+		译：王刚，杨巨峰
 - [ ] C++编程思想
 - [ ] Effective C++
 - [ ] STL 源码剖析
