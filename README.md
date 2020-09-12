@@ -47,9 +47,17 @@
 - [x] C专家编程，Expert C Programming
 - [x] C语言解惑，The C Puzzle Book
 - [x] C++ Primer Plus
+- [ ] C++ Primer 中文版(第5版)
+		著：Stanley B. Lippman, Josee Lajoie, Barbara E. Moo
+		译：王刚，杨巨峰
 - [ ] C++编程思想
 - [ ] Effective C++
 - [ ] STL 源码剖析
+- [x] [`modern-cpp-tutorial`]
+- [ ] [`Cpp Concurrency In Action`]
+
+[`modern-cpp-tutorial`]: https://github.com/changkun/modern-cpp-tutorial
+[`Cpp Concurrency In Action`]: https://github.com/xiaoweiChen/Cpp_Concurrency_In_Action
 
 ### Python
 
@@ -103,12 +111,14 @@
 - [ ] [`The Rust Reference`]
 - [ ] [`The Rustonomicon`]
 - [ ] [`Cookin' with Rust`]
+- [ ] [`easy rust`]
 
 [`The Rust Programming Language`]: https://doc.rust-lang.org/book/
 [`RustPrimer`]: https://rustcc.gitbooks.io/rustprimer/content/
 [`The Rust Reference`]: https://doc.rust-lang.org/reference/introduction.html
 [`The Rustonomicon`]: https://doc.rust-lang.org/nomicon/index.html
 [`Cookin' with Rust`]: https://rust-lang-nursery.github.io/rust-cookbook/intro.html
+[`easy rust`]: https://github.com/Dhghomon/easy_rust
 
 ## 数据结构与算法
 
