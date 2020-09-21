@@ -111,7 +111,7 @@
 - [ ] [`The Rust Reference`]
 - [ ] [`The Rustonomicon`]
 - [ ] [`Cookin' with Rust`]
-- [ ] [`easy rust`]
+- [x] [`easy rust`]
 
 [`The Rust Programming Language`]: https://doc.rust-lang.org/book/
 [`RustPrimer`]: https://rustcc.gitbooks.io/rustprimer/content/
@@ -137,7 +137,7 @@
 
 **书籍推荐**：
 
-- [ ] 剑指 offer
+- [x] 剑指 offer
 - [ ] 编程之美
 - [ ] 编程之法
 - [ ] 编程珠玑
@@ -230,6 +230,7 @@ python 的 matplot
 - [`soulmachine/leetcode`]
 - [`LeetCode-Go`]
 - [`euler`]
+- [`Play-Leetcode`]
 
 [`jwasham/coding-interview-university`]: https://github.com/jwasham/coding-interview-university
 [`CyC2018/CS-Notes`]: https://github.com/CyC2018/CS-Notes
@@ -243,4 +244,5 @@ python 的 matplot
 [`soulmachine/leetcode`]: https://github.com/soulmachine/leetcode
 [`LeetCode-Go`]: https://github.com/halfrost/LeetCode-Go
 [`euler`]: https://projecteuler.net/
+[`Play-Leetcode`]: https://github.com/liuyubobobo/Play-Leetcode
 
