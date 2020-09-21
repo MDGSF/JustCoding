@@ -112,6 +112,7 @@
 - [ ] [`The Rustonomicon`]
 - [ ] [`Cookin' with Rust`]
 - [x] [`easy rust`]
+- [ ] [`Rust Quiz`]
 
 [`The Rust Programming Language`]: https://doc.rust-lang.org/book/
 [`RustPrimer`]: https://rustcc.gitbooks.io/rustprimer/content/
@@ -119,6 +120,7 @@
 [`The Rustonomicon`]: https://doc.rust-lang.org/nomicon/index.html
 [`Cookin' with Rust`]: https://rust-lang-nursery.github.io/rust-cookbook/intro.html
 [`easy rust`]: https://github.com/Dhghomon/easy_rust
+[`Rust Quiz`]: https://github.com/dtolnay/rust-quiz
 
 ## 数据结构与算法
 
