@@ -233,6 +233,9 @@ python 的 matplot
 - [`LeetCode-Go`]
 - [`euler`]
 - [`Play-Leetcode`]
+- [`node-interview`]
+- [`aylei/leetcode-rust`]
+- [`pymongo/leetcode-rust`]
 
 [`jwasham/coding-interview-university`]: https://github.com/jwasham/coding-interview-university
 [`CyC2018/CS-Notes`]: https://github.com/CyC2018/CS-Notes
@@ -247,4 +250,7 @@ python 的 matplot
 [`LeetCode-Go`]: https://github.com/halfrost/LeetCode-Go
 [`euler`]: https://projecteuler.net/
 [`Play-Leetcode`]: https://github.com/liuyubobobo/Play-Leetcode
+[`node-interview`]: https://github.com/ElemeFE/node-interview
+[`aylei/leetcode-rust`]: https://github.com/aylei/leetcode-rust
+[`pymongo/leetcode-rust`]: https://github.com/pymongo/leetcode-rust
 
