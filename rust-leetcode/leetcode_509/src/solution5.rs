@@ -1,21 +1,19 @@
-// 简单递归 + 记忆化，时间复杂度 O(n)
-use std::collections::HashMap;
+// 时间复杂度 O(1)，通项公式
+// return Math.round(
+//   (
+//     Math.pow((1 + Math.sqrt(5))/2 , N)
+//     -
+//     Math.pow((1 - Math.sqrt(5))/2, N)
+//   )
+//   /
+//   Math.sqrt(5)
+// );
 impl Solution {
   pub fn fib(n: i32) -> i32 {
-    let mut m = HashMap::new();
-    m.insert(0, 0);
-    m.insert(1, 1);
-    Solution::fib_inner(n, m)
-  }
-
-  fn fib_inner(n: i32, mut m: HashMap<i32, i32>) -> i32 {
-    if let Some(&v) = m.get(&n) {
-      v
-    } else {
-      let v = Solution::fib(n - 1) + Solution::fib(n - 2);
-      m.insert(n, v);
-      v
-    }
+    ((((1_f64 + 5_f64.sqrt()) / 2_f64).powf(n as f64)
+      - ((1_f64 - 5_f64.sqrt()) / 2_f64).powf(n as f64))
+      / 5_f64.sqrt())
+    .round() as i32
   }
 }
 

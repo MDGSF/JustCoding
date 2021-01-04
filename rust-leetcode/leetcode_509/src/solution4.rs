@@ -1,21 +1,7 @@
-// 简单递归 + 记忆化，时间复杂度 O(n)
-use std::collections::HashMap;
+// 简单递推，函数式写法，时间复杂度 O(n)
 impl Solution {
   pub fn fib(n: i32) -> i32 {
-    let mut m = HashMap::new();
-    m.insert(0, 0);
-    m.insert(1, 1);
-    Solution::fib_inner(n, m)
-  }
-
-  fn fib_inner(n: i32, mut m: HashMap<i32, i32>) -> i32 {
-    if let Some(&v) = m.get(&n) {
-      v
-    } else {
-      let v = Solution::fib(n - 1) + Solution::fib(n - 2);
-      m.insert(n, v);
-      v
-    }
+    (0..n).fold((0u64, 1), |(p1, p2), _| (p2, p1 + p2)).0 as i32
   }
 }
 

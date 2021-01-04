@@ -1,16 +1,10 @@
+// 简单递归，时间复杂度 O(2^n)
 impl Solution {
   pub fn fib(n: i32) -> i32 {
     if n < 2 {
       return n;
     }
-    let mut f1 = 0;
-    let mut f2 = 1;
-    for _i in 2..=n {
-      let t = f1 + f2;
-      f1 = f2;
-      f2 = t;
-    }
-    f2
+    Solution::fib(n - 1) + Solution::fib(n - 2)
   }
 }
 
