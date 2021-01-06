@@ -39,7 +39,7 @@ impl Union {
       self.w[child] = val * parent_weight;
 
       if child != child_root {
-        self.p[child_root] = child;
+        self.p[child_root] = self.p[child];
         self.w[child_root] = 1f64 / child_weight * self.w[child];
       }
     }
