@@ -50,6 +50,9 @@
 - [ ] C++ Primer 中文版(第5版)
 		著：Stanley B. Lippman, Josee Lajoie, Barbara E. Moo
 		译：王刚，杨巨峰
+- [ ] C++ Primer 中文版(第6版)
+- [ ] C++标准程序库
+- [x] C++语言的设计与演化
 - [ ] C++编程思想
 - [ ] Effective C++
 - [ ] STL 源码剖析
