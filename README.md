@@ -176,6 +176,8 @@
 - [x] 图解 TCP/IP
 - [x] HTTP 权威指南
 
+- [HTTP 权威指南](https://www.aliyundrive.com/s/crgY68MdLaX)
+
 ## 数据库
 
 **书籍推荐**：
