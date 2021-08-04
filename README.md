@@ -174,9 +174,13 @@
 - [ ] 计算机网络，COMPUTER NETWORKS
 - [ ] TCP/IP 协议原理与应用
 - [x] 图解 TCP/IP
-- [x] HTTP 权威指南
+- [x] [HTTP 权威指南]
+- [ ] [图解HTTP]
+- [ ] [HTTP2 基础教程]
 
-- [HTTP 权威指南](https://www.aliyundrive.com/s/crgY68MdLaX)
+[HTTP 权威指南](https://www.aliyundrive.com/s/crgY68MdLaX)
+[图解HTTP](https://www.aliyundrive.com/s/or3YyfP2Hwc)
+[HTTP2 基础教程](https://www.aliyundrive.com/s/Np8ZpvcswJQ)
 
 ## 数据库
 
