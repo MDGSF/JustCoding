@@ -37,7 +37,7 @@ impl Solution {
               Self::union(
                 &mut p,
                 row * cols + col,
-                new_row as usize * rows + new_col as usize,
+                new_row as usize * cols + new_col as usize,
               );
             }
           }
@@ -45,8 +45,9 @@ impl Solution {
       }
     }
 
-    let roots: Vec<&usize> = p.keys().collect();
-    let sets: HashSet<&usize> = HashSet::from_iter(roots.iter().cloned());
+    let roots: Vec<usize> = p.keys().map(|&elem| elem).collect();
+    let sets: HashSet<usize> =
+      HashSet::from_iter(roots.into_iter().map(|elem| Self::parent(&mut p, elem)));
     sets.len() as i32
   }
 
