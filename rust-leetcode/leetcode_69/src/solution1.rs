@@ -11,9 +11,4 @@ impl Solution {
   }
 }
 
-struct Solution {}
-
-fn main() {
-  let result = Solution::my_sqrt(5);
-  println!("result = {}", result);
-}
+pub struct Solution {}

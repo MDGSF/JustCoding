@@ -1,6 +1,6 @@
 impl Solution {
   pub fn my_sqrt(x: i32) -> i32 {
-    return Solution::my_inner_sqrt(x as f64, 0.01f64) as i32;
+    Self::my_inner_sqrt(x as f64, 0.01f64) as i32
   }
 
   fn my_inner_sqrt(x: f64, precision: f64) -> f64 {
@@ -24,9 +24,4 @@ impl Solution {
   }
 }
 
-struct Solution {}
-
-fn main() {
-  let result = Solution::my_sqrt(5);
-  println!("result = {}", result);
-}
+pub struct Solution {}
