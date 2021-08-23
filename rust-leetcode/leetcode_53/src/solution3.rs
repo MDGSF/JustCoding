@@ -1,0 +1,31 @@
+impl Solution {
+  pub fn max_sub_array(nums: Vec<i32>) -> i32 {
+    nums
+      .iter()
+      .fold((0, std::i32::MIN), |(mut cur, mut result), &x| {
+        cur = std::cmp::max(cur + x, x);
+        result = std::cmp::max(result, cur);
+        (cur, result)
+      })
+      .1
+  }
+}
+
+pub struct Solution;
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn test() {
+    assert_eq!(
+      Solution::max_sub_array(vec![-2, 1, -3, 4, -1, 2, 1, -5, 4]),
+      6
+    );
+    assert_eq!(Solution::max_sub_array(vec![1]), 1);
+    assert_eq!(Solution::max_sub_array(vec![0]), 0);
+    assert_eq!(Solution::max_sub_array(vec![-1]), -1);
+    assert_eq!(Solution::max_sub_array(vec![-10000]), -10000);
+  }
+}
