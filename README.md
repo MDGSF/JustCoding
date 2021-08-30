@@ -107,22 +107,27 @@
 
 - [x] Rust编程之道
 - [x] Rust权威指南
-- [x] [`The Rust Programming Language`]
+- [x] [The Rust Programming Language]
 - [x] 深入浅出Rust
-- [ ] [`RustPrimer`]
-- [ ] [`The Rust Reference`]
-- [ ] [`The Rustonomicon`]
-- [ ] [`Cookin' with Rust`]
-- [x] [`easy rust`]
-- [ ] [`Rust Quiz`]
+- [x] Rust入门实战与进阶
+- [ ] [RustPrimer]
+- [ ] [The Rust Reference]
+- [ ] [The Rustonomicon]
+- [ ] [Cookin' with Rust]
+- [x] [easy rust]
+- [ ] [Rust Quiz]
+- [ ] [Rust In Action]
+- [ ] [Programming Rust 2th]
 
-[`The Rust Programming Language`]: https://doc.rust-lang.org/book/
-[`RustPrimer`]: https://rustcc.gitbooks.io/rustprimer/content/
-[`The Rust Reference`]: https://doc.rust-lang.org/reference/introduction.html
-[`The Rustonomicon`]: https://doc.rust-lang.org/nomicon/index.html
-[`Cookin' with Rust`]: https://rust-lang-nursery.github.io/rust-cookbook/intro.html
-[`easy rust`]: https://github.com/Dhghomon/easy_rust
-[`Rust Quiz`]: https://github.com/dtolnay/rust-quiz
+[The Rust Programming Language]: https://doc.rust-lang.org/book/
+[RustPrimer]: https://rustcc.gitbooks.io/rustprimer/content/
+[The Rust Reference]: https://doc.rust-lang.org/reference/introduction.html
+[The Rustonomicon]: https://doc.rust-lang.org/nomicon/index.html
+[Cookin' with Rust]: https://rust-lang-nursery.github.io/rust-cookbook/intro.html
+[easy rust]: https://github.com/Dhghomon/easy_rust
+[Rust Quiz]: https://github.com/dtolnay/rust-quiz
+[Rust In Action]: https://www.aliyundrive.com/s/UNzLZcaysTd
+[Programming Rust 2th]: https://www.aliyundrive.com/s/nCBeKQBVDED
 
 ## 数据结构与算法
 
@@ -191,10 +196,12 @@
 **书籍推荐**：
 
 - [x] Redis 设计与实现
-- [x] SQL 必知必会
+- [x] [MySQL 必知必会]
 - [ ] 高性能 MySQL
 - [ ] MySQL 技术内幕
 - [ ] MySQL 技术内幕--InnoDB存储引擎
+
+[MySQL 必知必会]: https://www.aliyundrive.com/s/VHPzaCf5aef
 
 ## 其他
 
@@ -208,11 +215,13 @@
 - [x] UNIX 环境高级编程
 - [x] UNIX 编程艺术
 - [x] 鸟哥的 Linux 私房菜
-- [x] [`操作系统思考`]
-- [ ] [`Think OS: A Brief Introduction to Operating Systems`]
+- [x] [操作系统思考]
+- [ ] [Think OS: A Brief Introduction to Operating Systems]
+- [ ] [软技能 代码之外的生存指南]
 
-[`操作系统思考`]: https://github.com/wizardforcel/think-os-zh
-[`Think OS: A Brief Introduction to Operating Systems`]: http://greenteapress.com/thinkos/html/index.html
+[操作系统思考]: https://github.com/wizardforcel/think-os-zh
+[Think OS: A Brief Introduction to Operating Systems]: http://greenteapress.com/thinkos/html/index.html
+[软技能 代码之外的生存指南]: https://www.aliyundrive.com/s/7jMXVuBBZgd
 
 ## 工具
 
