@@ -118,11 +118,11 @@ void submit() {
 
   int result = solution(n, m, wis);
 
-  std::cout << result << std::endl;
+  std::cout << result;
 }
 
 int main() {
-  test();
-  //submit();
+  //test();
+  submit();
   return 0;
 }
