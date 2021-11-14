@@ -12,11 +12,14 @@
 	- [设计模式](#设计模式)
 	- [网络编程](#网络编程)
 	- [数据库](#数据库)
+  - [统计学](#统计学)
 	- [其他](#其他)
 	- [工具](#工具)
 		- [辅助记忆工具](#辅助记忆工具)
 		- [画图、动画工具](#画图动画工具)
 	- [学习资源](#学习资源)
+
+个人书单，打勾的表示至少完整读过一遍，没有打勾的不代表没有读过。
 
 ## 编程语言
 
@@ -129,6 +132,10 @@
 [Rust In Action]: https://www.aliyundrive.com/s/UNzLZcaysTd
 [Programming Rust 2th]: https://www.aliyundrive.com/s/nCBeKQBVDED
 
+### Ruby
+
+- [ ] Ruby 基础教程，第 5 版
+
 ## 数据结构与算法
 
 **笔记**：
@@ -203,8 +210,27 @@
 
 [MySQL 必知必会]: https://www.aliyundrive.com/s/VHPzaCf5aef
 
+## 容器技术
+
+- [ ] Docker 容器与容器云（第2版）
+
+## 计算机图形学
+
+- [ ] bilibili闫令琪图形课
+- [ ] bilibili清华计算机图形课
+- [ ] Fundamentals of Computer Graphics, Fouth Edition
+
+## 统计学
+
+- [x] 统计学，基于R，第4版（贾俊平）
+- [ ] 女士品茶
+- [ ] 统计陷阱
+- [ ] 机会的数学
+- [ ] 爱上统计学
+
 ## 其他
 
+- [ ] 如何阅读一本书
 - [x] 代码大全，CODE COMPLETE
 - [ ] 程序员的自我修养--链接、装载与库
 - [ ] 程序员修炼之道--从小工到专家
