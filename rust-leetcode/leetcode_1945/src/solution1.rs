@@ -6,28 +6,28 @@ impl Solution {
             acc
         });
 
-        (0..k)
-            .fold(numstr, |numstr, _| {
-                numstr
-                    .chars()
-                    .fold(0, |acc, x| acc + (x as usize - 64))
-                    .to_string()
-            })
-            .parse::<i32>()
-            .unwrap()
+        let n = (0..k).fold(numstr, |numstr, _| {
+            let ret = numstr
+                .chars()
+                .fold(0, |acc, x| acc + (x as usize - 48))
+                .to_string();
+            ret
+        });
+
+        n.parse::<i32>().unwrap()
     }
 }
 
 pub struct Solution;
 
-#[cfg(tests)]
+#[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn test01() {
-        assert_eq!(Solution::get_lucky("iiii", 1), 36);
-        assert_eq!(Solution::get_lucky("leetcode", 2), 6);
-        assert_eq!(Solution::get_lucky("zbax", 2), 8);
+        assert_eq!(Solution::get_lucky("iiii".to_string(), 1), 36);
+        assert_eq!(Solution::get_lucky("leetcode".to_string(), 2), 6);
+        assert_eq!(Solution::get_lucky("zbax".to_string(), 2), 8);
     }
 }
