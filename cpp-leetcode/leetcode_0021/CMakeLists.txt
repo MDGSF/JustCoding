@@ -1,0 +1,12 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.13.1)
+
+PROJECT(leetcode_0001)
+
+ADD_EXECUTABLE(solution_01 solution_01.cpp)
+TARGET_INCLUDE_DIRECTORIES(solution_01 PRIVATE ../common)
+
+ADD_EXECUTABLE(solution_02 solution_02.cpp)
+TARGET_INCLUDE_DIRECTORIES(solution_02 PRIVATE ../common)
+
+ADD_EXECUTABLE(solution_03 solution_03.cpp)
+TARGET_INCLUDE_DIRECTORIES(solution_03 PRIVATE ../common)
