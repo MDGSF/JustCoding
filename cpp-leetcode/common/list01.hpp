@@ -1,3 +1,6 @@
+#ifndef _LIST01_HPP
+#define _LIST01_HPP
+
 #include "cpplang.hpp"
 
 struct ListNode {
@@ -49,3 +52,5 @@ bool equal(ListNode* list1, ListNode* list2) {
 }
 
 }  // namespace list
+
+#endif
