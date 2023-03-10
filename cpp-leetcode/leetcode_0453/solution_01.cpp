@@ -3,17 +3,10 @@
 class Solution {
  public:
   int minMoves(std::vector<int>& nums) {
-    if (nums.size() <= 1) {
-      return 0;
-    }
-    int max_value = *std::max_element(nums.begin(), nums.end());
-    int diff = 0;
-    for_each(nums.begin(), nums.end(),
-             [&](int num) { diff += (max_value - num); });
-    while (diff % (nums.size() - 1) != 0) {
-      diff += nums.size();
-    }
-    return diff / (nums.size() - 1);
+    int min = *std::min_element(nums.begin(), nums.end());
+    int sum = 0;
+    for_each(nums.begin(), nums.end(), [&](int num) { sum += (num - min); });
+    return sum;
   }
 };
 
