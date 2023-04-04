@@ -178,11 +178,83 @@ void test5() {
   test("test5", board, 3);
 }
 
+void test_zero_01() {
+  // clang-format off
+  std::vector<std::vector<bool>> board{
+      {true, true, true, true, true},
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+  };
+  // clang-format on
+  test("test_zero_01", board, 0);
+}
+
+void test_zero_02() {
+  // clang-format off
+  std::vector<std::vector<bool>> board{
+      {false, false, false, false, false},
+      {true, true, true, true, true},
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+  };
+  // clang-format on
+  test("test_zero_02", board, 0);
+}
+
+void test_zero_03() {
+  // clang-format off
+  std::vector<std::vector<bool>> board{
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+      {true, true, true, true, true},
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+  };
+  // clang-format on
+  test("test_zero_03", board, 0);
+}
+
+void test_zero_04() {
+  // clang-format off
+  std::vector<std::vector<bool>> board{
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+      {true, true, true, true, true},
+      {false, false, false, false, false},
+  };
+  // clang-format on
+  test("test_zero_04", board, 0);
+}
+
+void test_zero_05() {
+  // clang-format off
+  std::vector<std::vector<bool>> board{
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+      {false, false, false, false, false},
+      {true, true, true, true, true},
+  };
+  // clang-format on
+  test("test_zero_05", board, 0);
+}
+
 int main() {
   test1();
   test2();
   test3();
   test4();
   test5();
+
+  test_zero_01();
+  test_zero_02();
+  test_zero_03();
+  test_zero_04();
+  test_zero_05();
+
   return 0;
 }
