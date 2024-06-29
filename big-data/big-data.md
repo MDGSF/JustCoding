@@ -26,12 +26,19 @@
   - 最后生成的 output.bin 就是排序好的文件。
 
 ```sh
-# 编译生成测试数据的工具
+# 生成测试数据
 cd mockdata
 cargo build
-# 生成测试数据
 cd target/debug
-./mockdata -o bigdata.txt gennum -c 100000000
+./mockdata -o bigdata.txt gennum -c 1000000000
+```
+
+```sh
+# 排序大文件
+cd sortbigfile
+cargo build
+cd target/debug
+./sortbigfile -i bigdata.txt -o sorted.txt
 ```
 
 ## 海量数据查询
