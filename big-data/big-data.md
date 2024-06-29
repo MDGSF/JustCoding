@@ -25,6 +25,15 @@
     - 把最小的整数写入 output.bin，同时最小的整数对应的文件句柄向后移动。
   - 最后生成的 output.bin 就是排序好的文件。
 
+```sh
+# 编译生成测试数据的工具
+cd mockdata
+cargo build
+# 生成测试数据
+cd target/debug
+./mockdata -o bigdata.txt gennum -c 100000000
+```
+
 ## 海量数据查询
 
 - 例题：
